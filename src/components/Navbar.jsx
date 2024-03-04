@@ -1,6 +1,4 @@
 import siteLogo from '../assets/Logo.svg';
-import moonStars from '../assets/moonStars.svg';
-import squareTopDown from '../assets/Square-Top-Down.svg';
 
 export default function Navbar() {
   return (

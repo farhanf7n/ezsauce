@@ -131,6 +131,10 @@ body {
   background-color: #efefef;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .shadow-drop:hover {
   filter: drop-shadow(5px 5px 0 #00000044);
   transition-property: all;
