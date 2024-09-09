@@ -7,17 +7,17 @@ import img6 from '../assets/img6.png';
 
 export default function Card() {
   return (
-    <div className="pb-[64px] pt-[30px] w-[1160px] mx-auto">
-      <div className="grid grid-cols-3 gap-[30px]">
+    <div className="pt-[30px] w-[1160px] mx-auto">
+      <div className="grid grid-cols-4 gap-[10px]">
         <div className="bg-[#EFEFEF] border border-1 border-medium-grey rounded-[8px] shadow-drop hover:cursor-pointer">
           <div className="p-[24px]">
             <img
-              className="w-full h-[198px] rounded-[8px] mb-[20px]"
+              className="w-full h-[135px] rounded-[8px] bg-contain mb-[20px]"
               src={img1}
               alt=""
             />
             <div className="flex gap-[8px]">
-              <span className="bg-[#FFC70F] text-[14px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
+              <span className="bg-[#FFC70F] text-[12px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
                 Courses
               </span>
             </div>
@@ -52,15 +52,15 @@ export default function Card() {
         <div className="bg-[#EFEFEF] border border-1 border-medium-grey rounded-[8px] shadow-drop hover:cursor-pointer">
           <div className="p-[24px]">
             <img
-              className="w-full h-[198px] rounded-[8px] mb-[20px]"
+              className="w-full h-[135px] bg-contain rounded-[8px] mb-[20px]"
               src={img3}
               alt=""
             />
             <div className="flex gap-[8px]">
-              <span className="bg-[#FFC70F] text-[14px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
+              <span className="bg-[#FFC70F] text-[12px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
                 Learning
               </span>
-              <span className="bg-[#FFC70F] text-[14px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
+              <span className="bg-[#FFC70F] text-[12px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
                 Online Courses
               </span>
             </div>
@@ -95,15 +95,15 @@ export default function Card() {
         <div className="bg-[#EFEFEF] border border-1 border-medium-grey rounded-[8px] shadow-drop hover:cursor-pointer">
           <div className="p-[24px]">
             <img
-              className="w-full h-[198px] rounded-[8px] mb-[20px]"
+              className="w-full h-[135px] bg-contain rounded-[8px] mb-[20px]"
               src={img2}
               alt=""
             />
             <div className="flex gap-[8px]">
-              <span className="bg-[#FFC70F] text-[14px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
+              <span className="bg-[#FFC70F] text-[12px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
                 Frontend
               </span>
-              <span className="bg-[#FFC70F] text-[14px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
+              <span className="bg-[#FFC70F] text-[12px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
                 Project-based Learning
               </span>
             </div>
@@ -138,15 +138,15 @@ export default function Card() {
         <div className="bg-[#EFEFEF] border border-1 border-medium-grey rounded-[8px] shadow-drop hover:cursor-pointer">
           <div className="p-[24px]">
             <img
-              className="w-full h-[198px] rounded-[8px] mb-[20px]"
+              className="w-full h-[135px] bg-contain rounded-[8px] mb-[20px]"
               src={img4}
               alt=""
             />
             <div className="flex gap-[8px]">
-              <span className="bg-[#FFC70F] text-[14px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
+              <span className="bg-[#FFC70F] text-[12px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
                 Frontend
               </span>
-              <span className="bg-[#FFC70F] text-[14px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
+              <span className="bg-[#FFC70F] text-[12px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
                 Project-based Learning
               </span>
             </div>
@@ -181,18 +181,18 @@ export default function Card() {
         <div className="bg-[#EFEFEF] border border-1 border-medium-grey rounded-[8px] shadow-drop hover:cursor-pointer">
           <div className="p-[24px]">
             <img
-              className="w-full h-[198px] rounded-[8px] mb-[20px]"
+              className="w-full h-[135px] bg-contain rounded-[8px] mb-[20px]"
               src={img5}
               alt=""
             />
             <div className="flex gap-[8px]">
-              <span className="bg-[#FFC70F] text-[14px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
+              <span className="bg-[#FFC70F] text-[12px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
                 Learning
               </span>
-              <span className="bg-[#FFC70F] text-[14px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
+              <span className="bg-[#FFC70F] text-[12px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
                 UI/UX
               </span>
-              <span className="bg-[#FFC70F] text-[14px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
+              <span className="bg-[#FFC70F] text-[12px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
                 Web Design
               </span>
             </div>
@@ -227,12 +227,12 @@ export default function Card() {
         <div className="bg-[#EFEFEF] border border-1 border-medium-grey rounded-[8px] shadow-drop hover:cursor-pointer">
           <div className="p-[24px]">
             <img
-              className="w-full h-[198px] rounded-[8px] mb-[20px]"
+              className="w-full h-[135px] bg-contain rounded-[8px] mb-[20px]"
               src={img6}
               alt=""
             />
             <div className="flex gap-[8px]">
-              <span className="bg-[#FFC70F] text-[14px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
+              <span className="bg-[#FFC70F] text-[12px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]">
                 Frontend
               </span>
             </div>
