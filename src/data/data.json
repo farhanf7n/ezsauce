@@ -364,6 +364,13 @@
     "img": "/assets/typescale.png"
   },
   {
+    "name": "CSS Clip Path",
+    "category": "Design Stuff",
+    "tags": ["Clip Paths"],
+    "link": "https://bennettfeely.com/clippy/",
+    "img": "/assets/clippathmaker.png"
+  },
+  {
     "name": "FontShare",
     "category": "Design Stuff",
     "tags": ["Fonts"],
