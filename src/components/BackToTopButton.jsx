@@ -28,6 +28,7 @@ const BackToTopButton = () => {
         <path d="M4 20h7a4 4 0 0 0 4-4V4" />
       </svg>
     </a>
+    // Add circular progress
   );
 };
 
