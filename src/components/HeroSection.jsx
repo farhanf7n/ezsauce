@@ -19,7 +19,7 @@ export default function HeroSection() {
           </span>
 
           <span>
-            <span className="relative font-ClashDisplayMedium before:block before:absolute before:bg-[#B1B1B1] before:h-[16px] before:w-full before:bottom-[8px] before:right-0 before:z-[-1]">
+            <span className="relative font-ClashDisplayMedium before:block before:absolute before:bg-[#FFC70F] before:h-[16px] before:w-full before:bottom-[8px] before:right-0 before:z-[-1]">
               you
             </span>{' '}
             <span className="text-white relative font-ClashDisplayMedium before:block before:absolute before:bg-[#000000] before:h-[85px] before:w-full before:bottom-[8px] before:right-0 before:z-[-1]">
