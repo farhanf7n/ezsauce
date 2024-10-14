@@ -1,4 +1,4 @@
-import guyUsingLaptop from '../assets/guy-using-laptop.svg';
+import guyUsingLaptop from '../../public/assets/guy-using-laptop.svg';
 export default function HeroSection() {
   return (
     <div className="hero-container w-[1160px] h-[640px] mx-auto flex items-center justify-between relative">

@@ -151,7 +151,7 @@ a:hover > svg.moonSvg * {
   left: -50px;
   width: 57.55px;
   height: 81.23px;
-  background-image: url('./assets/three-lines.svg');
+  background-image: url('../public/assets/three-lines.svg');
   background-size: cover;
   background-position: center;
   z-index: -1;

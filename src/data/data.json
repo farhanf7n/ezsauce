@@ -1,30 +1,48 @@
 [
-  {
-    "name": "React JS Crash Course",
-    "category": "Tuts",
-    "tags": ["Beginner", "1:48:47"],
-    "links": "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-    "img": "/assets/data/coursera1.png"
-  },
-  {
-    "name": "React JS Crash Course",
-    "category": "Tuts",
-    "tags": ["Beginner", "1:48:47"],
-    "links": "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-    "img": "/assets/data/coursera1.png"
-  },
-  {
-    "name": "React JS Playlist",
-    "category": "Tuts",
-    "tags": ["Intermediate"],
-    "links": "https://youtu.be/XuFDcZABiDQ?si=5zU55QqFc-9QqfX1",
-    "img": "/assets/data/coursera1.png"
-  },
-  {
-    "name": "Digiflex | Movie Streaming",
-    "category": "Templates",
-    "tags": ["Movies"],
-    "links": "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-    "img": "/assets/data/coursera1.png"
-  }
+    {
+        "name": "React JS Course",
+        "category": "Tuts",
+        "tags": [
+            "Beginner",
+            "Traversy Media"
+        ],
+        "link": "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
+        "img": "../assets/coursera1.png"
+    },
+    {
+        "name": "React JS Playlist",
+        "category": "Tuts",
+        "tags": [
+            "Intermediate"
+        ],
+        "link": "https://youtu.be/XuFDcZABiDQ?si=5zU55QqFc-9QqfX1",
+        "img": "/assets/coursera1.png"
+    },
+    {
+        "name": "Movie Streaming",
+        "category": "Templates",
+        "tags": [
+            "Design"
+        ],
+        "link": "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
+        "img": "/assets/coursera1.png"
+    },
+    {
+        "name": "Design Resources",
+        "category": "Design Stuff",
+        "tags": [
+            "Resources"
+        ],
+        "link": "https://github.com/bradtraversy/design-resources-for-developers",
+        "img": "/assets/coursera1.png"
+    },
+    {
+        "name": "Monst Landing",
+        "category": "Templates",
+        "tags": [
+            "Design"
+        ],
+        "link": "https://monst-nextjs.vercel.app/index-2",
+        "img": "/assets/coursera1.png"
+    }
 ]

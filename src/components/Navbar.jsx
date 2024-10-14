@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import sunIcon from '../assets/sun.svg';
-import moonStarsIcon from '../assets/moonStars.svg';
+import sunIcon from '../../public/assets/sun.svg';
+import moonStarsIcon from '../../public/assets/moonStars.svg';
 
 export default function Navbar() {
   const [isDarkMode, setIsDarkMode] = useState(false);
