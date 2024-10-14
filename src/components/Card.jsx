@@ -9,7 +9,7 @@ export default function Card() {
   return (
     <div className="pt-[30px] w-[1160px] mx-auto">
       <div className="grid grid-cols-4 gap-[10px]">
-        <div className="bg-[#EFEFEF] border border-1 border-medium-grey rounded-[8px] shadow-drop hover:cursor-pointer">
+        <div className="bg-[#EFEFEF] border border-1 border-slate-gray rounded-[8px] shadow-drop hover:cursor-pointer">
           <div className="p-[24px]">
             <img
               className="w-full h-[135px] rounded-[8px] bg-contain mb-[20px]"
@@ -49,7 +49,7 @@ export default function Card() {
             </div>
           </div>
         </div>
-        <div className="bg-[#EFEFEF] border border-1 border-medium-grey rounded-[8px] shadow-drop hover:cursor-pointer">
+        <div className="bg-[#EFEFEF] border border-1 border-slate-gray rounded-[8px] shadow-drop hover:cursor-pointer">
           <div className="p-[24px]">
             <img
               className="w-full h-[135px] bg-contain rounded-[8px] mb-[20px]"
@@ -92,7 +92,7 @@ export default function Card() {
             </div>
           </div>
         </div>
-        <div className="bg-[#EFEFEF] border border-1 border-medium-grey rounded-[8px] shadow-drop hover:cursor-pointer">
+        <div className="bg-[#EFEFEF] border border-1 border-slate-gray rounded-[8px] shadow-drop hover:cursor-pointer">
           <div className="p-[24px]">
             <img
               className="w-full h-[135px] bg-contain rounded-[8px] mb-[20px]"
@@ -135,7 +135,7 @@ export default function Card() {
             </div>
           </div>
         </div>
-        <div className="bg-[#EFEFEF] border border-1 border-medium-grey rounded-[8px] shadow-drop hover:cursor-pointer">
+        <div className="bg-[#EFEFEF] border border-1 border-slate-gray rounded-[8px] shadow-drop hover:cursor-pointer">
           <div className="p-[24px]">
             <img
               className="w-full h-[135px] bg-contain rounded-[8px] mb-[20px]"
@@ -178,7 +178,7 @@ export default function Card() {
             </div>
           </div>
         </div>
-        <div className="bg-[#EFEFEF] border border-1 border-medium-grey rounded-[8px] shadow-drop hover:cursor-pointer">
+        <div className="bg-[#EFEFEF] border border-1 border-slate-gray rounded-[8px] shadow-drop hover:cursor-pointer">
           <div className="p-[24px]">
             <img
               className="w-full h-[135px] bg-contain rounded-[8px] mb-[20px]"
@@ -224,7 +224,7 @@ export default function Card() {
             </div>
           </div>
         </div>
-        <div className="bg-[#EFEFEF] border border-1 border-medium-grey rounded-[8px] shadow-drop hover:cursor-pointer">
+        <div className="bg-[#EFEFEF] border border-1 border-slate-gray rounded-[8px] shadow-drop hover:cursor-pointer">
           <div className="p-[24px]">
             <img
               className="w-full h-[135px] bg-contain rounded-[8px] mb-[20px]"
