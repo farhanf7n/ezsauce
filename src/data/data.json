@@ -7,7 +7,7 @@
             "Traversy Media"
         ],
         "link": "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-        "img": "../assets/coursera1.png"
+        "img": "/assets/traversy-media.jpg"
     },
     {
         "name": "React JS Playlist",
@@ -16,7 +16,7 @@
             "Intermediate"
         ],
         "link": "https://youtu.be/XuFDcZABiDQ?si=5zU55QqFc-9QqfX1",
-        "img": "/assets/coursera1.png"
+        "img": "/assets/react-thumbnail.jpg"
     },
     {
         "name": "Movie Streaming",
@@ -25,7 +25,7 @@
             "Design"
         ],
         "link": "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-        "img": "/assets/coursera1.png"
+        "img": "/assets/digiflex-streaming2.png"
     },
     {
         "name": "Design Resources",
@@ -34,7 +34,7 @@
             "Resources"
         ],
         "link": "https://github.com/bradtraversy/design-resources-for-developers",
-        "img": "/assets/coursera1.png"
+        "img": "/assets/designResources.png"
     },
     {
         "name": "Monst Landing",
@@ -43,6 +43,6 @@
             "Design"
         ],
         "link": "https://monst-nextjs.vercel.app/index-2",
-        "img": "/assets/coursera1.png"
+        "img": "/assets/most-template.png"
     }
 ]
