@@ -1,14 +1,12 @@
 /* ClashDispaly Font */
 @font-face {
   font-family: 'ClashDisplay-Bold';
-  src: url('./assets/fonts/ClashDisplay/ClashDisplay-Bold.otf')
-    format('opentype');
+  src: url('../public/assets/fonts/ClashDisplay/ClashDisplay-Bold.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'ClashDisplay-Medium';
-  src: url('./assets/fonts/ClashDisplay/ClashDisplay-Medium.otf')
-    format('opentype');
+  src: url('../public/assets/fonts/ClashDisplay/ClashDisplay-Medium.otf') format('opentype');
 }
 
 /* Barlow Font */
