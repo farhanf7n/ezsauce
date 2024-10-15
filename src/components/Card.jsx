@@ -1,3 +1,4 @@
+import React from 'react';
 import dataLinks from "../data/data.json";
 
 export default function Card({ selectedCategory }) {
@@ -14,7 +15,9 @@ export default function Card({ selectedCategory }) {
               window.open(link, '_blank', 'noopener,noreferrer');
             };
             return (
-              <div key={`card-${index}`} className="bg-[#EFEFEF] border border-1 border-slate-gray rounded-[8px] shadow-drop hover:cursor-pointer"
+              <div
+                key={`${selectedCategory}-${index}`}
+                className="bg-[#EFEFEF] border border-1 border-slate-gray rounded-[8px] shadow-drop hover:cursor-pointer animate-card"
                 onClick={() => handleCardClick(d.link)}
               >
                 <div className="p-[24px]">
