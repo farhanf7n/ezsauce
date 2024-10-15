@@ -6,8 +6,13 @@ export default function Card() {
       <div className="grid grid-cols-4 gap-[10px]">
         {
           dataLinks.map((d, index) => {
+            const handleCardClick = (link) => {
+              window.open(link, '_blank', 'noopener,noreferrer');
+            };
             return (
-              <div key={`card-${index}`} className="bg-[#EFEFEF] border border-1 border-slate-gray rounded-[8px] shadow-drop hover:cursor-pointer">
+              <div key={`card-${index}`} className="bg-[#EFEFEF] border border-1 border-slate-gray rounded-[8px] shadow-drop hover:cursor-pointer"
+                onClick={() => handleCardClick(d.link)}
+              >
                 <div className="p-[24px]">
                   <img
                     className="w-full h-[135px] rounded-[8px] bg-contain mb-[20px]"
