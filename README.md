@@ -22,9 +22,9 @@
 ## Roadmap
 
 - [x] Add Static Data for Testing
+- [x] Add Json Data
+- [x] Use Hooks
 - [ ] Make it Responsive
-- [ ] Add Json Data
-- [ ] Use Hooks
 
 <!-- CONTRIBUTING -->
 
