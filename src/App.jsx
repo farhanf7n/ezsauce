@@ -1,7 +1,6 @@
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
-import TabLinks from './components/TabLinks';
-import Card from './components/Card';
+import ResourceSection from './components/ResourceSection';
 import BigHeading from './components/BigHeading';
 import Footer from './components/Footer';
 
@@ -14,8 +13,7 @@ function App() {
         <Navbar />
         <HeroSection />
       </div>
-      <TabLinks />
-      <Card />
+      <ResourceSection />
       <BigHeading />
       <Footer />
     </>

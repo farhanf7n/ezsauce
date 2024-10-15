@@ -1,98 +1,53 @@
-export default function TabLinks() {
+import React, { useMemo } from 'react';
+import dataLinks from "../data/data.json";
+
+export default function TabLinks({ onCategorySelect, selectedCategory }) {
+  const categoryData = useMemo(() => {
+    const categoryCount = dataLinks.reduce((acc, item) => {
+      acc[item.category] = (acc[item.category] || 0) + 1;
+      return acc;
+    }, {});
+
+    const totalCount = dataLinks.length;
+
+    const categories = Object.entries(categoryCount).map(([category, count]) => ({
+      category,
+      count: count.toString().padStart(2, '0')
+    }));
+
+    return { categories, totalCount: totalCount.toString().padStart(2, '0') };
+  }, []);
+
+  const handleClick = (e, category) => {
+    e.preventDefault(); // Prevent default action
+    onCategorySelect(category);
+  };
+
   return (
-    <div className="pt-[120px] w-[1160px] mx-auto">
-      <div className="flex items-center flex-wrap gap-[8px]">
+    <div className="flex items-center flex-wrap gap-[8px]">
+      <a
+        href="#"
+        onClick={(e) => handleClick(e, 'All')}
+        className={`py-[12px] px-[18px] flex items-center gap-[8px] ${selectedCategory === 'All' ? 'bg-[#FFC70F] text-black' : 'bg-[#000000] text-white'} rounded-[8px] shadow-drop border border-1 border-white`}
+      >
+        All
+        <span className="text-sm border border-1 py-[2px] px-[6px] rounded border-white">
+          {categoryData.totalCount}
+        </span>
+      </a>
+      {categoryData.categories.map((item, index) => (
         <a
+          key={index}
           href="#"
-          className="py-[12px] px-[18px] flex items-center gap-[8px] bg-[#000000] text-white rounded-[8px] shadow-drop border border-1 border-white"
+          onClick={(e) => handleClick(e, item.category)}
+          className={`py-[12px] px-[18px] flex items-center gap-[8px] ${selectedCategory === item.category ? 'bg-[#FFC70F] text-black' : 'bg-[#000000] text-white'} rounded-[8px] shadow-drop border border-1 border-white`}
         >
-          All{' '}
+          {item.category}
           <span className="text-sm border border-1 py-[2px] px-[6px] rounded border-white">
-            59
+            {item.count}
           </span>
         </a>
-        <a
-          href="#"
-          className="py-[12px] px-[18px] flex items-center gap-[8px] bg-[#EFEFEF] text-[#828282] rounded-[8px] border border-1 border-slate-gray shadow-drop hover:bg-black hover:text-white group"
-        >
-          Tools{' '}
-          <span className="text-sm border border-1 py-[2px] px-[6px] rounded border-slate-gray group-hover:border-white">
-            12
-          </span>
-        </a>
-        <a
-          href="#"
-          className="py-[12px] px-[18px] flex items-center gap-[8px] bg-[#EFEFEF] text-[#828282] rounded-[8px] border border-1 border-slate-gray shadow-drop hover:bg-black hover:text-white group"
-        >
-          Typography{' '}
-          <span className="text-sm border border-1 py-[2px] px-[6px] rounded border-slate-gray group-hover:border-white">
-            08
-          </span>
-        </a>
-        <a
-          href="#"
-          className="py-[12px] px-[18px] flex items-center gap-[8px] bg-[#EFEFEF] text-[#828282] rounded-[8px] border border-1 border-slate-gray shadow-drop hover:bg-black hover:text-white group"
-        >
-          YT Channels{' '}
-          <span className="text-sm border border-1 py-[2px] px-[6px] rounded border-slate-gray group-hover:border-white">
-            04
-          </span>
-        </a>
-        <a
-          href="#"
-          className="py-[12px] px-[18px] flex items-center gap-[8px] bg-[#EFEFEF] text-[#828282] rounded-[8px] border border-1 border-slate-gray shadow-drop hover:bg-black hover:text-white group"
-        >
-          Technologies{' '}
-          <span className="text-sm border border-1 py-[2px] px-[6px] rounded border-slate-gray group-hover:border-white">
-            09
-          </span>
-        </a>
-        <a
-          href="#"
-          className="py-[12px] px-[18px] flex items-center gap-[8px] bg-[#EFEFEF] text-[#828282] rounded-[8px] border border-1 border-slate-gray shadow-drop hover:bg-black hover:text-white group"
-        >
-          Inspirations{' '}
-          <span className="text-sm border border-1 py-[2px] px-[6px] rounded border-slate-gray group-hover:border-white">
-            03
-          </span>
-        </a>
-        <a
-          href="#"
-          className="py-[12px] px-[18px] flex items-center gap-[8px] bg-[#EFEFEF] text-[#828282] rounded-[8px] border border-1 border-slate-gray shadow-drop hover:bg-black hover:text-white group"
-        >
-          Upskilling{' '}
-          <span className="text-sm border border-1 py-[2px] px-[6px] rounded border-slate-gray group-hover:border-white">
-            02
-          </span>
-        </a>
-        <a
-          href="#"
-          className="py-[12px] px-[18px] flex items-center gap-[8px] bg-[#EFEFEF] text-[#828282] rounded-[8px] border border-1 border-slate-gray shadow-drop hover:bg-black hover:text-white group"
-        >
-          Memes{' '}
-          <span className="text-sm border border-1 py-[2px] px-[6px] rounded border-slate-gray group-hover:border-white">
-            02
-          </span>
-        </a>
-        <a
-          href="#"
-          className="py-[12px] px-[18px] flex items-center gap-[8px] bg-[#EFEFEF] text-[#828282] rounded-[8px] border border-1 border-slate-gray shadow-drop hover:bg-black hover:text-white group"
-        >
-          Useful Stuff{' '}
-          <span className="text-sm border border-1 py-[2px] px-[6px] rounded border-slate-gray group-hover:border-white">
-            16
-          </span>
-        </a>
-        <a
-          href="#"
-          className="py-[12px] px-[18px] flex items-center gap-[8px] bg-[#EFEFEF] text-[#828282] rounded-[8px] border border-1 border-slate-gray shadow-drop hover:bg-black hover:text-white group"
-        >
-          Crack Stuff{' '}
-          <span className="text-sm border border-1 py-[2px] px-[6px] rounded border-slate-gray group-hover:border-white">
-            02
-          </span>
-        </a>
-      </div>
+      ))}
     </div>
   );
 }

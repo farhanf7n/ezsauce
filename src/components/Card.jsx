@@ -1,11 +1,15 @@
 import dataLinks from "../data/data.json";
 
-export default function Card() {
+export default function Card({ selectedCategory }) {
+  const filteredData = selectedCategory === 'All'
+    ? dataLinks
+    : dataLinks.filter(d => d.category === selectedCategory);
+
   return (
     <div className="pt-[30px] w-[1160px] mx-auto">
       <div className="grid grid-cols-4 gap-[10px]">
         {
-          dataLinks.map((d, index) => {
+          filteredData.map((d, index) => {
             const handleCardClick = (link) => {
               window.open(link, '_blank', 'noopener,noreferrer');
             };
