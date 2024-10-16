@@ -24,7 +24,7 @@ export default function TabLinks({ onCategorySelect, selectedCategory }) {
   };
 
   return (
-    <div className="flex items-center flex-wrap gap-[8px]">
+    <div className="flex items-center justify-center md:justify-start flex-wrap gap-[8px] px-5">
       <a
         href="#"
         onClick={(e) => handleClick(e, 'All')}

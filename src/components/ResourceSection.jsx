@@ -10,7 +10,7 @@ export default function ResourceSection() {
     };
 
     return (
-        <div className='pt-[90px] w-[1160px] mx-auto'>
+        <div className='w-full lg:w-[1160px] pt-[90px] mx-auto'>
             <TabLinks onCategorySelect={handleCategorySelect} selectedCategory={selectedCategory} />
             <Card selectedCategory={selectedCategory} />
         </div>

@@ -7,8 +7,8 @@ export default function Card({ selectedCategory }) {
     : dataLinks.filter(d => d.category === selectedCategory);
 
   return (
-    <div className="pt-[30px] w-[1160px] mx-auto">
-      <div className="grid grid-cols-4 gap-[10px]">
+    <div className="w-full lg:w-[1160px] py-7 mx-auto px-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[10px]">
         {
           filteredData.map((d, index) => {
             const handleCardClick = (link) => {
@@ -30,14 +30,14 @@ export default function Card({ selectedCategory }) {
                     {d.tags.map((tg, index) => (
                       <span
                         key={index}
-                        className="bg-[#FFC70F] text-[12px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px]"
+                        className="bg-[#FFC70F] text-[12px] font-medium leading-[20px] rounded-[4px] py-[4px] px-[6px] dark:text-black"
                       >
                         {tg}
                       </span>
                     ))}
                   </div>
                   <div className="pt-[8px] flex justify-between items-center">
-                    <span className="text-[20px] font-semibold leading-[30px]">
+                    <span className="text-[20px] font-semibold leading-[30px] dark:text-black">
                       {d.name}
                     </span>
                     <svg

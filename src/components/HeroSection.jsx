@@ -1,9 +1,9 @@
 import guyUsingLaptop from '../../public/assets/guy-using-laptop.svg';
 export default function HeroSection() {
   return (
-    <div className="hero-container w-[1160px] h-[640px] mx-auto flex items-center justify-between relative">
+    <div className="hero-container w-full lg:w-[1160px] mx-auto flex items-center justify-between relative px-5">
       <div>
-        <p className="hero-heading font-ClashDisplayMedium relative text-[98px] leading-[98px] flex flex-col">
+        <p className="hero-heading font-ClashDisplayMedium relative text-4xl lg:text-[98px] leading-[98px] flex flex-col">
           <span className="font-ClashDisplayMedium">
             The{' '}
             <span className="relative font-ClashDisplayMedium before:block before:absolute before:bg-[#FFC70F] before:h-[16px] before:w-full before:bottom-[8px] before:right-0 before:z-[-1]">
@@ -38,7 +38,7 @@ export default function HeroSection() {
       </div>
 
       <img
-        className="absolute right-[-54px] bottom-[20px]"
+        className="absolute right-[-94px] bottom-[-55px] hidden xl:block z-[-2]"
         src={guyUsingLaptop}
         alt=""
       />

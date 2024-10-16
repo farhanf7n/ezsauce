@@ -14,7 +14,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="w-[1160px] mx-auto flex items-center justify-between py-[20px]">
+    <div className="w-full lg:w-[1160px] mx-auto flex items-center justify-between p-5">
       <div>
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clipPath="url(#clip0_3092_829)">
@@ -44,13 +44,13 @@ export default function Navbar() {
 
         <a
           href="#"
-          className="py-[12px] px-[18px] flex items-center gap-[8px] border border-1 border-slate-gray rounded-[8px] text-black hover:bg-black hover:text-white hover:border-black shadow-drop dark:bg-black dark:text-white dark:border-black dark:hover:border-white dark:hover:text-white"
+          className="py-[12px] px-[18px] flex items-center gap-[8px] border border-1 border-slate-gray rounded-[8px] text-black hover:bg-black hover:text-white hover:border-black shadow-drop dark:bg-black dark:text-white dark:border-black dark:hover:border-white dark:hover:text-white duration-300"
         >
           About
         </a>
         <a
           href="#"
-          className="py-[12px] px-[18px] flex items-center gap-[8px] bg-[#000000] text-white rounded-[8px] shadow-drop border border-transparent hover:border-transparent dark:hover:border-white"
+          className="hidden md:flex py-[12px] px-[18px] items-center gap-[8px] bg-[#000000] text-white rounded-[8px] shadow-drop border border-transparent hover:border-transparent dark:hover:border-white"
         >
           Submit a resource{' '}
           <svg
