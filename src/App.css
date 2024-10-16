@@ -162,7 +162,7 @@ a:hover>svg.moonSvg * {
 }
 
 .bg-lines::before {
-  content: url('./assets/Hexa-Spiral.svg');
+  content: url('/public/assets/Hexa-Spiral.svg');
   display: block;
   position: absolute;
   right: 0;
