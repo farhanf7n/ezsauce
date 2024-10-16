@@ -137,7 +137,7 @@ html {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-a:hover > svg.moonSvg * {
+a:hover>svg.moonSvg * {
   fill: black;
   stroke: black;
 }
@@ -167,4 +167,13 @@ a:hover > svg.moonSvg * {
   position: absolute;
   right: 0;
   z-index: -1;
+}
+
+@media screen and (max-width: 1024px) {
+  .hero-heading::before {
+    top: -22px;
+    left: -35px;
+    width: 47.55px;
+    height: 51.23px;
+  }
 }
