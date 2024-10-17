@@ -28,7 +28,7 @@ export default function TabLinks({ onCategorySelect, selectedCategory }) {
       <a
         href="#"
         onClick={(e) => handleClick(e, 'All')}
-        className={`py-[12px] px-[18px] flex items-center gap-[8px] ${selectedCategory === 'All' ? 'bg-[#FFC70F] text-black' : 'bg-[#000000] text-white'} rounded-[8px] shadow-drop border border-1 border-white`}
+        className={`py-[12px] px-[18px] flex items-center gap-[8px] ${selectedCategory === 'All' ? 'bg-[#FFC70F] text-black' : 'bg-[#000000] text-white'} rounded-[8px] shadow-drop`}
       >
         All
         <span className="text-sm border border-1 py-[2px] px-[6px] rounded border-white">
@@ -40,7 +40,7 @@ export default function TabLinks({ onCategorySelect, selectedCategory }) {
           key={index}
           href="#"
           onClick={(e) => handleClick(e, item.category)}
-          className={`py-[12px] px-[18px] flex items-center gap-[8px] ${selectedCategory === item.category ? 'bg-[#FFC70F] text-black' : 'bg-[#000000] text-white'} rounded-[8px] shadow-drop border border-1 border-white`}
+          className={`py-[12px] px-[18px] flex items-center gap-[8px] ${selectedCategory === item.category ? 'bg-[#FFC70F] text-black' : 'bg-[#000000] text-white'} rounded-[8px] shadow-drop  `}
         >
           {item.category}
           <span className="text-sm border border-1 py-[2px] px-[6px] rounded border-white">

@@ -43,10 +43,10 @@ export default function Navbar() {
         </button>
 
         <a
-          href="#"
           className="py-[12px] px-[18px] flex items-center gap-[8px] border border-1 border-slate-gray rounded-[8px] text-black hover:bg-black hover:text-white hover:border-black shadow-drop dark:bg-black dark:text-white dark:border-black dark:hover:border-white dark:hover:text-white duration-300"
+          href="https://www.linkedin.com/in/farhanf7n/" target="_blank"
         >
-          About
+          Contact Me
         </a>
         <a
           href="#"
