@@ -24,7 +24,7 @@
 - [x] Add Static Data for Testing
 - [x] Add Json Data
 - [x] Use Hooks
-- [ ] Make it Responsive
+- [x] Make it Responsive
 
 <!-- CONTRIBUTING -->
 
