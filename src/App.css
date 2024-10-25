@@ -1,12 +1,14 @@
 /* ClashDispaly Font */
 @font-face {
   font-family: 'ClashDisplay-Bold';
-  src: url('../public/assets/fonts/ClashDisplay/ClashDisplay-Bold.otf') format('opentype');
+  src: url('/assets/fonts/ClashDisplay/ClashDisplay-Bold.otf')
+    format('opentype');
 }
 
 @font-face {
   font-family: 'ClashDisplay-Medium';
-  src: url('../public/assets/fonts/ClashDisplay/ClashDisplay-Medium.otf') format('opentype');
+  src: url('/assets/fonts/ClashDisplay/ClashDisplay-Medium.otf')
+    format('opentype');
 }
 
 /* Barlow Font */
@@ -137,7 +139,7 @@ html {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-a:hover>svg.moonSvg * {
+a:hover > svg.moonSvg * {
   fill: black;
   stroke: black;
 }
@@ -149,7 +151,7 @@ a:hover>svg.moonSvg * {
   left: -50px;
   width: 57.55px;
   height: 81.23px;
-  background-image: url('../public/assets/three-lines.svg');
+  background-image: url('/assets/three-lines.svg');
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -162,7 +164,7 @@ a:hover>svg.moonSvg * {
 }
 
 .bg-lines::before {
-  content: url('/public/assets/Hexa-Spiral.svg');
+  content: url('/assets/Hexa-Spiral.svg');
   display: block;
   position: absolute;
   right: 0;
