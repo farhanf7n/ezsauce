@@ -46,5 +46,15 @@
         ],
         "link": "https://monst-nextjs.vercel.app/index-2",
         "img": "/assets/most-template.png"
+    },
+    {
+        "name": "LifeWire",
+        "category": "Templates",
+        "tags": [
+            "Design",
+            "Blog Type"
+        ],
+        "link": "https://www.lifewire.com/",
+        "img": "/assets/lifewire.png"
     }
 ]
