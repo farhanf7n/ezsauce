@@ -10,6 +10,16 @@
         "img": "/assets/traversy-media.jpg"
     },
     {
+        "name": "Roadmap",
+        "category": "Tuts",
+        "tags": [
+            "Guides",
+            "Roadmaps"
+        ],
+        "link": "https://roadmap.sh",
+        "img": "/assets/roadmap.png"
+    },
+    {
         "name": "React JS Playlist",
         "category": "Tuts",
         "tags": [
@@ -29,6 +39,16 @@
         "img": "/assets/digiflex-streaming2.png"
     },
     {
+        "name": "Integro",
+        "category": "Templates",
+        "tags": [
+            "Design",
+            "Template"
+        ],
+        "link": "https://integro.ancorathemes.com/home-marketing-agency/",
+        "img": "/assets/integro.jpeg"
+    },
+    {
         "name": "Design Resources",
         "category": "Design Stuff",
         "tags": [
@@ -36,6 +56,16 @@
         ],
         "link": "https://github.com/bradtraversy/design-resources-for-developers",
         "img": "/assets/designResources.png"
+    },
+    {
+        "name": "Curated Design",
+        "category": "Design Stuff",
+        "tags": [
+            "Resources",
+            "Designs"
+        ],
+        "link": "https://www.curated.design/",
+        "img": "/assets/curatedDesign.png"
     },
     {
         "name": "Monst Landing",
@@ -56,5 +86,175 @@
         ],
         "link": "https://www.lifewire.com/",
         "img": "/assets/lifewire.png"
+    },
+    {
+        "name": "Trydo",
+        "category": "Templates",
+        "tags": [
+            "Design",
+            "Multiple Types"
+        ],
+        "link": "https://trydo.rainbowit.net/#demo",
+        "img": "/assets/trydo.jpg"
+    },
+    {
+        "name": "Meme Soundboard",
+        "category": "Good Stuff",
+        "tags": [
+            "Soundboards",
+            "Multiple Types"
+        ],
+        "link": "https://www.myinstants.com/en/index/sg/",
+        "img": "/assets/myinstants.png"
+    },
+    {
+        "name": "VipRow",
+        "category": "Good Stuff",
+        "tags": [
+            "TV Shows",
+            "Movies",
+            "Streams"
+        ],
+        "link": "https://www.viprow.nu/",
+        "img": "/assets/viprow.png"
+    },
+    {
+        "name": "BraFlix",
+        "category": "Good Stuff",
+        "tags": [
+            "TV Shows",
+            "Movies",
+            "Streams"
+        ],
+        "link": "https://www.braflix.is/",
+        "img": "/assets/braflix.jpeg"
+    },
+    {
+        "name": "Freek",
+        "category": "Good Stuff",
+        "tags": [
+            "TV Shows",
+            "Movies",
+            "Streams"
+        ],
+        "link": "https://freek.to/",
+        "img": "/assets/freekto.jpeg"
+    },
+    {
+        "name": "Save Tube",
+        "category": "Good Stuff",
+        "tags": [
+            "YT Downloader"
+        ],
+        "link": "https://save.tube/en32/",
+        "img": "/assets/saveTube.png"
+    },
+    {
+        "name": "SecHex-Spoofy",
+        "category": "Repo",
+        "tags": [
+            "Spoofer",
+            "Windows"
+        ],
+        "link": "https://github.com/SecHex/SecHex-Spoofy",
+        "img": "/assets/sechexspoofy.png"
+    },
+    {
+        "name": "SpotX-Bash",
+        "category": "Repo",
+        "tags": [
+            "Spotify",
+            "MAC OS"
+        ],
+        "link": "https://github.com/SpotX-Official/SpotX-Bash/tree/main",
+        "img": "/assets/spotxbash.png"
+    },
+    {
+        "name": "AppDB",
+        "category": "Mods & Cracks",
+        "tags": [
+            "IPAs",
+            "IOS"
+        ],
+        "link": "https://appdb.to/",
+        "img": "/assets/appdb.png"
+    },
+    {
+        "name": "DownloadlyIR",
+        "category": "Tuts",
+        "tags": [
+            "Courses",
+            "Crack"
+        ],
+        "link": "https://downloadlynet.ir/",
+        "img": "/assets/downloadlyir.png"
+    },
+    {
+        "name": "CourseFlix",
+        "category": "Tuts",
+        "tags": [
+            "Courses",
+            "Crack"
+        ],
+        "link": "https://courseflix.net/",
+        "img": "/assets/courseflix.png"
+    },
+    {
+        "name": "IPAomtk",
+        "category": "Mods & Cracks",
+        "tags": [
+            "IPAs",
+            "IOS"
+        ],
+        "link": "https://ipaomtk.com/",
+        "img": "/assets/ipaomtk.jpeg"
+    },
+    {
+        "name": "LiteApks",
+        "category": "Mods & Cracks",
+        "tags": [
+            "APKs",
+            "Android"
+        ],
+        "link": "https://liteapks.com/",
+        "img": "/assets/liteapks.png"
+    },
+    {
+        "name": "ModYolo",
+        "category": "Mods & Cracks",
+        "tags": [
+            "APKs",
+            "Android"
+        ],
+        "link": "https://modyolo.com/",
+        "img": "/assets/modyolo.png"
+    },
+    {
+        "name": "Typescale",
+        "category": "Design Stuff",
+        "tags": [
+            "Font Testing"
+        ],
+        "link": "https://typescale.com/",
+        "img": "/assets/typescale.png"
+    },
+    {
+        "name": "FontShare",
+        "category": "Design Stuff",
+        "tags": [
+            "Fonts"
+        ],
+        "link": "https://www.fontshare.com/",
+        "img": "/assets/fontshare.png"
+    },
+    {
+        "name": "unDraw",
+        "category": "Design Stuff",
+        "tags": [
+            "illustrations",
+            "Handcrafts"
+        ],
+        "link": "https://undraw.co/illustrations",
+        "img": "/assets/undraw.png"
     }
 ]
