@@ -245,6 +245,20 @@
     "img": "/assets/saveTube.png"
   },
   {
+    "name": "Halo UI/UX",
+    "category": "Inspiration",
+    "tags": ["Nice Designs"],
+    "link": "https://dribbble.com/haloweb",
+    "img": "/assets/halolab.png"
+  },
+  {
+    "name": "Jordan Hughes",
+    "category": "Inspiration",
+    "tags": ["UntitledUI"],
+    "link": "https://dribbble.com/jordanhughes/shots",
+    "img": "/assets/untitledui.png"
+  },
+  {
     "name": "SecHex-Spoofy",
     "category": "Repo",
     "tags": ["Spoofer", "Windows"],
