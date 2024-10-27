@@ -259,6 +259,13 @@
     "img": "/assets/untitledui.png"
   },
   {
+    "name": "shadcn-form-build",
+    "category": "Interesting",
+    "tags": ["Form Builder", "Shadcn"],
+    "link": "https://shadcn-form-build.vercel.app/playground",
+    "img": "/assets/shadcn-form.png"
+  },
+  {
     "name": "SecHex-Spoofy",
     "category": "Repo",
     "tags": ["Spoofer", "Windows"],
