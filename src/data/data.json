@@ -287,6 +287,13 @@
     "img": "/assets/appdb.png"
   },
   {
+    "name": "Sordum",
+    "category": "Mods & Cracks",
+    "tags": ["Windows Optimization", "PC"],
+    "link": "https://www.sordum.org/",
+    "img": "/assets/sordum.png"
+  },
+  {
     "name": "DownloadlyIR",
     "category": "Tuts",
     "tags": ["Courses", "Crack"],
