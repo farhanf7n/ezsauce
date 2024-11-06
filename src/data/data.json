@@ -182,6 +182,13 @@
     "img": "/assets/freekto.jpeg"
   },
   {
+    "name": "FlixHQ",
+    "category": "Good Stuff",
+    "tags": ["TV Shows", "Movies", "Streams"],
+    "link": "https://flixhq.to/",
+    "img": "/assets/flixhq.png"
+  },
+  {
     "name": "FreePik",
     "category": "Design Stuff",
     "tags": ["Headshots", "Free Pics"],
