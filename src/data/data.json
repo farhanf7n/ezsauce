@@ -287,6 +287,13 @@
     "img": "/assets/spotxbash.png"
   },
   {
+    "name": "Awesome ShadCN UI",
+    "category": "Repo",
+    "tags": ["ShadCN", "Components"],
+    "link": "https://github.com/birobirobiro/awesome-shadcn-ui",
+    "img": "/assets/awesomeshadcn.png"
+  },
+  {
     "name": "AppDB",
     "category": "Mods & Cracks",
     "tags": ["IPAs", "IOS"],
@@ -362,6 +369,13 @@
     "tags": ["Font Testing"],
     "link": "https://typescale.com/",
     "img": "/assets/typescale.png"
+  },
+  {
+    "name": "Simple Icons",
+    "category": "Design Stuff",
+    "tags": ["Icons", "SVGs"],
+    "link": "https://simpleicons.org/",
+    "img": "/assets/simpleicons.png"
   },
   {
     "name": "CSS Clip Path",
