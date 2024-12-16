@@ -44,7 +44,7 @@ export default function Navbar() {
           </defs>
         </svg>
       </div>
-      <div className="flex items-center gap-[19px]">
+      <div className="flex items-center gap-2">
         <button onClick={toggleDarkMode} className="p-2 rounded-full">
           <img
             src={isDarkMode ? sunIcon : moonStarsIcon}
