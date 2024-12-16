@@ -1,0 +1,40 @@
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  width: 225px;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.menu-item span:last-child {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  border: 1px solid currentColor;
+}
+
+/* .button {
+  background-color: #000000;
+  color: white;
+  border-radius: 8px;
+  padding: 12px 18px;
+}
+
+.button:hover {
+  filter: drop-shadow(5px 5px 0 #00000044);
+  transition: all 100ms cubic-bezier(0.4, 0, 0.2, 1);
+} */
+
+.menu {
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-top: 4px;
+}
+
+.menu-item:hover {
+  background-color: #ffc70f;
+  color: black;
+  cursor: pointer;
+}

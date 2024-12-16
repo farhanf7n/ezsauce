@@ -61,7 +61,9 @@ export default function Navbar() {
           Contact Me
         </a>
         <a
-          href="#"
+          href="https://github.com/farhanf7n/ezsauce/issues/new"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden md:flex py-[12px] px-[18px] items-center gap-[8px] bg-[#000000] text-white rounded-[8px] shadow-drop border border-transparent hover:border-transparent dark:hover:border-white"
         >
           Submit a resource{' '}

@@ -3,11 +3,20 @@ export default function Footer() {
   return (
     <div className="w-full lg:w-[1160px] pt-[30px] pb-[30px] px-5 mx-auto flex justify-between items-center">
       <p className="text-[14px] font-medium">
-        Designed and Created by <a href="https://www.linkedin.com/in/farhanf7n/" target="_blank">Farhan Ahmed</a>
+        Designed and Created by{' '}
+        <a
+          href="https://www.linkedin.com/in/farhanf7n/"
+          className="underline hover:text-medium-gray dark:hover:text-white transition-colors duration-300"
+          target="_blank"
+        >
+          Farhan Ahmed
+        </a>
       </p>
       <div className="flex gap-[8px] items-center">
         <a
-          href="#"
+          href="https://github.com/farhanf7n/ezsauce/issues/new"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden md:flex py-[12px] px-[18px] items-center gap-[8px] bg-[#000000] text-white rounded-[8px] shadow-drop border border-transparent hover:border-transparent dark:hover:border-white"
         >
           Submit a resource{' '}
