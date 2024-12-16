@@ -1,12 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import TabLinks from './TabLinks';
 import Card from './Card';
+import Skeleton from './Skeleton';
 import dataLinks from '../data/data.json';
 
 export default function ResourceSection() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Simulate data loading
+    setIsLoading(true);
+    const loadData = async () => {
+      // Preload images
+      await Promise.all(
+        dataLinks.map((item) => {
+          return new Promise((resolve) => {
+            const img = new Image();
+            img.src = item.img;
+            img.onload = resolve;
+            img.onerror = resolve; // Handle error cases too
+          });
+        }),
+      );
+      setData(dataLinks);
+      setIsLoading(false);
+    };
+
+    loadData();
+  }, []);
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
@@ -59,7 +84,20 @@ export default function ResourceSection() {
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-5 pt-4"
       >
         <AnimatePresence mode="popLayout">
-          {filteredData.length > 0 ? (
+          {isLoading ? (
+            // Show skeletons while loading
+            [...Array(8)].map((_, index) => (
+              <motion.div
+                key={`skeleton-${index}`}
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <Skeleton />
+              </motion.div>
+            ))
+          ) : filteredData.length > 0 ? (
             filteredData.map((item, index) => (
               <motion.div
                 key={`${item.category}-${item.name}-${index}`}

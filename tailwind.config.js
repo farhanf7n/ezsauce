@@ -21,6 +21,7 @@ export default {
       },
       animation: {
         card: 'fadeInUp 0.5s ease-out',
+        pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       boxShadow: {
         drop: '0 4px 8px rgba(0, 0, 0, 0.08)',

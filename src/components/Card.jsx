@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Card({ item }) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   const handleCardClick = (link) => {
     window.open(link, '_blank', 'noopener,noreferrer');
   };
@@ -11,11 +13,18 @@ export default function Card({ item }) {
       onClick={() => handleCardClick(item.link)}
     >
       <div className="p-[24px]">
-        <div className="w-full h-[135px] mb-[20px]">
+        <div className="w-full h-[135px] mb-[20px] relative">
+          {!imageLoaded && (
+            <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded-lg animate-pulse" />
+          )}
           <img
-            className="object-cover rounded-lg w-full h-full"
+            className={`object-cover rounded-lg w-full h-full transition-opacity duration-300 ${
+              imageLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
             src={item.img}
-            alt=""
+            alt={item.name}
+            loading="lazy"
+            onLoad={() => setImageLoaded(true)}
           />
         </div>
         <div className="flex gap-[8px]">
