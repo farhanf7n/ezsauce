@@ -98,6 +98,13 @@
     "img": "/assets/tilebit.png"
   },
   {
+    "name": "UIVerseIO",
+    "category": "Design Stuff",
+    "tags": ["Code", "Ready", "Components"],
+    "link": "https://uiverse.io/",
+    "img": "/assets/uiverseio.png"
+  },
+  {
     "name": "Produce-UI",
     "category": "Design Stuff",
     "tags": ["Figma", "Ready", "Components"],
@@ -210,6 +217,13 @@
     "img": "/assets/iconscout.png"
   },
   {
+    "name": "Blush Design",
+    "category": "Design Stuff",
+    "tags": ["illustrations"],
+    "link": "https://blush.design/",
+    "img": "/assets/blushdesign.png"
+  },
+  {
     "name": "Inspo Vault",
     "category": "Design Stuff",
     "tags": ["Vector", "Icons", "illustrations"],
@@ -243,6 +257,20 @@
     "tags": ["Figma", "Ready", "Components"],
     "link": "https://www.landingfolio.com/",
     "img": "/assets/landingfolio.png"
+  },
+  {
+    "name": "FigComponents",
+    "category": "Design Stuff",
+    "tags": ["Figma", "Ready", "Components"],
+    "link": "https://www.figcomponents.com/",
+    "img": "/assets/figcomponents.png"
+  },
+  {
+    "name": "hemingwayapp",
+    "category": "AI",
+    "tags": ["Writing", "AI"],
+    "link": "https://www.hemingwayapp.com/",
+    "img": "/assets/hemingwayapp.png"
   },
   {
     "name": "Save Tube",
