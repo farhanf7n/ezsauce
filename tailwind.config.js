@@ -5,6 +5,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        'cosmic-latte': '#fff7ec',
         'slate-gray': '#B1B1B1',
         'medium-gray': '#828282',
         'light-gray': '#efefef',
@@ -18,14 +19,26 @@ export default {
           '0%': { opacity: '0', transform: 'scale(0.95)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
+        slideDown: {
+          '0%': { transform: 'translate(-50%, -100%)' },
+          '100%': { transform: 'translate(-50%, 0)' },
+        },
       },
       animation: {
         card: 'fadeInUp 0.5s ease-out',
         pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        slideDown: 'slideDown 0.3s ease-out forwards',
       },
       boxShadow: {
         drop: '0 4px 8px rgba(0, 0, 0, 0.08)',
         'drop-dark': '0 8px 28px rgba(200, 200, 200, 0.3)',
+      },
+      backdropBlur: {
+        xs: '2px',
+      },
+      backgroundColor: {
+        'glass-light': 'rgba(255, 255, 255, 0.7)',
+        'glass-dark': 'rgba(40, 40, 40, 0.75)',
       },
     },
   },
