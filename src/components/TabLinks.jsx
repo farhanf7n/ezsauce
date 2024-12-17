@@ -61,7 +61,7 @@ export default function TabLinks({
   };
 
   return (
-    <div className="flex items-center justify-end sm:justify-between flex-wrap gap-2 px-5">
+    <div className="flex items-center justify-between flex-wrap gap-2 px-5">
       <div className="flex items-center gap-2">
         <Menu
           label={selectedCategory || 'Select Category'}
