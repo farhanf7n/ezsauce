@@ -3,11 +3,31 @@ import sunIcon from '/assets/sun.svg';
 import moonStarsIcon from '/assets/moonStars.svg';
 
 export default function Navbar() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme === 'dark';
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDarkMode);
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const handleChange = (e) => {
+      if (!localStorage.getItem('theme')) {
+        setIsDarkMode(e.matches);
+      }
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
