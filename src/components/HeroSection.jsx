@@ -19,8 +19,8 @@ export default function HeroSection() {
       y: 0,
       filter: 'blur(0px)',
       transition: {
-        delay: i * 0.6,
-        duration: 0.6,
+        delay: i * 0.3,
+        duration: 0.5,
         ease: [0.32, 0.72, 0, 1],
         filter: {
           duration: 0.8,
@@ -77,7 +77,7 @@ export default function HeroSection() {
               variants={textVariants}
               initial="hidden"
               animate={isInView ? 'visible' : 'hidden'}
-              custom={0}
+              custom={1}
               className="hero-heading text-[#161616] text-[44px] leading-[48px] md:text-[80px] md:leading-[88px] sm:text-[56px] sm:leading-[62px] tracking-[-.02em] text-center dark:text-white font-ClashDisplayBold font-semibold relative"
             >
               The one-stop shop with everything you need
@@ -89,8 +89,14 @@ export default function HeroSection() {
               variants={textVariants}
               initial="hidden"
               animate={isInView ? 'visible' : 'hidden'}
-              custom={1}
+              custom={2}
               className="text-xl text-center leading-[30px] flex flex-col pt-5 dark:text-white"
+              whileInView={{
+                transition: {
+                  duration: 2,
+                  ease: 'easeInOut',
+                },
+              }}
             >
               Explore selected and chosen items that will improve{' '}
               <br className="hidden lg:block" /> your productivity and help you
@@ -98,6 +104,49 @@ export default function HeroSection() {
               designer.
             </motion.p>
           </div>
+
+          <motion.div
+            variants={textVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            custom={3}
+          >
+            <motion.img
+              src="/assets/bulbicon.png"
+              className="absolute left-0 bottom-24"
+              alt=""
+              animate={{
+                x: [0, 8, 0, -8, 0],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+            />
+          </motion.div>
+
+          <motion.div
+            variants={textVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            custom={4}
+          >
+            <motion.img
+              src="/assets/labIcon.png"
+              className="absolute -right-8 bottom-64"
+              alt=""
+              animate={{
+                x: [0, 8, 0, -8, 0],
+                y: [-8, 0, 8, 0, -8],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+            />
+          </motion.div>
         </div>
       </div>
     </div>
