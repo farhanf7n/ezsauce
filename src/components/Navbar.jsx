@@ -57,7 +57,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 250) {
+      if (window.scrollY > 120) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -81,7 +81,7 @@ export default function Navbar() {
       custom={0}
       className="w-full lg:w-[720px] mt-2 fixed top-2 left-1/2 -translate-x-1/2 -translate-y-0 opacity-100 z-[9999] transition-all duration-300 origin-top animate-slideDown"
     >
-      <div className="relative px-4 py-2 bg-glass-cosmic-latte dark:bg-[rgba(40,40,40,0.75)] backdrop-blur-md border border-white/20 dark:border-white/10 rounded-[8px] shadow-lg">
+      <div className="relative px-4 py-2 bg-glass-cosmic-latte/90 dark:bg-[rgba(40,40,40,0.97)] backdrop-blur-3xl border border-white/20 dark:border-white/10 rounded-[8px] shadow-lg">
         <div className="flex items-center justify-between">
           <div className="relative">
             <div className="relative p-2">
@@ -141,7 +141,7 @@ export default function Navbar() {
               href="https://github.com/farhanf7n/ezsauce/issues/new"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex py-2 px-4 items-center gap-[8px] bg-black/80 dark:bg-white/10 backdrop-blur-sm text-white rounded-[8px] border border-transparent hover:border-white/20 dark:hover:border-white/20 transition-colors duration-300 h-[38px]"
+              className="hidden md:flex py-2 px-4 items-center gap-[8px] bg-black/80 dark:bg-white/10 backdrop-blur-xl text-white rounded-[8px] border border-transparent hover:border-white/20 dark:hover:border-white/20 transition-colors duration-300 h-[38px]"
             >
               Submit a resource{' '}
               <svg
@@ -235,7 +235,7 @@ export default function Navbar() {
           href="https://github.com/farhanf7n/ezsauce/issues/new"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:flex py-2 px-4 items-center gap-[8px] bg-black/80 dark:bg-white/10 backdrop-blur-sm text-white rounded-[8px] border border-transparent hover:border-white/20 dark:hover:border-white/20 transition-colors duration-300 h-[38px]"
+          className="hidden md:flex py-2 px-4 items-center gap-[8px] bg-black/90 dark:bg-white/10 backdrop-blur-xl text-white rounded-[8px] border border-transparent hover:border-white/20 dark:hover:border-white/20 transition-colors duration-300 h-[38px]"
         >
           Submit a resource{' '}
           <svg
