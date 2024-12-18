@@ -162,7 +162,13 @@ a:hover > svg.moonSvg * {
 }
 
 .bg-lines {
-  background-image: url('/assets/bglines.png');
+  background-image: linear-gradient(to top, #fff7ec, transparent),
+    url('/assets/bglines.png');
   background-repeat: no-repeat;
   background-position: left center;
+}
+
+.dark .bg-lines {
+  background-image: linear-gradient(to top, #18181b, transparent),
+    url('/assets/bglines.png');
 }
