@@ -57,7 +57,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 120) {
+      if (window.scrollY > 250) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -177,7 +177,7 @@ export default function Navbar() {
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
       custom={0}
-      className="w-full lg:w-[1160px] mx-auto flex items-center justify-between p-5 transition-all duration-300"
+      className="w-full mx-auto max-w-[1160px] relative top-4 px-4 py-2 flex items-center justify-between  transition-all duration-300 z-[9999] bg-glass-cosmic-latte/90 dark:bg-[rgba(40,40,40,0.97)] backdrop-blur-3xl border border-white/20 dark:border-white/10 rounded-[8px]"
     >
       <div className="relative">
         <div className="relative p-2">

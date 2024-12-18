@@ -3,6 +3,7 @@ import dataLinks from '../data/data.json';
 import { Menu, MenuItem } from './menu.jsx';
 import SearchBar from './SearchBar';
 import './menu.css';
+import { motion } from 'framer-motion';
 
 export default function TabLinks({
   onCategorySelect,
@@ -60,9 +61,26 @@ export default function TabLinks({
     setOpen(false);
   };
 
+  const arrowAnimation = {
+    animate: {
+      x: [0, -10, 0],
+      transition: {
+        duration: 1.5,
+        repeat: Infinity,
+        ease: 'easeInOut',
+      },
+    },
+  };
+
   return (
-    <div className="flex items-center justify-between flex-wrap gap-2 px-5">
-      <div className="flex items-center gap-2">
+    <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-4 w-full">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 w-full md:w-auto">
+        <motion.div
+          className="allBtn"
+          initial="initial"
+          animate="animate"
+          variants={arrowAnimation}
+        />
         <Menu
           label={selectedCategory || 'Select Category'}
           open={open}

@@ -144,3 +144,25 @@ a:hover > svg.moonSvg * {
   fill: black;
   stroke: black;
 }
+
+.allBtn::before {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: -19rem;
+  width: 273px;
+  height: 125px;
+  background-image: url('/assets/arrowShape.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+:is(.dark .allBtn)::before {
+  background-image: url('/assets/arrowShapeDark.png');
+}
+
+.bg-lines {
+  background-image: url('/assets/bglines.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+}

@@ -29,7 +29,7 @@ export const Menu = React.forwardRef(function Menu(
         ref={ref}
         {...props}
         className={clsx(
-          'button py-[12px] px-[18px] flex items-center gap-[8px] border border-1 border-slate-gray rounded-[8px] text-black bg-black text-white hover:text-white hover:border-black shadow-drop dark:bg-black dark:text-white dark:border-black dark:hover:border-white dark:hover:text-white duration-300',
+          'button py-[12px] px-[18px] flex items-center gap-[8px] border border-1 border-slate-gray rounded-lg bg-black text-white hover:text-white hover:border-black shadow-drop dark:bg-black dark:text-white dark:border-black dark:hover:border-white dark:hover:text-white duration-300',
           props.className,
         )}
       >

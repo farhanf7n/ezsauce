@@ -73,7 +73,7 @@ export default function ResourceSection() {
   });
 
   return (
-    <div className="w-full lg:w-[1160px] pt-[90px] mx-auto">
+    <div className="w-full px-5 pt-[90px] mx-auto max-w-[1160px]">
       <TabLinks
         onCategorySelect={handleCategorySelect}
         selectedCategory={selectedCategory}
@@ -81,7 +81,7 @@ export default function ResourceSection() {
       />
       <motion.div
         layout
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-5 pt-4"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-4"
       >
         <AnimatePresence mode="popLayout">
           {isLoading ? (
