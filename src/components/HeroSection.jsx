@@ -64,7 +64,7 @@ export default function HeroSection() {
                   alt=""
                 />
                 <img
-                  src="/assets/person2.jpg"
+                  src="/assets/person2.png"
                   className="w-10 h-10 rounded-[50%] border-2 border-white relative z-[1] -ml-3"
                   alt=""
                 />
