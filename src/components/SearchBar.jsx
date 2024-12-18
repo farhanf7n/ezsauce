@@ -18,7 +18,7 @@ export default function SearchBar({ onSearch }) {
         <Ariakit.Combobox
           onChange={handleChange}
           placeholder="Enter keyword to search..."
-          className="w-full h-[48px] pl-10 pr-4 rounded-[8px] border border-1 border-medium-gray bg-light-gray text-black placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black dark:bg-black dark:text-white dark:border-slate-gray dark:focus:ring-white"
+          className="w-full h-[48px] pl-10 pr-4 rounded-[8px] border border-1 border-medium-gray bg-glass-cosmic-latte text-black placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black dark:bg-black dark:text-white dark:border-slate-gray dark:focus:ring-white"
         />
       </Ariakit.ComboboxProvider>
     </div>

@@ -37,8 +37,10 @@ export default {
         xs: '2px',
       },
       backgroundColor: {
-        'glass-light': 'rgba(255, 255, 255, 0.7)',
-        'glass-dark': 'rgba(40, 40, 40, 0.75)',
+        'glass-light': 'rgba(255, 255, 255, 0.5)',
+        'glass-dark': 'rgba(40, 40, 40, 0.  )',
+        'glass-cosmic-latte': 'rgba(255, 247, 236, 0.5)',
+        'glass-cosmic-latte-dark': 'rgba(255, 247, 236, 0.2)',
       },
     },
   },

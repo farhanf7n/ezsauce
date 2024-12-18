@@ -9,7 +9,7 @@ export default function Card({ item }) {
 
   return (
     <div
-      className="bg-[#EFEFEF] dark:bg-[#1F1F1F] border border-1 border-medium-gray rounded-[8px] shadow-drop hover:shadow-lg dark:hover:shadow-drop-dark transition-shadow duration-300 hover:cursor-pointer animate-card"
+      className="bg-cosmic-latte dark:bg-[#1F1F1F] border border-1 border-medium-gray rounded-[8px] shadow-drop hover:shadow-lg dark:hover:shadow-drop-dark transition-shadow duration-300 hover:cursor-pointer animate-card"
       onClick={() => handleCardClick(item.link)}
     >
       <div className="p-[24px]">

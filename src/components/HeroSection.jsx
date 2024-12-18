@@ -1,47 +1,64 @@
-import guyUsingLaptop from '/assets/guy-using-laptop.svg';
+'use client';
+import { BackgroundLines } from './ui/background-lines';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
+
 export default function HeroSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const textVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+      filter: 'blur(8px)',
+    },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      transition: {
+        delay: i * 0.6,
+        duration: 0.6,
+        ease: [0.32, 0.72, 0, 1],
+        filter: {
+          duration: 0.8,
+          ease: [0.32, 0.72, 0, 1],
+        },
+      },
+    }),
+  };
+
   return (
     <div className="hero-container w-full pt-[90px] lg:w-[1160px] mx-auto flex items-center justify-between relative px-5">
-      <div>
-        <p className="hero-heading dark:text-white font-ClashDisplayMedium relative text-4xl lg:text-[98px] leading-none lg:leading-[98px] flex flex-col">
-          <span className="font-ClashDisplayMedium">
-            The{' '}
-            <span className="relative font-ClashDisplayMedium before:block before:absolute before:bg-[#FFC70F] before:h-[10px] lg:before:h-[16px] before:w-full before:bottom-[8px] before:right-0 before:z-[-1]">
-              one-stop
-            </span>
-            shop
-          </span>
-          <span className="font-ClashDisplayMedium">
-            with{' '}
-            <span className="relative text-white font-ClashDisplayMedium before:block before:absolute before:bg-[#000000] before:h-[10px] lg:before:h-[85px] before:w-full before:bottom-[8px] before:right-0 before:z-[-1]">
-              everything
-            </span>
-          </span>
-
-          <span>
-            <span className="relative font-ClashDisplayMedium before:block before:absolute before:bg-[#FFC70F] before:h-[10px] md:before:h-[16px] before:w-full before:bottom-[8px] before:right-0 before:z-[-1]">
-              you
-            </span>{' '}
-            <span className="text-white relative font-ClashDisplayMedium before:block before:absolute before:bg-[#000000] before:h-[10px] lg:before:h-[85px] before:w-full before:bottom-[8px] before:right-0 before:z-[-1]">
-              need
-            </span>
-          </span>
-        </p>
+      <div ref={ref}>
+        <BackgroundLines>
+          <motion.p
+            variants={textVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            custom={0}
+            className="hero-heading text-[#161616] text-[44px] leading-[48px] md:text-[80px] md:leading-[88px] sm:text-[56px] sm:leading-[62px] tracking-[-.03em] text-center dark:text-white font-ClashDisplayBold font-semibold relative"
+          >
+            The one-stop shop with everything you need
+          </motion.p>
+        </BackgroundLines>
 
         <div>
-          <p className="text-[20px] leading-[30px] flex flex-col pt-[20px] dark:text-white">
-            <span>Explore selected and chosen items that will improve</span>
-            <span>your productivity and help you grow as a developer</span>
-            <span>and designer.</span>
-          </p>
+          <motion.p
+            variants={textVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            custom={1}
+            className="text-[20px] text-center leading-[30px] flex flex-col pt-[20px] dark:text-white"
+          >
+            Explore selected and chosen items that will improve{' '}
+            <br className="hidden lg:block" /> your productivity and help you
+            grow <br className="hidden lg:block" /> as a developer and designer.
+          </motion.p>
         </div>
       </div>
-
-      <img
-        className="absolute right-[-94px] bottom-[-55px] hidden xl:block z-[-2]"
-        src={guyUsingLaptop}
-        alt=""
-      />
     </div>
   );
 }

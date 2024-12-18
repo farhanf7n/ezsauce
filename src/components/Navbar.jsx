@@ -1,8 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import sunIcon from '/assets/sun.svg';
 import moonStarsIcon from '/assets/moonStars.svg';
 
 export default function Navbar() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const navVariants = {
+    hidden: {
+      opacity: 0,
+      filter: 'blur(8px)',
+    },
+    visible: (i) => ({
+      opacity: 1,
+      filter: 'blur(0px)',
+      transition: {
+        delay: i * 0.6,
+        duration: 0.6,
+        ease: [0.32, 0.72, 0, 1],
+        filter: {
+          duration: 0.8,
+          ease: [0.32, 0.72, 0, 1],
+        },
+      },
+    }),
+  };
+
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -49,8 +73,15 @@ export default function Navbar() {
   };
 
   return isScrolled ? (
-    <div className="w-full lg:w-[720px] mt-2 fixed top-2 left-1/2 -translate-x-1/2 -translate-y-0 opacity-100 z-[9999] transition-all duration-300 origin-top animate-slideDown">
-      <div className="relative px-4 py-2 bg-[#efefef]/70 dark:bg-[rgba(40,40,40,0.75)] backdrop-blur-md border border-white/20 dark:border-white/10 rounded-[8px] shadow-lg">
+    <motion.div
+      ref={ref}
+      variants={navVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+      custom={0}
+      className="w-full lg:w-[720px] mt-2 fixed top-2 left-1/2 -translate-x-1/2 -translate-y-0 opacity-100 z-[9999] transition-all duration-300 origin-top animate-slideDown"
+    >
+      <div className="relative px-4 py-2 bg-glass-cosmic-latte dark:bg-[rgba(40,40,40,0.75)] backdrop-blur-md border border-white/20 dark:border-white/10 rounded-[8px] shadow-lg">
         <div className="flex items-center justify-between">
           <div className="relative">
             <div className="relative p-2">
@@ -94,7 +125,7 @@ export default function Navbar() {
                 alt={
                   isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'
                 }
-                className="w-6 h-6"
+                className="w-5 h-5"
               />
             </button>
 
@@ -138,9 +169,16 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   ) : (
-    <div className="w-full lg:w-[1160px] mx-auto flex items-center justify-between p-5 transition-all duration-300">
+    <motion.div
+      ref={ref}
+      variants={navVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+      custom={0}
+      className="w-full lg:w-[1160px] mx-auto flex items-center justify-between p-5 transition-all duration-300"
+    >
       <div className="relative">
         <div className="relative p-2">
           <svg
@@ -223,6 +261,6 @@ export default function Navbar() {
           </svg>
         </a>
       </div>
-    </div>
+    </motion.div>
   );
 }
