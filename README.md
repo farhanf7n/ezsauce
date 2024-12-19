@@ -14,8 +14,11 @@
 Explore selected and chosen items that will improve your productivity and help you grow as a developer and designer.
 
 <br>
-<img src="https://i.imgur.com/tZjFU2S.png" alt="Project diagram/screenshot">
-
+<p style="display: flex; gap: 12px; justify-content: center;">
+  <img src="https://i.imgur.com/Z8teOpy.png" alt="Project diagram/screenshot" style="max-width: 48%;">
+  <img src="https://i.imgur.com/SbQ9Kyw.png" alt="Project diagram/screenshot" style="max-width: 48%;">
+</p>
+<br>
 ### Current Features
 
 - [x] 🎯 Curated Resources for Developers & Designers
