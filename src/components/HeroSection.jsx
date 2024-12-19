@@ -80,7 +80,11 @@ export default function HeroSection() {
               custom={1}
               className="hero-heading text-[#161616] text-[44px] leading-[48px] md:text-[80px] md:leading-[88px] sm:text-[56px] sm:leading-[62px] tracking-[-.02em] text-center dark:text-white font-ClashDisplayBold font-semibold relative"
             >
-              The one-stop shop with everything you need
+              The{' '}
+              <span className="text-[#ffc70f] px-3 font-ClashDisplayBold font-semibold relative">
+                one-stop 🚧
+              </span>{' '}
+              shop with everything you need 🚀
             </motion.p>
           </BackgroundLines>
 
@@ -113,7 +117,7 @@ export default function HeroSection() {
           >
             <motion.img
               src="/assets/bulbicon.png"
-              className="absolute left-0 bottom-24 hidden lg:block"
+              className="absolute -left-16 bottom-24 hidden lg:block"
               alt=""
               animate={{
                 x: [0, 8, 0, -8, 0],
@@ -134,7 +138,7 @@ export default function HeroSection() {
           >
             <motion.img
               src="/assets/labIcon.png"
-              className="absolute -right-8 bottom-64 hidden lg:block"
+              className="absolute -right-16 bottom-64 hidden lg:block"
               alt=""
               animate={{
                 x: [0, 8, 0, -8, 0],

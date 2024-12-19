@@ -133,6 +133,24 @@ body {
   scroll-behavior: smooth;
 }
 
+:root {
+  --cursor-color: #000000;
+}
+
+.dark {
+  --cursor-color: #ffc70f;
+}
+
+::selection {
+  background: #ffc70f;
+  color: black;
+}
+
+::-moz-selection {
+  background: #ffc70f;
+  color: black;
+}
+
 .shadow-drop:hover {
   filter: drop-shadow(5px 5px 0 #00000044);
   transition-property: all;
