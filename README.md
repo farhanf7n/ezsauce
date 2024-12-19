@@ -15,14 +15,10 @@ Explore selected and chosen items that will improve your productivity and help y
 
 <br>
 <p style="display: flex; gap: 20px; justify-content: center;">
-  <div style="text-align: center;">
-    <h3>Light Mode</h3>
+    <h3 align="center">Light Mode</h3>
     <img src="https://i.imgur.com/Z8teOpy.png" alt="Project diagram/screenshot" style="max-width: 48%;">
-  </div>
-  <div style="text-align: center;">
-    <h3>Dark Mode</h3>
+    <h3 align="center">Dark Mode</h3>
     <img src="https://i.imgur.com/SbQ9Kyw.png" alt="Project diagram/screenshot" style="max-width: 48%;">
-  </div>
 </p>
 <br>
 ### Current Features
