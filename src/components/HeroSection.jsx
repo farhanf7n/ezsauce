@@ -113,7 +113,7 @@ export default function HeroSection() {
           >
             <motion.img
               src="/assets/bulbicon.png"
-              className="absolute left-0 bottom-24"
+              className="absolute left-0 bottom-24 hidden lg:block"
               alt=""
               animate={{
                 x: [0, 8, 0, -8, 0],
@@ -134,7 +134,7 @@ export default function HeroSection() {
           >
             <motion.img
               src="/assets/labIcon.png"
-              className="absolute -right-8 bottom-64"
+              className="absolute -right-8 bottom-64 hidden lg:block"
               alt=""
               animate={{
                 x: [0, 8, 0, -8, 0],
