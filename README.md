@@ -21,7 +21,7 @@ Explore selected and chosen items that will improve your productivity and help y
     <img src="https://i.imgur.com/SbQ9Kyw.png" alt="Project diagram/screenshot" style="max-width: 48%;">
 </p>
 <br>
-### Current Features
+## Current Features
 
 - [x] 🎯 Curated Resources for Developers & Designers
 - [x] 🌓 Dark/Light Mode Support
