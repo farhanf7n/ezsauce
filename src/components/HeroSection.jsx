@@ -144,7 +144,7 @@ export default function HeroSection() {
           >
             <motion.img
               src="/assets/labIcon.png"
-              className="absolute -right-16 bottom-64 hidden lg:block"
+              className="absolute -right-32 bottom-72 hidden lg:block"
               alt=""
               animate={{
                 x: [0, 8, 0, -8, 0],
