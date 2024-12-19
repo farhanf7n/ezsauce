@@ -88,13 +88,13 @@ export default function HeroSection() {
             </motion.p>
           </BackgroundLines>
 
-          <div>
+          <div className="flex flex-col items-center justify-center">
             <motion.p
               variants={textVariants}
               initial="hidden"
               animate={isInView ? 'visible' : 'hidden'}
               custom={2}
-              className="text-xl text-center leading-[30px] flex flex-col pt-5 dark:text-white"
+              className="text-xl text-center leading-[30px] pt-5 dark:text-white"
               whileInView={{
                 transition: {
                   duration: 2,
@@ -107,6 +107,12 @@ export default function HeroSection() {
               grow <br className="hidden lg:block" /> as a developer and
               designer.
             </motion.p>
+
+            <img
+              className="w-[5em]"
+              src="https://i.giphy.com/eNMFnkhf7qEtGaOGEg.webp"
+              alt=""
+            />
           </div>
 
           <motion.div

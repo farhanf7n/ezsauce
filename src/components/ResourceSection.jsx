@@ -73,7 +73,7 @@ export default function ResourceSection() {
   });
 
   return (
-    <div className="w-full px-5 pt-[90px] mx-auto max-w-[1160px]">
+    <div className="w-full px-5 pt-4 mx-auto max-w-[1160px]">
       <TabLinks
         onCategorySelect={handleCategorySelect}
         selectedCategory={selectedCategory}
