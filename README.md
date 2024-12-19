@@ -14,9 +14,15 @@
 Explore selected and chosen items that will improve your productivity and help you grow as a developer and designer.
 
 <br>
-<p style="display: flex; gap: 12px; justify-content: center;">
-  <img src="https://i.imgur.com/Z8teOpy.png" alt="Project diagram/screenshot" style="max-width: 48%;">
-  <img src="https://i.imgur.com/SbQ9Kyw.png" alt="Project diagram/screenshot" style="max-width: 48%;">
+<p style="display: flex; gap: 20px; justify-content: center;">
+  <div style="text-align: center;">
+    <h3>Light Mode</h3>
+    <img src="https://i.imgur.com/Z8teOpy.png" alt="Project diagram/screenshot" style="max-width: 48%;">
+  </div>
+  <div style="text-align: center;">
+    <h3>Dark Mode</h3>
+    <img src="https://i.imgur.com/SbQ9Kyw.png" alt="Project diagram/screenshot" style="max-width: 48%;">
+  </div>
 </p>
 <br>
 ### Current Features
