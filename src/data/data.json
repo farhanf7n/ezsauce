@@ -105,6 +105,13 @@
     "img": "/assets/uiverseio.png"
   },
   {
+    "name": "UIBall",
+    "category": "Design Stuff",
+    "tags": ["Code ready", "Loaders"],
+    "link": "https://uiball.com/",
+    "img": "/assets/uiball.png"
+  },
+  {
     "name": "Produce-UI",
     "category": "Design Stuff",
     "tags": ["Figma", "Ready", "Components"],
@@ -215,6 +222,13 @@
     "tags": ["Vector", "Icons", "illustrations"],
     "link": "https://iconscout.com/",
     "img": "/assets/iconscout.png"
+  },
+  {
+    "name": "3dicons",
+    "category": "Design Stuff",
+    "tags": ["Icons", "3d"],
+    "link": "https://3dicons.co/",
+    "img": "/assets/3dicons.png"
   },
   {
     "name": "Blush Design",
