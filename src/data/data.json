@@ -273,6 +273,14 @@
     "img": "/assets/landingfolio.png"
   },
   {
+    "name": "Sprrrint",
+    "category": "Design Stuff",
+    "tags": ["Figma", "Ready", "Components"],
+    "link": "https://www.sprrrint.com/",
+    "img": "/assets/sprrrint.png",
+    "newTag": true
+  },
+  {
     "name": "FigComponents",
     "category": "Design Stuff",
     "tags": ["Figma", "Ready", "Components"],
