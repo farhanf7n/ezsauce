@@ -4,6 +4,9 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      fontSize: {
+        '2xs': '0.625rem',
+      },
       colors: {
         'cosmic-latte': '#fff7ec',
         'slate-gray': '#B1B1B1',
