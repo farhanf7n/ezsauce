@@ -325,6 +325,14 @@
     "img": "/assets/halolab.png"
   },
   {
+    "name": "Layer.to",
+    "category": "Inspiration",
+    "tags": ["Nice Designs"],
+    "link": "https://layers.to/",
+    "img": "/assets/layersto.png",
+    "newTag": true
+  },
+  {
     "name": "Jordan Hughes",
     "category": "Inspiration",
     "tags": ["UntitledUI"],
