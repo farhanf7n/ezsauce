@@ -1,8 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Tag from './Tag';
 
 export default function Card({ item }) {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      {
+        rootMargin: '100px',
+      },
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const handleCardClick = (link) => {
     window.open(link, '_blank', 'noopener,noreferrer');
@@ -10,6 +34,7 @@ export default function Card({ item }) {
 
   return (
     <div
+      ref={cardRef}
       className="bg-cosmic-latte dark:bg-[#1F1F1F] border border-1 border-medium-gray rounded-[8px] shadow-drop hover:shadow-lg hover:border-dashed dark:hover:border-[#FFC70F] dark:hover:shadow-drop-dark transition-shadow duration-300 hover:cursor-pointer animate-card"
       onClick={() => handleCardClick(item.link)}
     >
@@ -21,18 +46,20 @@ export default function Card({ item }) {
                 New
               </div>
             )}
-            {!imageLoaded && (
+            {(!imageLoaded || !shouldLoad) && (
               <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded-lg animate-pulse" />
             )}
-            <img
-              className={`object-cover rounded-lg w-full h-full transition-opacity duration-300 ${
-                imageLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
-              src={item.img}
-              alt={item.name}
-              loading="lazy"
-              onLoad={() => setImageLoaded(true)}
-            />
+            {shouldLoad && (
+              <img
+                className={`object-cover rounded-lg w-full h-full transition-opacity duration-300 ${
+                  imageLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
+                src={item.img}
+                alt={item.name}
+                loading="lazy"
+                onLoad={() => setImageLoaded(true)}
+              />
+            )}
           </div>
           <div className="flex gap-[8px]">
             {item.tags.map((tag, index) => (
