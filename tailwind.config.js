@@ -45,6 +45,9 @@ export default {
         'glass-cosmic-latte': 'rgba(255, 247, 236, 0.5)',
         'glass-cosmic-latte-dark': 'rgba(255, 247, 236, 0.2)',
       },
+      zIndex: {
+        10: '10',
+      },
     },
   },
   plugins: [],

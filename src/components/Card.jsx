@@ -6,6 +6,8 @@ export default function Card({ item }) {
   const [shouldLoad, setShouldLoad] = useState(false);
   const cardRef = useRef(null);
 
+  const formattedUrl = item.link.replace(/^@?https?:\/\/(www\.)?/, '');
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -35,9 +37,16 @@ export default function Card({ item }) {
   return (
     <div
       ref={cardRef}
-      className="bg-cosmic-latte dark:bg-[#1F1F1F] border border-1 border-medium-gray rounded-[8px] shadow-drop hover:shadow-lg hover:border-dashed dark:hover:border-[#FFC70F] dark:hover:shadow-drop-dark transition-shadow duration-300 hover:cursor-pointer animate-card"
+      className="group relative bg-cosmic-latte dark:bg-[#1F1F1F] border border-1 border-medium-gray rounded-[8px] hover:border-dashed dark:hover:border-[#FFC70F] dark:hover:shadow-drop-dark transition-shadow duration-300 hover:cursor-pointer animate-card"
       onClick={() => handleCardClick(item.link)}
     >
+      <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+        <div className="bg-black dark:bg-[#FFC70F] text-white dark:text-black px-4 py-2 rounded-md text-sm whitespace-nowrap">
+          {formattedUrl}
+          <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-black dark:bg-[#FFC70F] rotate-45"></div>
+        </div>
+      </div>
+
       <div className="relative">
         <div className="p-[24px]">
           <div className="w-full h-[135px] mb-[20px] relative">
