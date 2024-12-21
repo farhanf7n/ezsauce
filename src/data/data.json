@@ -295,6 +295,22 @@
     "img": "/assets/hemingwayapp.png"
   },
   {
+    "name": "Resumeup",
+    "category": "AI",
+    "tags": ["Resume Builder", "AI"],
+    "link": "https://resumeup.ai/",
+    "img": "/assets/resumeup.png",
+    "newTag": true
+  },
+  {
+    "name": "Quillbot",
+    "category": "AI",
+    "tags": ["Writing", "AI"],
+    "link": "https://quillbot.com/",
+    "img": "/assets/quillbot.png",
+    "newTag": true
+  },
+  {
     "name": "Save Tube",
     "category": "Good Stuff",
     "tags": ["YT Downloader"],

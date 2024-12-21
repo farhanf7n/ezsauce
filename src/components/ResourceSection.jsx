@@ -12,17 +12,15 @@ export default function ResourceSection() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // Simulate data loading
     setIsLoading(true);
     const loadData = async () => {
-      // Preload images
       await Promise.all(
         dataLinks.map((item) => {
           return new Promise((resolve) => {
             const img = new Image();
             img.src = item.img;
             img.onload = resolve;
-            img.onerror = resolve; // Handle error cases too
+            img.onerror = resolve;
           });
         }),
       );
@@ -35,42 +33,42 @@ export default function ResourceSection() {
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
-    setSearchQuery(''); // Clear search when category changes
+    setSearchQuery('');
   };
 
   const handleSearch = (query) => {
     setSearchQuery(query);
-    setSelectedCategory('All'); // Reset category when searching
+    setSelectedCategory('All');
   };
 
-  const filteredData = dataLinks.filter((item) => {
-    // If no search query and category is All, show everything
-    if (!searchQuery && selectedCategory === 'All') {
-      return true;
-    }
+  const filteredData = dataLinks
+    .filter((item) => {
+      if (!searchQuery && selectedCategory === 'All') {
+        return true;
+      }
 
-    const searchTerm = searchQuery.toString().toLowerCase().trim();
+      const searchTerm = searchQuery.toString().toLowerCase().trim();
 
-    // Check if matches category filter
-    const matchesCategory =
-      selectedCategory === 'All' || item.category === selectedCategory;
+      const matchesCategory =
+        selectedCategory === 'All' || item.category === selectedCategory;
 
-    // Check if matches search query
-    const matchesSearch = !searchTerm
-      ? true
-      : // Search in tags
-        item.tags.some((tag) =>
-          tag.toString().toLowerCase().includes(searchTerm),
-        ) ||
-        // Search in name
-        item.name.toString().toLowerCase().includes(searchTerm) ||
-        // Search in category
-        item.category.toString().toLowerCase().includes(searchTerm) ||
-        // Search in description if it exists
-        item.description?.toString().toLowerCase().includes(searchTerm);
+      const matchesSearch = !searchTerm
+        ? true
+        : item.tags.some((tag) =>
+            tag.toString().toLowerCase().includes(searchTerm),
+          ) ||
+          item.name.toString().toLowerCase().includes(searchTerm) ||
+          item.category.toString().toLowerCase().includes(searchTerm) ||
+          item.description?.toString().toLowerCase().includes(searchTerm);
 
-    return matchesCategory && matchesSearch;
-  });
+      return matchesCategory && matchesSearch;
+    })
+    .sort((a, b) => {
+      if (a.newTag && !b.newTag) return -1;
+      if (!a.newTag && b.newTag) return 1;
+
+      return a.name.localeCompare(b.name);
+    });
 
   return (
     <div className="w-full px-5 pt-4 mx-auto max-w-[1160px]">
