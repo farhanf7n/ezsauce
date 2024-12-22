@@ -105,6 +105,14 @@
     "img": "/assets/uiverseio.png"
   },
   {
+    "name": "SyntaxUI",
+    "category": "Design Stuff",
+    "tags": ["Code Ready", "Components"],
+    "link": "https://syntaxui.com/",
+    "img": "/assets/syntaxui.png",
+    "newTag": true
+  },
+  {
     "name": "UIBall",
     "category": "Design Stuff",
     "tags": ["Code ready", "Loaders"],
