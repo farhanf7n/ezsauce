@@ -217,6 +217,37 @@
     "img": "/assets/svgrepo.png"
   },
   {
+    "name": "ShapesFramer",
+    "category": "Design Stuff",
+    "tags": ["Shapes", "SVG"],
+    "link": "https://shapes.framer.website/",
+    "img": "/assets/shapesFramer.png"
+  },
+  {
+    "name": "Avatartion",
+    "category": "Design Stuff",
+    "tags": ["Face", "Vector"],
+    "link": "https://www.avatartion.com/",
+    "img": "/assets/avatartion.png",
+    "newTag": true
+  },
+  {
+    "name": "DesignGradients",
+    "category": "Design Stuff",
+    "tags": ["Linear Gradients"],
+    "link": "https://www.designgradients.com/",
+    "img": "/assets/designGradients.png",
+    "newTag": true
+  },
+  {
+    "name": "LottieFiles",
+    "category": "Design Stuff",
+    "tags": ["Gif", "MP4"],
+    "link": "https://lottiefiles.com/",
+    "img": "/assets/lottiefiles.png",
+    "newTag": true
+  },
+  {
     "name": "Icon Scout",
     "category": "Design Stuff",
     "tags": ["Vector", "Icons", "illustrations"],
@@ -330,6 +361,14 @@
     "tags": ["Nice Designs"],
     "link": "https://layers.to/",
     "img": "/assets/layersto.png",
+    "newTag": true
+  },
+  {
+    "name": "CallToInspiration",
+    "category": "Inspiration",
+    "tags": ["Nice Designs"],
+    "link": "https://calltoinspiration.com/",
+    "img": "/assets/calltoinspiration.png",
     "newTag": true
   },
   {
@@ -450,6 +489,29 @@
     "tags": ["Icons", "SVGs"],
     "link": "https://simpleicons.org/",
     "img": "/assets/simpleicons.png"
+  },
+  {
+    "name": "SVGL",
+    "category": "Design Stuff",
+    "tags": ["Icons", "SVGs"],
+    "link": "https://svgl.app/",
+    "img": "/assets/scgl.png"
+  },
+  {
+    "name": "flectofy.flecto",
+    "category": "Design Stuff",
+    "tags": ["SVGs"],
+    "link": "https://flectofy.flecto.io/",
+    "img": "/assets/flectofyflecto.png",
+    "newTag": true
+  },
+  {
+    "name": "TheNounProject",
+    "category": "Design Stuff",
+    "tags": ["Icons", "SVGs"],
+    "link": "https://thenounproject.com/",
+    "img": "/assets/thenounproject.png",
+    "newTag": true
   },
   {
     "name": "CSS Clip Path",
