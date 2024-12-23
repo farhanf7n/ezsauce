@@ -148,6 +148,14 @@
     "img": "/assets/lucidedev.png"
   },
   {
+    "name": "TechIcon",
+    "category": "Design Stuff",
+    "tags": ["Icons", "SVG"],
+    "link": "https://techicons.dev/",
+    "img": "/assets/techIcons.png",
+    "newTag": true
+  },
+  {
     "name": "HugeIcons",
     "category": "Design Stuff",
     "tags": ["Icons"],
