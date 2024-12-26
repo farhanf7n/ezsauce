@@ -1,5 +1,4 @@
 'use client';
-import { BackgroundLines } from './ui/background-lines';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -72,22 +71,19 @@ export default function HeroSection() {
               5,652 Monthly Users
             </span>
           </motion.div>
-          <BackgroundLines>
-            <motion.p
-              variants={textVariants}
-              initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
-              custom={1}
-              className="hero-heading text-[#161616] text-[44px] leading-[48px] md:text-[80px] md:leading-[88px] sm:text-[56px] sm:leading-[62px] tracking-[-.02em] text-center dark:text-white font-ClashDisplayBold font-semibold relative"
-            >
-              The{' '}
-              <span className="text-[#ffc70f] px-3 font-ClashDisplayBold font-semibold relative">
-                one-stop 🚧
-              </span>{' '}
-              shop with everything you need 🚀
-            </motion.p>
-          </BackgroundLines>
-
+          <motion.p
+            variants={textVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            custom={1}
+            className="hero-heading text-[#161616] text-[44px] leading-[48px] md:text-[80px] md:leading-[88px] sm:text-[56px] sm:leading-[62px] tracking-[-.02em] text-center dark:text-white font-ClashDisplayBold font-semibold relative"
+          >
+            The{' '}
+            <span className="text-[#ffc70f] px-3 font-ClashDisplayBold font-semibold relative">
+              one-stop 🚧
+            </span>{' '}
+            shop with everything you need 🚀
+          </motion.p>
           <div className="flex flex-col items-center justify-center">
             <motion.p
               variants={textVariants}
@@ -117,6 +113,7 @@ export default function HeroSection() {
 
           <motion.div
             variants={textVariants}
+            className="hidden xl:block"
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
             custom={3}
@@ -138,6 +135,7 @@ export default function HeroSection() {
 
           <motion.div
             variants={textVariants}
+            className="hidden xl:block"
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
             custom={4}

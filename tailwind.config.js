@@ -48,6 +48,9 @@ export default {
       zIndex: {
         10: '10',
       },
+      screens: {
+        xs: '480px',
+      },
     },
   },
   plugins: [],
