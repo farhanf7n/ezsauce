@@ -113,6 +113,14 @@
     "newTag": true
   },
   {
+    "name": "Motion-Primitives",
+    "category": "Design Stuff",
+    "tags": ["Code Ready", "Components", "Animations"],
+    "link": "https://motion-primitives.com/",
+    "img": "/assets/motionPrimitives.png",
+    "newTag": true
+  },
+  {
     "name": "UIBall",
     "category": "Design Stuff",
     "tags": ["Code ready", "Loaders"],
