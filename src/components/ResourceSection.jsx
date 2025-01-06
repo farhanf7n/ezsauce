@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import TabLinks from './TabLinks';
 import Card from './Card';
@@ -8,28 +8,7 @@ import dataLinks from '../data/data.json';
 export default function ResourceSection() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    setIsLoading(true);
-    const loadData = async () => {
-      await Promise.all(
-        dataLinks.map((item) => {
-          return new Promise((resolve) => {
-            const img = new Image();
-            img.src = item.img;
-            img.onload = resolve;
-            img.onerror = resolve;
-          });
-        }),
-      );
-      setData(dataLinks);
-      setIsLoading(false);
-    };
-
-    loadData();
-  }, []);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
@@ -41,32 +20,28 @@ export default function ResourceSection() {
     setSelectedCategory('All');
   };
 
+  // Filter and sort data
   const filteredData = dataLinks
     .filter((item) => {
       if (!searchQuery && selectedCategory === 'All') {
         return true;
       }
 
-      const searchTerm = searchQuery.toString().toLowerCase().trim();
-
+      const searchTerm = searchQuery.toLowerCase().trim();
       const matchesCategory =
         selectedCategory === 'All' || item.category === selectedCategory;
-
       const matchesSearch = !searchTerm
         ? true
-        : item.tags.some((tag) =>
-            tag.toString().toLowerCase().includes(searchTerm),
-          ) ||
-          item.name.toString().toLowerCase().includes(searchTerm) ||
-          item.category.toString().toLowerCase().includes(searchTerm) ||
-          item.description?.toString().toLowerCase().includes(searchTerm);
+        : item.tags.some((tag) => tag.toLowerCase().includes(searchTerm)) ||
+          item.name.toLowerCase().includes(searchTerm) ||
+          item.category.toLowerCase().includes(searchTerm) ||
+          item.description?.toLowerCase().includes(searchTerm);
 
       return matchesCategory && matchesSearch;
     })
     .sort((a, b) => {
       if (a.newTag && !b.newTag) return -1;
       if (!a.newTag && b.newTag) return 1;
-
       return a.name.localeCompare(b.name);
     });
 
@@ -79,11 +54,10 @@ export default function ResourceSection() {
       />
       <motion.div
         layout
-        className="grid xs:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 pt-20 -mt-16 overflow-hidden"
+        className="flex flex-wrap gap-4 pt-20 -mt-16 overflow-hidden"
       >
         <AnimatePresence mode="popLayout">
           {isLoading ? (
-            // Show skeletons while loading
             [...Array(8)].map((_, index) => (
               <motion.div
                 key={`skeleton-${index}`}
@@ -91,6 +65,7 @@ export default function ResourceSection() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
+                className="w-full xs:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] xl:w-[calc(25%-12px)] 2xl:w-[calc(20%-13px)]"
               >
                 <Skeleton />
               </motion.div>
@@ -104,6 +79,7 @@ export default function ResourceSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.2 }}
+                className="w-full xs:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] xl:w-[calc(25%-12px)] 2xl:w-[calc(20%-13px)]"
               >
                 <Card item={item} />
               </motion.div>
@@ -112,7 +88,7 @@ export default function ResourceSection() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="col-span-full text-center py-8 text-gray-500"
+              className="w-full text-center py-8 text-gray-500"
             >
               No results found for "{searchQuery}"
             </motion.div>

@@ -46,63 +46,59 @@ export default function Card({ item }) {
           <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-black dark:bg-[#FFC70F] rotate-45"></div>
         </div>
       </div>
-
-      <div className="relative">
-        <div className="p-[24px]">
-          <div className="w-full h-[135px] mb-[20px] relative">
-            {item.newTag && (
-              <div className="absolute -top-[0.6125rem] left-0 -rotate-6 bg-slate-400 dark:bg-yellow-400 text-white dark:text-stone-950 rounded-full text-2xs font-bold uppercase tracking-wider px-2 py-0">
-                New
-              </div>
-            )}
-            {(!imageLoaded || !shouldLoad) && (
-              <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded-lg animate-pulse" />
-            )}
-            {shouldLoad && (
-              <img
-                className={`object-cover rounded-lg w-full h-full transition-opacity duration-300 ${
-                  imageLoaded ? 'opacity-100' : 'opacity-0'
-                }`}
-                src={item.img}
-                alt={item.name}
-                loading="lazy"
-                onLoad={() => setImageLoaded(true)}
-              />
-            )}
-          </div>
-          <div className="flex gap-[8px]">
-            {item.tags.map((tag, index) => (
-              <Tag className="line-clamp-1" key={index}>
-                {tag}
-              </Tag>
-            ))}
-          </div>
-          <div className="pt-[8px] flex justify-between items-center">
-            <span className="text-[20px] font-semibold leading-[30px] dark:text-white ">
-              {item.name}
-            </span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              className="text-black dark:text-white"
-              fill="none"
-            >
-              <path
-                d="M14.7731 9.22687L9 15M14.7731 9.22687C14.2678 8.72156 11.8846 9.21665 11.1649 9.22687M14.7731 9.22687C15.2784 9.73219 14.7834 12.1154 14.7731 12.8351"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              />
-            </svg>
-          </div>
+      <div className="p-[24px]">
+        <div className="relative w-full h-[135px] mb-[20px] bg-gray-100 dark:bg-gray-800 rounded-lg">
+          {item.newTag && (
+            <div className="absolute -top-[0.6125rem] left-0 -rotate-6 bg-slate-400 dark:bg-yellow-400 text-white dark:text-stone-950 rounded-full text-2xs font-bold uppercase tracking-wider px-2 py-0 z-10">
+              New
+            </div>
+          )}
+          {(!imageLoaded || !shouldLoad) && (
+            <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded-lg animate-pulse" />
+          )}
+          {shouldLoad && (
+            <img
+              src={item.img}
+              alt={item.name}
+              className={`object-cover w-full h-full transition-opacity duration-300 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              onLoad={() => setImageLoaded(true)}
+            />
+          )}
+        </div>
+        <div className="flex gap-[8px]">
+          {item.tags.map((tag, index) => (
+            <Tag className="line-clamp-1" key={index}>
+              {tag}
+            </Tag>
+          ))}
+        </div>
+        <div className="pt-[8px] flex justify-between items-center">
+          <span className="text-[20px] font-semibold leading-[30px] dark:text-white">
+            {item.name}
+          </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            className="text-black dark:text-white"
+            fill="none"
+          >
+            <path
+              d="M14.7731 9.22687L9 15M14.7731 9.22687C14.2678 8.72156 11.8846 9.21665 11.1649 9.22687M14.7731 9.22687C15.2784 9.73219 14.7834 12.1154 14.7731 12.8351"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            />
+          </svg>
         </div>
       </div>
     </div>
