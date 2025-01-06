@@ -56,7 +56,7 @@ export default function ResourceSection() {
   const hasMore = filteredData.length > visibleData.length;
 
   return (
-    <div className="container relative xl:max-w-screen-2xl mx-auto pt-4 px-4">
+    <div className="container relative xl:max-w-screen-xl mx-auto pt-4 px-4">
       <TabLinks
         onCategorySelect={handleCategorySelect}
         selectedCategory={selectedCategory}
@@ -89,7 +89,7 @@ export default function ResourceSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.2 }}
-                className="w-full xs:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] xl:w-[calc(25%-12px)] 2xl:w-[calc(20%-13px)]"
+                className="w-full xs:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] xl:w-[calc(25%-12px)] 2xl:w-[calc(25%-13px)]"
               >
                 <Card item={item} />
               </motion.div>
