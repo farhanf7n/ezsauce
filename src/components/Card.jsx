@@ -72,7 +72,9 @@ export default function Card({ item }) {
           </div>
           <div className="flex gap-[8px]">
             {item.tags.map((tag, index) => (
-              <Tag key={index}>{tag}</Tag>
+              <Tag className="line-clamp-1" key={index}>
+                {tag}
+              </Tag>
             ))}
           </div>
           <div className="pt-[8px] flex justify-between items-center">

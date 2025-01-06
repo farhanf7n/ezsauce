@@ -34,7 +34,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="w-full max-w-[720px] mt-5 mx-auto z-[9999] transition-all duration-300 origin-top">
+    <div className="w-full max-w-[720px] mt-5 px-5 sm:px-0 mx-auto z-[9999] transition-all duration-300 origin-top">
       <div className="relative px-4 py-2 bg-glass-cosmic-latte/95 dark:bg-[rgba(40,40,40,0.98)] border border-white/20 dark:border-white/10 rounded-[8px] shadow-lg">
         <div className="flex items-center justify-between">
           <div className="relative">
