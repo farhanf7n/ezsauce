@@ -114,7 +114,7 @@ export default function ResourceSection() {
         >
           <button
             onClick={handleLoadMore}
-            className="flex items-center gap-2 px-6 py-3 bg-cosmic-latte dark:bg-[#1F1F1F] text-black dark:text-white rounded-lg border border-medium-gray hover:border-dashed dark:hover:border-[#FFC70F] transition-all duration-300"
+            className="flex items-center gap-2 px-6 py-3 bg-cosmic-latte hover:bg-[#FFC70F] dark:bg-[#1F1F1F] text-black dark:text-white rounded-lg border font-medium border-medium-gray hover:border-dashed dark:hover:border-[#FFC70F] transition-all duration-300 cursor-pointer"
           >
             Load More
             <svg

@@ -133,14 +133,6 @@ body {
   scroll-behavior: smooth;
 }
 
-:root {
-  --cursor-color: #000000;
-}
-
-.dark {
-  --cursor-color: #ffc70f;
-}
-
 ::selection {
   background: #ffc70f;
   color: black;
@@ -177,4 +169,15 @@ a:hover > svg.moonSvg * {
 
 :is(.dark .allBtn)::before {
   background-image: url('/assets/arrowShapeDark.png');
+}
+
+.bg-lines {
+  background-image: linear-gradient(to top, #fff7ec, transparent),
+    url('/assets/bglines.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+.dark .bg-lines {
+  background-image: linear-gradient(to top, #18181b, transparent),
+    url('/assets/bglines.png');
 }

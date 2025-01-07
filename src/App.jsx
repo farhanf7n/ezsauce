@@ -9,8 +9,10 @@ import './App.css';
 function App() {
   return (
     <>
-      <Navbar />
-      <HeroSection />
+      <div className="bg-lines">
+        <Navbar />
+        <HeroSection />
+      </div>
       <ResourceSection />
       <BigHeading />
       <Footer />

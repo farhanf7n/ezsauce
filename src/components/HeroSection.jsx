@@ -31,7 +31,7 @@ export default function HeroSection() {
 
   return (
     <div>
-      <div className="hero-container w-full pt-24 pb-8 max-w-[1160px] mx-auto flex items-center justify-between relative px-5">
+      <div className="hero-container w-full py-24 max-w-[1160px] mx-auto flex items-center justify-between relative px-5">
         <div ref={ref}>
           <motion.div
             variants={textVariants}
@@ -103,12 +103,6 @@ export default function HeroSection() {
               grow <br className="hidden lg:block" /> as a developer and
               designer.
             </motion.p>
-
-            <img
-              className="w-[5em]"
-              src="https://i.giphy.com/eNMFnkhf7qEtGaOGEg.webp"
-              alt=""
-            />
           </div>
 
           <motion.div
