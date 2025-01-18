@@ -14,6 +14,22 @@
     "img": "/assets/roadmap.png"
   },
   {
+    "name": "Pqoqubbw",
+    "category": "Recommended",
+    "tags": ["icons", "animated"],
+    "link": "https://icons.pqoqubbw.dev/",
+    "img": "/assets/pqoqubbw.png",
+    "newTag": true
+  },
+  {
+    "name": "21st.dev",
+    "category": "Recommended",
+    "tags": ["icons", "animated"],
+    "link": "https://21st.dev/",
+    "img": "/assets/21stdev.png",
+    "newTag": true
+  },
+  {
     "name": "React JS Playlist",
     "category": "Tuts",
     "tags": ["Intermediate"],
