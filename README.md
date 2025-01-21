@@ -13,9 +13,6 @@
 </p>
 <p align="center">Explore selected and chosen items that will improve your productivity and help you grow as a developer and designer.</p>
 
-<br>
-<br>
-
 <div align="center">
   <table>
     <tr>
