@@ -76,7 +76,7 @@ export default function HeroSection() {
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
             custom={1}
-            className="hero-heading text-[#161616] text-[44px] leading-[48px] md:text-[80px] md:leading-[88px] sm:text-[56px] sm:leading-[62px] tracking-[-.02em] text-center dark:text-white font-ClashDisplayBold font-semibold relative"
+            className="hero-heading text-mask text-[#161616] text-[44px] leading-[48px] md:text-[80px] md:leading-[88px] sm:text-[56px] sm:leading-[62px] tracking-[-.02em] text-center dark:text-white font-ClashDisplayBold font-semibold relative"
           >
             The{' '}
             <span className="text-[#ffc70f] px-3 font-ClashDisplayBold font-semibold relative">

@@ -18,16 +18,14 @@
     "category": "Recommended",
     "tags": ["icons", "animated"],
     "link": "https://icons.pqoqubbw.dev/",
-    "img": "/assets/pqoqubbw.png",
-    "newTag": true
+    "img": "/assets/pqoqubbw.png"
   },
   {
     "name": "21st.dev",
     "category": "Recommended",
     "tags": ["icons", "animated"],
     "link": "https://21st.dev/",
-    "img": "/assets/21stdev.png",
-    "newTag": true
+    "img": "/assets/21stdev.png"
   },
   {
     "name": "React JS Playlist",
@@ -125,16 +123,14 @@
     "category": "Design Stuff",
     "tags": ["Code Ready", "Components"],
     "link": "https://syntaxui.com/",
-    "img": "/assets/syntaxui.png",
-    "newTag": true
+    "img": "/assets/syntaxui.png"
   },
   {
     "name": "Motion-Primitives",
     "category": "Design Stuff",
     "tags": ["Code Ready", "Components", "Animations"],
     "link": "https://motion-primitives.com/",
-    "img": "/assets/motionPrimitives.png",
-    "newTag": true
+    "img": "/assets/motionPrimitives.png"
   },
   {
     "name": "UIBall",
@@ -176,8 +172,7 @@
     "category": "Design Stuff",
     "tags": ["Icons", "SVG"],
     "link": "https://techicons.dev/",
-    "img": "/assets/techIcons.png",
-    "newTag": true
+    "img": "/assets/techIcons.png"
   },
   {
     "name": "HugeIcons",
@@ -268,24 +263,21 @@
     "category": "Design Stuff",
     "tags": ["Face", "Vector"],
     "link": "https://www.avatartion.com/",
-    "img": "/assets/avatartion.png",
-    "newTag": true
+    "img": "/assets/avatartion.png"
   },
   {
     "name": "DesignGradients",
     "category": "Design Stuff",
     "tags": ["Linear Gradients"],
     "link": "https://www.designgradients.com/",
-    "img": "/assets/designGradients.png",
-    "newTag": true
+    "img": "/assets/designGradients.png"
   },
   {
     "name": "LottieFiles",
     "category": "Design Stuff",
     "tags": ["Gif", "MP4"],
     "link": "https://lottiefiles.com/",
-    "img": "/assets/lottiefiles.png",
-    "newTag": true
+    "img": "/assets/lottiefiles.png"
   },
   {
     "name": "Icon Scout",
@@ -300,6 +292,14 @@
     "tags": ["Icons", "3d"],
     "link": "https://3dicons.co/",
     "img": "/assets/3dicons.png"
+  },
+  {
+    "name": "Sketchfab",
+    "category": "Design Stuff",
+    "tags": ["Scenes", "Models", "3d"],
+    "link": "https://sketchfab.com/",
+    "img": "/assets/sketchfab.jpeg",
+    "newTag": true
   },
   {
     "name": "Blush Design",
@@ -348,8 +348,7 @@
     "category": "Design Stuff",
     "tags": ["Figma", "Ready", "Components"],
     "link": "https://www.sprrrint.com/",
-    "img": "/assets/sprrrint.png",
-    "newTag": true
+    "img": "/assets/sprrrint.png"
   },
   {
     "name": "FigComponents",
@@ -370,16 +369,14 @@
     "category": "AI",
     "tags": ["Resume Builder", "AI"],
     "link": "https://resumeup.ai/",
-    "img": "/assets/resumeup.png",
-    "newTag": true
+    "img": "/assets/resumeup.png"
   },
   {
     "name": "Quillbot",
     "category": "AI",
     "tags": ["Writing", "AI"],
     "link": "https://quillbot.com/",
-    "img": "/assets/quillbot.png",
-    "newTag": true
+    "img": "/assets/quillbot.png"
   },
   {
     "name": "Save Tube",
@@ -400,16 +397,14 @@
     "category": "Inspiration",
     "tags": ["Nice Designs"],
     "link": "https://layers.to/",
-    "img": "/assets/layersto.png",
-    "newTag": true
+    "img": "/assets/layersto.png"
   },
   {
     "name": "CallToInspiration",
     "category": "Inspiration",
     "tags": ["Nice Designs"],
     "link": "https://calltoinspiration.com/",
-    "img": "/assets/calltoinspiration.png",
-    "newTag": true
+    "img": "/assets/calltoinspiration.png"
   },
   {
     "name": "Jordan Hughes",
@@ -542,16 +537,14 @@
     "category": "Design Stuff",
     "tags": ["SVGs"],
     "link": "https://flectofy.flecto.io/",
-    "img": "/assets/flectofyflecto.png",
-    "newTag": true
+    "img": "/assets/flectofyflecto.png"
   },
   {
     "name": "TheNounProject",
     "category": "Design Stuff",
     "tags": ["Icons", "SVGs"],
     "link": "https://thenounproject.com/",
-    "img": "/assets/thenounproject.png",
-    "newTag": true
+    "img": "/assets/thenounproject.png"
   },
   {
     "name": "CSS Clip Path",

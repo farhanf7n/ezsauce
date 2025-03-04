@@ -174,10 +174,19 @@ a:hover > svg.moonSvg * {
 .bg-lines {
   background-image: linear-gradient(to top, #fff7ec, transparent),
     url('/assets/bglines.png');
-  background-repeat: no-repeat;
-  background-position: left center;
+  background-repeat: repeat;
+  background-size: 269px, 30%;
 }
 .dark .bg-lines {
   background-image: linear-gradient(to top, #18181b, transparent),
-    url('/assets/bglines.png');
+    url('/assets/hero-bg.png');
+}
+
+.text-mask {
+  -webkit-mask-image: url('/assets/text-mask.png');
+  mask-image: url('/assets/text-mask.png');
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  -webkit-mask-size: 250px;
+  mask-size: 250px;
 }

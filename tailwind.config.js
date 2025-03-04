@@ -8,7 +8,7 @@ export default {
         '2xs': '0.625rem',
       },
       colors: {
-        'cosmic-latte': '#fff7ec',
+        'cosmic-latte': '#F3ECDC',
         'slate-gray': '#B1B1B1',
         'medium-gray': '#828282',
         'light-gray': '#efefef',

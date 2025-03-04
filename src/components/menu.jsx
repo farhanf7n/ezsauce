@@ -70,7 +70,7 @@ export const MenuItem = React.forwardRef(function MenuItem(props, ref) {
     <MotionMenuItem
       ref={ref}
       {...props}
-      className={clsx('menu-item', props.className)}
+      className={clsx('menu-item cursor-pointer', props.className)}
     />
   );
 });
