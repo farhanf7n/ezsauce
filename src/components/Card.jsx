@@ -47,7 +47,7 @@ export default function Card({ item }) {
         </div>
       </div>
       <div className="p-[24px]">
-        <div className="relative w-full h-[135px] mb-[20px] bg-gray-100 dark:bg-gray-800 rounded-lg">
+        <div className="relative w-full h-[135px] bg-gray-100 dark:bg-gray-800 rounded-lg">
           {item.newTag && (
             <div className="absolute -top-[0.6125rem] left-0 -rotate-6 bg-slate-400 dark:bg-yellow-400 text-white dark:text-stone-950 rounded-full text-2xs font-bold uppercase tracking-wider px-2 py-0 z-10">
               New
@@ -66,14 +66,16 @@ export default function Card({ item }) {
               onLoad={() => setImageLoaded(true)}
             />
           )}
+
+          <div className="flex gap-[8px] absolute bottom-[0.3875rem] left-[0.3875rem]">
+            {item.tags.map((tag, index) => (
+              <Tag className="line-clamp-1" key={index}>
+                {tag}
+              </Tag>
+            ))}
+          </div>
         </div>
-        <div className="flex gap-[8px]">
-          {item.tags.map((tag, index) => (
-            <Tag className="line-clamp-1" key={index}>
-              {tag}
-            </Tag>
-          ))}
-        </div>
+
         <div className="pt-[8px] flex justify-between items-center">
           <span className="text-[20px] font-semibold leading-[30px] dark:text-white">
             {item.name}
