@@ -1,7 +1,7 @@
 import BackToTopButton from './BackToTopButton';
 export default function Footer() {
   return (
-    <div className="w-full px-5 py-[30px] mx-auto max-w-[1160px] flex flex-col md:flex-row justify-between items-center gap-4">
+    <div className="w-full px-5 py-[30px] mx-auto container relative xl:max-w-screen-xl flex flex-col md:flex-row justify-between items-center gap-4">
       <p className="text-[14px] font-medium">
         Designed and Created by{' '}
         <a

@@ -1,129 +1,18 @@
-/* ClashDispaly Font */
 @font-face {
-  font-family: 'ClashDisplay-Bold';
-  src: url('/assets/fonts/ClashDisplay/ClashDisplay-Bold.otf')
-    format('opentype');
-}
-
-@font-face {
-  font-family: 'ClashDisplay-Medium';
-  src: url('/assets/fonts/ClashDisplay/ClashDisplay-Medium.otf')
-    format('opentype');
-}
-
-/* Barlow Font */
-.barlow-thin {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 100;
+  font-family: 'RelativeFaux';
   font-style: normal;
+  font-weight: bold;
+  src: url('/assets/fonts/RelativeFaux/relative-faux.ttf') format('truetype');
 }
 
-.barlow-thin-italic {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 100;
-  font-style: italic;
-}
-
-.barlow-extralight {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 200;
+.RelativeFaux {
+  font-family: 'RelativeFaux', sans-serif;
   font-style: normal;
-}
-
-.barlow-extralight-italic {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 200;
-  font-style: italic;
-}
-
-.barlow-light {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.barlow-light-italic {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.barlow-regular {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.barlow-regular-italic {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.barlow-medium {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.barlow-medium-italic {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.barlow-semibold {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.barlow-semibold-italic {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.barlow-bold {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.barlow-bold-italic {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.barlow-extrabold {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 800;
-  font-style: normal;
-}
-
-.barlow-extrabold-italic {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 800;
-  font-style: italic;
-}
-
-.barlow-black {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 900;
-  font-style: normal;
-}
-
-.barlow-black-italic {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 900;
-  font-style: italic;
 }
 
 /* Global CSS */
 
 * {
-  font-family: 'Barlow', sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -131,6 +20,7 @@
 html,
 body {
   scroll-behavior: smooth;
+  font-family: 'RelativeFaux';
 }
 
 ::selection {
@@ -169,17 +59,6 @@ a:hover > svg.moonSvg * {
 
 :is(.dark .allBtn)::before {
   background-image: url('/assets/arrowShapeDark.png');
-}
-
-.bg-lines {
-  background-image: linear-gradient(to top, #fff7ec, transparent),
-    url('/assets/bglines.png');
-  background-repeat: repeat;
-  background-size: 269px, 30%;
-}
-.dark .bg-lines {
-  background-image: linear-gradient(to top, #18181b, transparent),
-    url('/assets/hero-bg.png');
 }
 
 .text-mask {

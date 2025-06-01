@@ -14,8 +14,12 @@ export default {
         'light-gray': '#efefef',
       },
       fontFamily: {
-        ClashDisplayBold: ['ClashDisplay-Bold', 'sans'],
-        ClashDisplayMedium: ['ClashDisplay-Medium', 'sans'],
+        relative: ['Relative'],
+      },
+      fontWeight: {
+        bold: 'bold',
+        normal: 'normal',
+        medium: 500,
       },
       keyframes: {
         fadeInUp: {
@@ -26,11 +30,35 @@ export default {
           '0%': { transform: 'translate(-50%, -100%)' },
           '100%': { transform: 'translate(-50%, 0)' },
         },
+        'slide-in': {
+          from: {
+            transform:
+              'translate3d(0px, 50vh, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)',
+            opacity: 0,
+          },
+          to: {
+            transform:
+              'translate3d(0px, 0vh, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)',
+            opacity: 1,
+          },
+        },
+        'up-down': {
+          '0%, 100%': {
+            transform:
+              'translate3d(0px, 0rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)',
+          },
+          '50%': {
+            transform:
+              'translate3d(0px, 2.5rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)',
+          },
+        },
       },
       animation: {
         card: 'fadeInUp 0.5s ease-out',
         pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         slideDown: 'slideDown 0.3s ease-out forwards',
+        'slide-in': 'slide-in 2s ease forwards',
+        'up-down': 'up-down 9s ease-in-out infinite',
       },
       boxShadow: {
         drop: '0 4px 8px rgba(0, 0, 0, 0.08)',

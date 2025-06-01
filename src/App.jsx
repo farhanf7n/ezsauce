@@ -1,22 +1,18 @@
 import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
 import ResourceSection from './components/ResourceSection';
-import BigHeading from './components/BigHeading';
 import Footer from './components/Footer';
+import Hero from './components/Hero';
 
 import './App.css';
 
 function App() {
   return (
-    <>
-      <div className="bg-lines">
-        <Navbar />
-        <HeroSection />
-      </div>
+    <div className="font-relative">
+      <Navbar />
+      <Hero />
       <ResourceSection />
-      <BigHeading />
       <Footer />
-    </>
+    </div>
   );
 }
 

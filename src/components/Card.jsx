@@ -37,7 +37,7 @@ export default function Card({ item }) {
   return (
     <div
       ref={cardRef}
-      className="group relative  dark:bg-[#1F1F1F] border border-1 border-medium-gray rounded-[8px] cursor-pointer hover:border-dashed dark:hover:border-[#FFC70F] duration-300 animate-card"
+      className="group relative bg-glass-cosmic-latte/90 dark:bg-[#1F1F1F] border border-1 border-medium-gray rounded-[8px] cursor-pointer hover:border-dashed dark:hover:border-[#FFC70F] duration-300 animate-card"
       onClick={() => handleCardClick(item.link)}
     >
       <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
