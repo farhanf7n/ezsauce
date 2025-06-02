@@ -1,15 +1,3 @@
-@font-face {
-  font-family: 'RelativeFaux';
-  font-style: normal;
-  font-weight: bold;
-  src: url('/assets/fonts/RelativeFaux/relative-faux.ttf') format('truetype');
-}
-
-.RelativeFaux {
-  font-family: 'RelativeFaux', sans-serif;
-  font-style: normal;
-}
-
 /* Global CSS */
 
 * {
@@ -20,7 +8,18 @@
 html,
 body {
   scroll-behavior: smooth;
-  font-family: 'RelativeFaux';
+  font-family: 'Montserrat', sans-serif;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.onestFam {
+  font-family: 'Onest', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 ::selection {

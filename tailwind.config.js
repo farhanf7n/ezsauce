@@ -13,14 +13,7 @@ export default {
         'medium-gray': '#828282',
         'light-gray': '#efefef',
       },
-      fontFamily: {
-        relative: ['Relative'],
-      },
-      fontWeight: {
-        bold: 'bold',
-        normal: 'normal',
-        medium: 500,
-      },
+
       keyframes: {
         fadeInUp: {
           '0%': { opacity: '0', transform: 'scale(0.95)' },

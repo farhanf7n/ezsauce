@@ -98,9 +98,9 @@ function Hero() {
           />
         </InfiniteSlider>
         <div className="flex mx-auto justify-start items-center flex-col w-full z-10 relative max-w-[50rem] text-center max-md:pt-11">
-          <h1 className="text-black dark:text-white heading font-relativeFaux my-0 leading-[1.2] text-7xl max-md:text-[2.2rem] max-sm:text-[2rem] tracking-[-.01em] font-bold">
+          <h1 className="text-black dark:text-white heading onestFam my-0 leading-[1.2] text-7xl max-md:text-[2.2rem] max-sm:text-[2rem] tracking-[-.01em] font-bold">
             Web Resources Collected For{' '}
-            <span className="font-relativeFaux flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
+            <span className="onestFam font-bold flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
               &nbsp;
               {titles.map((title, index) => (
                 <motion.span
@@ -146,7 +146,7 @@ function Hero() {
             <img
               src="/left-3.png"
               alt=""
-              className="w-auto h-28 ml-40 rounded-2xl lg:animate-[up-down_9s_ease-in-out_6s_infinite] max-md:hidden"
+              className="w-auto h-28 ml-32 rounded-2xl lg:animate-[up-down_9s_ease-in-out_6s_infinite] max-md:hidden"
             />
             <img
               src="/mel.svg"
@@ -185,7 +185,7 @@ function Hero() {
             <img
               src="/right-3.png"
               alt=""
-              className="w-auto h-28 mr-40 rounded-2xl lg:animate-[up-down_9s_ease-in-out_3s_infinite] max-md:hidden"
+              className="w-auto h-28 mr-32 rounded-2xl lg:animate-[up-down_9s_ease-in-out_3s_infinite] max-md:hidden"
             />
             <img
               src="/kaleb.svg"
