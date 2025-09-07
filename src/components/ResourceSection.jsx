@@ -56,7 +56,7 @@ export default function ResourceSection() {
   const hasMore = filteredData.length > visibleData.length;
 
   return (
-    <div className="container relative xl:max-w-screen-xl mx-auto pt-4 px-4">
+    <div className="container relative xl:max-w-screen-xl mx-auto pt-4 md:pt-12  px-4">
       <TabLinks
         onCategorySelect={handleCategorySelect}
         selectedCategory={selectedCategory}

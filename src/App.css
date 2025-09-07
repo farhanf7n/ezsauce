@@ -8,7 +8,8 @@
 html,
 body {
   scroll-behavior: smooth;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'GT Walsheim', sans-serif;
+  font-weight: 400;
 }
 
 p {
@@ -20,6 +21,51 @@ p {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+/* Font Face Declarations */
+@font-face {
+  font-family: 'GT Walsheim';
+  src: url('../assets/fonts/gt-walsheim-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GT Walsheim';
+  src: url('../assets/fonts/gt-walsheim-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'South East CN';
+  src: url('../assets/fonts/south-east-cn-black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Font Utility Classes */
+.font-gt-walsheim {
+  font-family: 'GT Walsheim', sans-serif;
+}
+
+.font-gt-walsheim-regular {
+  font-family: 'GT Walsheim', sans-serif;
+  font-weight: 400;
+}
+
+.font-gt-walsheim-bold {
+  font-family: 'GT Walsheim', sans-serif;
+  font-weight: 700;
+}
+
+.font-south-east {
+  font-family: 'South East CN', sans-serif;
+  font-weight: 900;
 }
 
 ::selection {
@@ -67,4 +113,20 @@ a:hover > svg.moonSvg * {
   mask-repeat: repeat;
   -webkit-mask-size: 250px;
   mask-size: 250px;
+}
+
+.mainHeroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, #edd8d0 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, #f5e0dc 0%, transparent 35%),
+    radial-gradient(circle at 60% 70%, #c8e7ec 0%, transparent 40%),
+    radial-gradient(circle at 30% 80%, #d6f0f3 0%, transparent 35%);
+  background-color: #f5f9fa;
+  z-index: -1;
+  border-radius: 24px;
 }

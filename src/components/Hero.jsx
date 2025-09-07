@@ -56,7 +56,7 @@ function Hero() {
 
   return (
     <>
-      <div className="h-full flex-col mt-11 py-8 md:py-40 justify-center items-center flex relative overflow-hidden rounded-3xl px-10 max-md:px-6 max-md:justify-start">
+      <div className="h-full flex-col mt-6 py-16 justify-center items-center flex relative overflow-hidden rounded-3xl px-10 max-md:px-6 max-md:justify-start">
         <InfiniteSlider durationOnHover={75} gap={24}>
           <img
             src="./assets/3dicons.png"
@@ -98,9 +98,9 @@ function Hero() {
           />
         </InfiniteSlider>
         <div className="flex mx-auto justify-start items-center flex-col w-full z-10 relative max-w-[50rem] text-center max-md:pt-11">
-          <h1 className="text-black dark:text-white heading onestFam my-0 leading-[1.2] text-7xl max-md:text-[2.2rem] max-sm:text-[2rem] tracking-[-.01em] font-bold">
+          <h1 className=" mb-3 font-south-east max-w-5xl text-[#171717] dark:text-black text-4xl md:text-[90px] md:leading-[85px] uppercase tracking-[-1px] [text-wrap:balance]">
             Web Resources Collected For{' '}
-            <span className="onestFam font-bold flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
+            <span className="font-south-east font-bold flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
               &nbsp;
               {titles.map((title, index) => (
                 <motion.span
@@ -123,16 +123,16 @@ function Hero() {
             </span>
           </h1>
 
-          <p className="max-w-[38.5rem] text-xl max-md:text-base text-black/80 dark:text-white font-normal mx-auto leading-[30px] pt-6 pb-8">
+          <p className="max-w-[38.5rem] text-xl max-md:text-base text-black/80 dark:text-black font-normal mx-auto leading-[30px] pt-6 pb-8">
             Explore selected and chosen items that will improve your
             productivity and help you grow as a developer and designer.
           </p>
         </div>
 
         {/* Left/Right Bubbles and Floating Cursors */}
-        <div className="z-0 w-full h-full max-w-screen-xl justify-center items-center hidden xl:flex absolute pb-8 max-md:pb-0">
+        <div className="z-0 w-full h-full max-w-screen-xl justify-center items-center hidden xl:flex absolute pb-8 max-md:pb-0 mainHeroSection">
           {/* Left section */}
-          <div className="h-[50vh] min-h-[25rem] flex-col justify-between items-start flex absolute mr-auto left-0 max-mdd:flex-row max-md:justify-center max-md:items-end max-md:mr-48 max-sm:mr-24 max-md:pb-36">
+          <div className="h-[50vh] min-h-[25rem] flex-col justify-between items-start flex absolute mr-auto -left-20 max-mdd:flex-row max-md:justify-center max-md:items-end max-md:mr-48 max-sm:mr-24 max-md:pb-36">
             <img
               src="/left-1.png"
               alt=""
@@ -171,7 +171,7 @@ function Hero() {
           </div>
 
           {/* Right section */}
-          <div className="h-[50vh] min-h-[25rem] flex-col justify-between items-end flex absolute right-0 max-mdd:flex-row max-md:ml-48 max-sm:ml-24 max-md:pb-36">
+          <div className="h-[50vh] min-h-[25rem] flex-col justify-between items-end flex absolute -right-20 max-mdd:flex-row max-md:ml-48 max-sm:ml-24 max-md:pb-36">
             <img
               src="/right-1.png"
               alt=""
