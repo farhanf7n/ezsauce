@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import TabLinks from './TabLinks';
 import Card from './Card';
-import Skeleton from './Skeleton';
 import dataLinks from '../data/data.json';
 
 export default function ResourceSection() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
   const [visibleItems, setVisibleItems] = useState(8); // Show 2 rows initially (4 items per row)
 
   const handleCategorySelect = (category) => {
@@ -67,20 +65,7 @@ export default function ResourceSection() {
         className="flex flex-wrap gap-4 pt-20 -mt-16 overflow-hidden"
       >
         <AnimatePresence mode="popLayout">
-          {isLoading ? (
-            [...Array(8)].map((_, index) => (
-              <motion.div
-                key={`skeleton-${index}`}
-                layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="w-full xs:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] xl:w-[calc(25%-12px)] 2xl:w-[calc(20%-13px)]"
-              >
-                <Skeleton />
-              </motion.div>
-            ))
-          ) : visibleData.length > 0 ? (
+          {visibleData.length > 0 ? (
             visibleData.map((item, index) => (
               <motion.div
                 key={`${item.category}-${item.name}-${index}`}
@@ -100,7 +85,7 @@ export default function ResourceSection() {
               animate={{ opacity: 1 }}
               className="w-full text-center py-8 text-gray-500"
             >
-              No results found for "{searchQuery}"
+              No results found for &quot;{searchQuery}&quot;
             </motion.div>
           )}
         </AnimatePresence>

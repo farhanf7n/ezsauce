@@ -59,7 +59,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="w-full mx-auto max-w-7xl px-4 md:px-0 mt-6">
+      <div className="w-full mx-auto max-w-4xl px-4 md:px-0 mt-6">
         <motion.div
           ref={ref}
           variants={navVariants}

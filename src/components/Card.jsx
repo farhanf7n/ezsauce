@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import Tag from './Tag';
 
 export default function Card({ item }) {
@@ -37,72 +38,76 @@ export default function Card({ item }) {
   return (
     <div
       ref={cardRef}
-      className="group relative bg-glass-cosmic-latte/90 dark:bg-[#1F1F1F] border border-1 border-medium-gray rounded-[8px] cursor-pointer hover:border-dashed dark:hover:border-[#FFC70F] duration-300 animate-card"
+      className="group relative cursor-pointer transition-transform duration-300 ease-out will-change-transform hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFC70F]"
       onClick={() => handleCardClick(item.link)}
     >
       <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
-        <div className="bg-black dark:bg-[#FFC70F] text-white dark:text-black px-4 py-2 rounded-md text-sm whitespace-nowrap">
+        <div className="bg-black dark:bg-[#FFC70F] text-white dark:text-black px-4 py-2 rounded-md text-sm whitespace-nowrap shadow-xl">
           {formattedUrl}
           <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-black dark:bg-[#FFC70F] rotate-45"></div>
         </div>
       </div>
-      <div className="p-[24px]">
-        <div className="relative w-full h-[135px] bg-gray-100 dark:bg-gray-800 rounded-lg">
-          {item.newTag && (
-            <div className="absolute -top-[0.6125rem] left-0 -rotate-6 bg-slate-400 dark:bg-yellow-400 text-white dark:text-stone-950 rounded-full text-2xs font-bold uppercase tracking-wider px-2 py-0 z-10">
-              New
-            </div>
-          )}
-          {(!imageLoaded || !shouldLoad) && (
-            <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded-lg animate-pulse" />
-          )}
-          {shouldLoad && (
-            <img
-              src={item.img}
-              alt={item.name}
-              className={`object-cover w-full h-full transition-opacity duration-300 ${
-                imageLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
-              onLoad={() => setImageLoaded(true)}
-            />
-          )}
 
-          <div className="flex gap-[8px] absolute bottom-[0.3875rem] left-[0.3875rem]">
-            {item.tags.map((tag, index) => (
-              <Tag className="line-clamp-1" key={index}>
-                {tag}
-              </Tag>
-            ))}
+      <div className="relative rounded-[28px] bg-gradient-to-br from-[#FFE5AF] via-[#FFD66B] to-[#F2F0FF] dark:from-[#111010] dark:via-[#1F1F1F] dark:to-[#2D2A33] p-[2px] transition-colors duration-300">
+        <div className="relative rounded-[24px] bg-white/80 dark:bg-black/70 backdrop-blur-xl p-6 flex flex-col gap-4 h-full">
+          <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-slate-600 dark:text-slate-300">
+            <span className="flex items-center gap-2">
+              <span className="inline-flex w-2 h-2 rounded-full bg-[#FFC70F] shadow-[0_0_10px_#FFC70F]" />
+              {item.category || item.tags[0] || 'Resource'}
+            </span>
+            {item.newTag && (
+              <span className="px-3 py-1 rounded-full bg-black text-white dark:bg-white dark:text-black text-[11px] tracking-[0.15em] font-semibold">
+                New
+              </span>
+            )}
           </div>
-        </div>
 
-        <div className="pt-[8px] flex justify-between items-center">
-          <span className="text-[20px] font-semibold leading-[30px] dark:text-white">
-            {item.name}
-          </span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            className="text-black dark:text-white"
-            fill="none"
-          >
-            <path
-              d="M14.7731 9.22687L9 15M14.7731 9.22687C14.2678 8.72156 11.8846 9.21665 11.1649 9.22687M14.7731 9.22687C15.2784 9.73219 14.7834 12.1154 14.7731 12.8351"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            />
-          </svg>
+          <div className="relative h-[190px] rounded-2xl overflow-hidden">
+            {(!imageLoaded || !shouldLoad) && (
+              <div className="absolute inset-0 bg-gray-300 dark:bg-gray-700 animate-pulse" />
+            )}
+            {shouldLoad && (
+              <img
+                src={item.img}
+                alt={item.name}
+                className={`object-cover w-full h-full rounded-2xl transform transition-[opacity,transform] duration-500 ease-out will-change-transform ${
+                  imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                } group-hover:scale-105`}
+                onLoad={() => setImageLoaded(true)}
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none" />
+            <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-2">
+              {item.tags.map((tag, index) => (
+                <Tag className="text-[11px]" key={index}>
+                  {tag}
+                </Tag>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <h3 className="text-2xl font-semibold text-slate-900 dark:text-white leading-tight">
+              {item.name}
+            </h3>
+            {item.description && (
+              <p className="text-sm text-slate-600 dark:text-slate-300 line-clamp-2">
+                {item.description}
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </div>
   );
 }
+
+Card.propTypes = {
+  item: PropTypes.shape({
+    link: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    newTag: PropTypes.bool,
+  }).isRequired,
+};

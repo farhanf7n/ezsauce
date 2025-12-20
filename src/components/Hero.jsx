@@ -1,215 +1,580 @@
-import { useState, useEffect, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { InfiniteSlider } from './InfiniteSlider'; // Adjust the import path as necessary
-
 function Hero() {
-  const [titleNumber, setTitleNumber] = useState(0);
-  const titles = useMemo(
-    () => [
-      'Developers',
-      'Designers',
-      'Daily users',
-      'Geeks',
-      'Makers',
-      'Creatives',
-      'Engineers',
-      'Techies',
-      'Dreamers',
-    ],
-    [],
-  );
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setTitleNumber((prev) => (prev === titles.length - 1 ? 0 : prev + 1));
-    }, 2000);
-    return () => clearTimeout(timeoutId);
-  }, [titleNumber, titles]);
-
-  useEffect(() => {
-    const image = document.querySelector('.gradient-image');
-    if (image) {
-      image.classList.add('animate-slide-in');
-    }
-  }, []);
-
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      const screenWidth = window.innerWidth;
-      const screenHeight = window.innerHeight;
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
-
-      const newX = (mouseX / screenWidth - 0.5) * 12;
-      const newY = (mouseY / screenHeight - 0.5) * -12;
-
-      setX(newX);
-      setY(newY);
-    };
-
-    document.addEventListener('mousemove', handleMouseMove);
-    return () => document.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   return (
     <>
-      <div className="h-full flex-col mt-6 py-16 justify-center items-center flex relative overflow-hidden rounded-3xl px-10 max-md:px-6 max-md:justify-start">
-        <InfiniteSlider durationOnHover={75} gap={24}>
-          <img
-            src="./assets/3dicons.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-          <img
-            src="./assets/21stdev.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-
-          <img
-            src="./assets/appdb.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-
-          <img
-            src="./assets/awwwards.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-          <img
-            src="/left-2.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-          <img
-            src="/left-3.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-          <img
-            src="/right-3.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-          <img
-            src="/right-2.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-          <img
-            src="/right-1.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-        </InfiniteSlider>
-        <div className="flex mx-auto justify-start items-center flex-col w-full z-10 relative max-w-[50rem] text-center max-md:pt-11">
-          <h1 className=" mb-3 font-south-east max-w-5xl text-[#171717] dark:text-black text-4xl md:text-[90px] md:leading-[85px] uppercase tracking-[-1px] [text-wrap:balance]">
-            Web Resources Collected For{' '}
-            <span className="font-south-east font-bold flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
-              &nbsp;
-              {titles.map((title, index) => (
-                <motion.span
-                  key={index}
-                  className="absolute"
-                  initial={{ opacity: 0, y: -100 }}
-                  transition={{ type: 'spring', stiffness: 50 }}
-                  animate={
-                    titleNumber === index
-                      ? { y: 0, opacity: 1 }
-                      : {
-                          y: titleNumber > index ? -150 : 150,
-                          opacity: 0,
-                        }
-                  }
-                >
-                  {title}
-                </motion.span>
-              ))}
-            </span>
+      <section className="py-32 w-full">
+        <div className="container mx-auto flex flex-col items-center justify-center gap-4 text-center">
+          <button
+            data-slot="button"
+            className="whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive text-secondary-foreground hover:bg-secondary/80 h-9 has-[>svg]:px-3 group flex w-fit items-center justify-center gap-3 rounded-full bg-muted/70 px-5 py-1"
+          >
+            <span className="size-2.5 rounded-full bg-foreground"></span>
+            Flexible Plan customized for you
+          </button>
+          <h1 className="max-w-3xl font-calSans text-5xl font-medium tracking-tight text-foreground md:text-7xl">
+            Blocks Built <br /> With Shadcn &amp; Tailwind.
           </h1>
-
-          <p className="max-w-[38.5rem] text-xl max-md:text-base text-black/80 dark:text-black font-normal mx-auto leading-[30px] pt-6 pb-8">
-            Explore selected and chosen items that will improve your
-            productivity and help you grow as a developer and designer.
+          <p className="mt-3 max-w-xl text-muted-foreground/80">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum
+            animi, ipsam provident optio delectus neque aliquid cumque. Beatae,
+            odio!
           </p>
-        </div>
-
-        {/* Left/Right Bubbles and Floating Cursors */}
-        <div className="z-0 w-full h-full max-w-screen-xl justify-center items-center hidden xl:flex absolute pb-8 max-md:pb-0 mainHeroSection">
-          {/* Left section */}
-          <div className="h-[50vh] min-h-[25rem] flex-col justify-between items-start flex absolute mr-auto -left-20 max-mdd:flex-row max-md:justify-center max-md:items-end max-md:mr-48 max-sm:mr-24 max-md:pb-36">
-            <img
-              src="/left-1.png"
-              alt=""
-              className="w-auto h-28 ml-28 rounded-2xl lg:animate-[up-down_9s_ease-in-out_3s_infinite]"
-            />
-            <img
-              src="/left-2.png"
-              alt=""
-              className="w-auto h-28 rounded-2xl lg:animate-[up-down_9s_ease-in-out_0s_infinite]"
-            />
-            <img
-              src="/left-3.png"
-              alt=""
-              className="w-auto h-28 ml-32 rounded-2xl lg:animate-[up-down_9s_ease-in-out_6s_infinite] max-md:hidden"
-            />
-            <img
-              src="/mel.svg"
-              alt="mel cursor"
-              className="absolute top-[30%] left-[50%] duration-[1.5s] ease-out h-9 max-md:hidden"
-              style={{
-                transform: `translate3d(${x}rem, ${-y}rem, 0)`,
-                transformStyle: 'preserve-3d',
-                willChange: 'transform',
-              }}
-            />
-            <img
-              src="/eric.svg"
-              alt="eric cursor"
-              className="absolute bottom-[30%] right-[-10%] duration-[1.5s] ease-out h-9 max-md:bottom-[15%] max-md:left-[20%] max-md:right-auto"
-              style={{
-                transform: `translate3d(${x}rem, ${y}rem, 0)`,
-                transformStyle: 'preserve-3d',
-                willChange: 'transform',
-              }}
-            />
+          <div className="mt-8 mb-12 flex gap-4">
+            <button
+              data-slot="button"
+              className="whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 has-[>svg]:px-3 group flex w-fit items-center justify-center gap-2 rounded-full px-4 py-1 tracking-tight"
+            >
+              <span>Documentation</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-arrow-right size-4 -rotate-45 transition-all ease-out group-hover:ml-3 group-hover:rotate-0"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </button>
+            <button
+              data-slot="button"
+              className="whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-9 has-[>svg]:px-3 group flex w-fit items-center justify-center gap-2 rounded-full px-4 py-1 tracking-tight"
+            >
+              <span>Get Started</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-arrow-right size-4 -rotate-45 transition-all ease-out group-hover:ml-3 group-hover:rotate-0"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </button>
           </div>
-
-          {/* Right section */}
-          <div className="h-[50vh] min-h-[25rem] flex-col justify-between items-end flex absolute -right-20 max-mdd:flex-row max-md:ml-48 max-sm:ml-24 max-md:pb-36">
-            <img
-              src="/right-1.png"
-              alt=""
-              className="w-auto h-28 mr-32 rounded-2xl lg:animate-[up-down_9s_ease-in-out_0s_infinite]"
-            />
-            <img
-              src="/right-2.png"
-              alt=""
-              className="w-auto h-28 rounded-2xl lg:animate-[up-down_9s_ease-in-out_5s_infinite]"
-            />
-            <img
-              src="/right-3.png"
-              alt=""
-              className="w-auto h-28 mr-32 rounded-2xl lg:animate-[up-down_9s_ease-in-out_3s_infinite] max-md:hidden"
-            />
-            <img
-              src="/kaleb.svg"
-              alt="kaleb cursor"
-              className="absolute top-[30%] right-[60%] duration-[1.5s] ease-out h-9 max-md:bottom-[15%] max-md:right-[15%]"
-              style={{
-                transform: `translate3d(${x}rem, ${y}rem, 0)`,
-                transformStyle: 'preserve-3d',
-                willChange: 'transform',
-              }}
-            />
-            <img
-              src="/josh.svg"
-              alt="josh cursor"
-              className="absolute bottom-[15%] right-[10%] duration-[1.5s] ease-out h-9 max-md:hidden"
-              style={{
-                transform: `translate3d(${x}rem, ${-y}rem, 0)`,
-                transformStyle: 'preserve-3d',
-                willChange: 'transform',
-              }}
-            />
+          <div className="relative mx-auto flex items-center justify-center">
+            <div
+              className="relative"
+              role="region"
+              aria-roledescription="carousel"
+              data-slot="carousel"
+            >
+              <div className="overflow-hidden" data-slot="carousel-content">
+                <div
+                  className="flex ml-0"
+                  style={{ transform: 'translate3d(-855.63px, 0px, 0px)' }}
+                >
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                    style={{ transform: 'translate3d(0px, 0px, 0px)' }}
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 1"
+                        className="h-7 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/astro-wordmark.svg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                    style={{ transform: 'translate3d(0px, 0px, 0px)' }}
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 2"
+                        className="h-7 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-1.svg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                    style={{ transform: 'translate3d(0px, 0px, 0px)' }}
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 3"
+                        className="h-7 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-2.svg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                    style={{ transform: 'translate3d(0px, 0px, 0px)' }}
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 4"
+                        className="h-7 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-3.svg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                    style={{ transform: 'translate3d(0px, 0px, 0px)' }}
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 5"
+                        className="h-7 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-4.svg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                    style={{ transform: 'translate3d(0px, 0px, 0px)' }}
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 6"
+                        className="h-5 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-5.svg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                    style={{ transform: 'translate3d(0px, 0px, 0px)' }}
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 7"
+                        className="h-7 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-6.svg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                    style={{ transform: 'translate3d(0px, 0px, 0px)' }}
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 8"
+                        className="h-7 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-7.svg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 1"
+                        className="h-7 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/astro-wordmark.svg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 2"
+                        className="h-7 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-1.svg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 3"
+                        className="h-7 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-2.svg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 4"
+                        className="h-7 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-3.svg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 5"
+                        className="h-7 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-4.svg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 6"
+                        className="h-5 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-5.svg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 7"
+                        className="h-7 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-6.svg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 relative mr-6 flex h-15 basis-1/2 justify-center pl-0 opacity-30 sm:basis-1/4 md:basis-1/3 lg:basis-1/9"
+                  >
+                    <div className="flex flex-col items-center justify-center">
+                      <img
+                        alt="Logo 8"
+                        className="h-7 w-auto"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-7.svg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-gradient-t o-r absolute inset-y-0 left-0 w-32 from-background to-transparent"></div>
+            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent"></div>
+          </div>
+          <div className="relative mx-auto -mt-12 flex items-center justify-center">
+            <div
+              className="relative"
+              role="region"
+              aria-roledescription="carousel"
+              data-slot="carousel"
+            >
+              <div className="overflow-hidden" data-slot="carousel-content">
+                <div
+                  className="flex -ml-4"
+                  style={{ transform: 'translate3d(-742.11px, 0px, 0px)' }}
+                >
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                    style={{ transform: 'translate3d(0px, 0px, 0px)' }}
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random14.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random14.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                    style={{ transform: 'translate3d(0px, 0px, 0px)' }}
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw9.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw9.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                    style={{ transform: 'translate3d(0px, 0px, 0px)' }}
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random11.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random11.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                    style={{ transform: 'translate3d(0px, 0px, 0px)' }}
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/landscape5.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/landscape5.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                    style={{ transform: 'translate3d(0px, 0px, 0px)' }}
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random15.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random15.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw4.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw4.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw5.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw5.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw6.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw6.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw7.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw7.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw8.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw8.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/person1.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/person1.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/person2.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/person2.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/person3.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/person3.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random1.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random1.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random11.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random11.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw1.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw1.jpeg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    role="group"
+                    aria-roledescription="slide"
+                    data-slot="carousel-item"
+                    className="min-w-0 shrink-0 grow-0 pl-4 relative flex basis-1/2 translate-y-18 cursor-grab justify-center active:cursor-grabbing sm:basis-1/4 md:basis-1/3 lg:basis-1/5"
+                  >
+                    <div className="easeOut mt-auto w-full overflow-hidden rounded-t-3xl border transition-all hover:-translate-y-18">
+                      <img
+                        alt="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random3.jpeg"
+                        className="h-full w-full object-cover"
+                        src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/random3.jpeg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }
