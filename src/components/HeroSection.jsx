@@ -53,6 +53,13 @@ const HeroSection = () => {
     setIsDarkMode(!isDarkMode);
   };
 
+  const scrollToResources = () => {
+    const element = document.getElementById('resoucesSection');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const categoryData = useMemo(() => {
     const categoryCount = dataLinks.reduce((acc, item) => {
       acc[item.category] = (acc[item.category] || 0) + 1;
@@ -110,6 +117,7 @@ const HeroSection = () => {
         </svg>
         <div className="hidden md:flex gap-1 bg-white/50 dark:bg-[#1a1a1a]/60 backdrop-blur-xl border border-gray-100 dark:border-slate-800 p-1 rounded-full shadow-sm transition-colors duration-300">
           <button
+            onClick={scrollToResources}
             data-slot="button"
             className="whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 has-[>svg]:px-3 group flex w-fit items-center justify-center gap-2 rounded-full px-6 py-3 tracking-tight"
           >
@@ -132,6 +140,12 @@ const HeroSection = () => {
             </svg>
           </button>
           <button
+            onClick={() =>
+              window.open(
+                'https://github.com/farhanf7n/ezsauce/issues/new',
+                '_blank',
+              )
+            }
             data-slot="button"
             className="whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-9 has-[>svg]:px-3 group flex w-fit items-center justify-center gap-2 rounded-full px-6 py-3 tracking-tight"
           >
@@ -165,8 +179,29 @@ const HeroSection = () => {
               className="w-6 h-6"
             />
           </button>
-          <button className="bg-[#1a1a1a] text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-black transition">
-            Let&apos;s Talk ↗
+
+          <button
+            onClick={() => window.open('https://www.forhan.dev/', '_blank')}
+            data-slot="button"
+            className="whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-9 has-[>svg]:px-3 group flex w-fit items-center justify-center gap-2 rounded-full px-6 py-3 tracking-tight"
+          >
+            <span>Let&apos;s Talk</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-arrow-right size-4 -rotate-45 transition-all ease-out group-hover:ml-3 group-hover:rotate-0"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
           </button>
         </div>
       </nav>
@@ -176,12 +211,12 @@ const HeroSection = () => {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1]"
+          className="text-4xl md:text-7xl font-bold tracking-tight leading-[1.1]"
         >
-          Curated Resources <br />
-          <span className="text-gray-400">For Developers </span>
+          Curated Resources For <br className="hidden md:block" />
+          <span className="text-gray-400">Developers </span>
           <span className="text-gray-400">Designers &</span>
-          <br />
+          <br className="hidden md:block" />
           Modern Builders
         </motion.h1>
 
@@ -189,7 +224,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="mt-8 text-lg text-gray-500 max-w-lg"
+          className="mt-8  text-gray-500 max-w-lg font-light text-sm md:text-lg"
         >
           A handpicked collection of the best websites, tools, and inspiration —
           carefully curated to help developers and designers build better
@@ -258,16 +293,18 @@ const HeroSection = () => {
           variants={floatVariants(1.2)}
           initial="initial"
           animate="animate"
-          className="absolute bottom-10 -left-10 flex items-center gap-3 bg-[#1a1a1a] text-white p-3 pr-6 rounded-full shadow-lg"
+          className="hidden md:block absolute bottom-10 -left-10 bg-[#1a1a1a] text-white p-3 pr-6 rounded-full shadow-lg"
         >
-          <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">
-            ★
-          </div>
-          <div className="text-left">
-            <p className="text-[11px] font-semibold leading-none">
-              Editor’s Pick
-            </p>
-            <p className="text-[9px] opacity-60">Best design systems</p>
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs font-bold">
+              ★
+            </div>
+            <div className="text-left">
+              <p className="text-[11px] font-semibold leading-none">
+                Editor’s Pick
+              </p>
+              <p className="text-[9px] opacity-60">Best design systems</p>
+            </div>
           </div>
         </motion.div>
 
@@ -276,18 +313,20 @@ const HeroSection = () => {
           variants={floatVariants(1.5)}
           initial="initial"
           animate="animate"
-          className="absolute bottom-20 -right-20 flex items-center gap-3 bg-[#a855f7] text-white p-3 pr-6 rounded-full shadow-lg"
+          className="hidden md:block absolute bottom-10 -right-20 bg-[#a855f7] text-white p-3 pr-6 rounded-full shadow-lg"
         >
-          <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold">
-            {categoryData.totalCount}
-          </div>
-          <div className="text-left">
-            <p className="text-[11px] font-semibold leading-none">
-              Curated Resources
-            </p>
-            <p className="text-[9px] opacity-80">
-              Across {categoryData.totalCategories} categories
-            </p>
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold">
+              {categoryData.totalCount}
+            </div>
+            <div className="text-left">
+              <p className="text-[11px] font-semibold leading-none">
+                Curated Resources
+              </p>
+              <p className="text-[9px] opacity-80">
+                Across {categoryData.totalCategories} categories
+              </p>
+            </div>
           </div>
         </motion.div>
       </main>

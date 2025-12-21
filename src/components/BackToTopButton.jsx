@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const BackToTopButton = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -26,7 +26,7 @@ const BackToTopButton = () => {
   return (
     <a
       href="#"
-      className="fixed right-[30px] bottom-[30px] w-[44px] h-[44px] bg-black rounded-full shadow-drop flex items-center justify-center"
+      className="fixed right-[30px] bottom-[30px] w-[36px] h-[36px] bg-black rounded-full shadow-drop flex items-center justify-center"
       onClick={handleBackToTop}
     >
       <svg width="44" height="44" viewBox="0 0 44 44" className="absolute">

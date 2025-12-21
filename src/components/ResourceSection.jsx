@@ -55,7 +55,10 @@ export default function ResourceSection() {
   const hasMore = filteredData.length > visibleData.length;
 
   return (
-    <div className="container relative xl:max-w-screen-xl mx-auto pt-4 md:pt-12  px-4">
+    <div
+      className="container relative xl:max-w-screen-xl mx-auto pt-4 md:pt-12  px-4"
+      id="resoucesSection"
+    >
       <TabLinks
         onCategorySelect={handleCategorySelect}
         selectedCategory={selectedCategory}
@@ -102,10 +105,10 @@ export default function ResourceSection() {
             onClick={handleLoadMore}
             className="flex items-center bg-white p-1 rounded-2xl border border-gray-100 overflow-hidden cursor-pointer"
           >
-            <span className="bg-[#1a1a1a] p-3 rounded-xl text-white dark:text-black flex items-center gap-2 text-xs">
+            <span className="bg-[#1a1a1a] p-3 rounded-xl text-white flex items-center gap-2 text-xs">
               Load More
               <CornerRightDown
-                className="animate-bounce text-white dark:text-black"
+                className="animate-bounce text-white "
                 size={15}
               />
             </span>

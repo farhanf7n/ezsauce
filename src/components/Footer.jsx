@@ -53,6 +53,7 @@ export default function Footer() {
             Farhan Ahmed
           </a>
         </div>
+        <BackToTopButton />
       </footer>
     </>
   );
