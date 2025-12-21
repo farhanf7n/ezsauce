@@ -245,11 +245,11 @@ const HeroSection = () => {
           </p>
 
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center text-sm font-bold">
+            <div className="w-10 h-10 rounded-xl text-black bg-gray-100 flex items-center justify-center text-sm font-bold">
               FM
             </div>
             <div>
-              <p className="font-semibold text-sm">Framer Motion</p>
+              <p className="font-semibold text-sm text-black">Framer Motion</p>
               <p className="text-[11px] text-gray-400">React Animations</p>
             </div>
           </div>
@@ -281,7 +281,7 @@ const HeroSection = () => {
               .slice(0, 4)
               .map(({ category, count }) => (
                 <li key={category} className="flex justify-between">
-                  <span>{category}</span>
+                  <span className="text-gray-600 text-xs">{category}</span>
                   <span className="text-gray-400 text-xs">{count}</span>
                 </li>
               ))}
