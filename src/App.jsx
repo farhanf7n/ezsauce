@@ -1,18 +1,25 @@
-import Navbar from './components/Navbar';
 import ResourceSection from './components/ResourceSection';
 import Footer from './components/Footer';
-import Hero from './components/Hero';
 
 import './App.css';
+import HeroSection from './components/HeroSection';
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <ResourceSection />
-      <Footer />
-    </>
+    <div className="relative min-h-screen overflow-hidden bg-white dark:bg-slate-950">
+      {/* Background Grid & Gradients */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        <div className="absolute left-[-10%] top-[-10%] h-[500px] w-[500px] rounded-full bg-orange-100/50 blur-[120px]"></div>
+        <div className="absolute right-[-10%] top-[10%] h-[500px] w-[500px] rounded-full bg-purple-100/50 blur-[120px]"></div>
+      </div>
+
+      <div className="relative z-10">
+        <HeroSection />
+        <ResourceSection />
+        <Footer />
+      </div>
+    </div>
   );
 }
 

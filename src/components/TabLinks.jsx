@@ -1,4 +1,5 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
+import PropTypes from 'prop-types';
 import dataLinks from '../data/data.json';
 import { Menu, MenuItem } from './menu.jsx';
 import SearchBar from './SearchBar';
@@ -78,9 +79,9 @@ export default function TabLinks({
             onClick={() => handleMenuItemClick('All')}
           >
             <span>All</span>
-            <span className="ml-auto">{categoryData.totalCount}</span>
+            <span className="ml-auto text-xs">{categoryData.totalCount}</span>
           </MenuItem>
-          {categoryData.categories.map((categoryItem, index) => (
+          {categoryData.categories.map((categoryItem) => (
             <MenuItem
               key={categoryItem.category}
               variants={item.variants}
@@ -122,3 +123,9 @@ export default function TabLinks({
     </div>
   );
 }
+
+TabLinks.propTypes = {
+  onCategorySelect: PropTypes.func.isRequired,
+  selectedCategory: PropTypes.string,
+  onSearch: PropTypes.func.isRequired,
+};
