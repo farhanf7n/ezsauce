@@ -1,217 +1,234 @@
-import { useState, useEffect, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { InfiniteSlider } from './InfiniteSlider'; // Adjust the import path as necessary
+import { useEffect, useRef, useState } from 'react';
+import { totalCount } from '../data/resources';
+import { useMediaQuery, useReducedMotion } from '../lib/hooks';
+import { InfiniteSlider } from './InfiniteSlider';
+import { ArrowDownIcon } from './icons';
 
-function Hero() {
-  const [titleNumber, setTitleNumber] = useState(0);
-  const titles = useMemo(
-    () => [
-      'Developers',
-      'Designers',
-      'Daily users',
-      'Geeks',
-      'Makers',
-      'Creatives',
-      'Engineers',
-      'Techies',
-      'Dreamers',
-    ],
-    [],
+const TITLES = [
+  'Developers',
+  'Designers',
+  'Daily users',
+  'Geeks',
+  'Makers',
+  'Creatives',
+  'Engineers',
+  'Techies',
+  'Dreamers',
+];
+
+const sliderImages = [
+  '/assets/opt/3dicons-240.webp',
+  '/assets/opt/21stdev-240.webp',
+  '/assets/opt/appdb-240.webp',
+  '/assets/opt/awwwards-240.webp',
+];
+
+const sideImages = {
+  left: ['left-1', 'left-2', 'left-3'],
+  right: ['right-1', 'right-2', 'right-3'],
+};
+
+function DecorativeImage({ name, className }) {
+  return (
+    <img
+      src={`/assets/opt/${name}-240.webp`}
+      alt=""
+      loading="lazy"
+      decoding="async"
+      className={className}
+    />
   );
+}
+
+export default function Hero() {
+  const reduced = useReducedMotion();
+  const isDesktop = useMediaQuery('(min-width: 1280px)');
+  const [titleIndex, setTitleIndex] = useState(0);
+  const heroRef = useRef(null);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setTitleNumber((prev) => (prev === titles.length - 1 ? 0 : prev + 1));
-    }, 2000);
-    return () => clearTimeout(timeoutId);
-  }, [titleNumber, titles]);
+    if (reduced) return undefined;
+    const id = window.setInterval(
+      () => setTitleIndex((index) => (index + 1) % TITLES.length),
+      2400,
+    );
+    return () => window.clearInterval(id);
+  }, [reduced]);
 
   useEffect(() => {
-    const image = document.querySelector('.gradient-image');
-    if (image) {
-      image.classList.add('animate-slide-in');
-    }
-  }, []);
+    const hero = heroRef.current;
+    if (!hero || reduced || !isDesktop) return undefined;
 
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
+    let frame = 0;
+    let x = 0;
+    let y = 0;
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      const screenWidth = window.innerWidth;
-      const screenHeight = window.innerHeight;
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
-
-      const newX = (mouseX / screenWidth - 0.5) * 12;
-      const newY = (mouseY / screenHeight - 0.5) * -12;
-
-      setX(newX);
-      setY(newY);
+    const render = () => {
+      frame = 0;
+      hero.style.setProperty('--px', `${x}rem`);
+      hero.style.setProperty('--py', `${y}rem`);
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
-    return () => document.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+    const onMove = (event) => {
+      x = (event.clientX / window.innerWidth - 0.5) * 12;
+      y = (event.clientY / window.innerHeight - 0.5) * 12;
+      if (!frame) frame = requestAnimationFrame(render);
+    };
+
+    window.addEventListener('mousemove', onMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', onMove);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [reduced, isDesktop]);
 
   return (
-    <>
-      <div className="h-full flex-col mt-11 py-8 md:py-40 justify-center items-center flex relative overflow-hidden rounded-3xl px-10 max-md:px-6 max-md:justify-start">
-        <InfiniteSlider durationOnHover={75} gap={24}>
-          <img
-            src="./assets/3dicons.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-          <img
-            src="./assets/21stdev.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-
-          <img
-            src="./assets/appdb.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-
-          <img
-            src="./assets/awwwards.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-          <img
-            src="/left-2.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-          <img
-            src="/left-3.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-          <img
-            src="/right-3.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-          <img
-            src="/right-2.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
-          <img
-            src="/right-1.png"
-            className="aspect-square w-[80px] md:w-[120px] rounded-[4px] object-cover"
-          />
+    <section
+      ref={heroRef}
+      aria-labelledby="hero-title"
+      className="relative mx-auto mt-3 flex max-w-[1440px] flex-col items-center justify-center overflow-hidden rounded-3xl px-6 py-10 md:mt-6 md:py-24 lg:px-10"
+    >
+      {!isDesktop ? (
+        <InfiniteSlider className="mb-8 w-full md:mb-12" gap={24} duration={42}>
+          {sliderImages.map((src) => (
+            <img
+              key={src}
+              src={src}
+              alt=""
+              width="120"
+              height="120"
+              loading="lazy"
+              decoding="async"
+              className="aspect-square w-20 rounded object-cover md:w-[120px]"
+            />
+          ))}
+          {['left-2', 'left-3', 'right-3', 'right-2', 'right-1'].map((name) => (
+            <DecorativeImage
+              key={name}
+              name={name}
+              className="h-20 w-20 rounded object-cover md:w-[120px]"
+            />
+          ))}
         </InfiniteSlider>
-        <div className="flex mx-auto justify-start items-center flex-col w-full z-10 relative max-w-[50rem] text-center max-md:pt-11">
-          <h1 className="text-black dark:text-white heading onestFam my-0 leading-[1.2] text-7xl max-md:text-[2.2rem] max-sm:text-[2rem] tracking-[-.01em] font-bold">
-            Web Resources Collected For{' '}
-            <span className="onestFam font-bold flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
-              &nbsp;
-              {titles.map((title, index) => (
-                <motion.span
-                  key={index}
-                  className="absolute"
-                  initial={{ opacity: 0, y: -100 }}
-                  transition={{ type: 'spring', stiffness: 50 }}
-                  animate={
-                    titleNumber === index
-                      ? { y: 0, opacity: 1 }
-                      : {
-                          y: titleNumber > index ? -150 : 150,
-                          opacity: 0,
-                        }
-                  }
-                >
+      ) : null}
+
+      <div className="relative z-10 flex w-full max-w-[50rem] flex-col items-center text-center">
+        <h1
+          id="hero-title"
+          className="font-display text-7xl font-bold leading-[1.15] tracking-[-0.01em] text-black dark:text-white max-md:text-[2.2rem] max-sm:text-[2rem]"
+        >
+          Web Resources Collected For
+          <span
+            className="mt-1 flex h-[1.3em] justify-center overflow-hidden"
+            aria-hidden="true"
+          >
+            <span
+              className="flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
+              style={{ transform: `translateY(-${titleIndex * 1.3}em)` }}
+            >
+              {TITLES.map((title) => (
+                <span key={title} className="block h-[1.3em] leading-[1.3]">
                   {title}
-                </motion.span>
+                </span>
               ))}
             </span>
-          </h1>
+          </span>
+          <span className="sr-only">developers, designers and creators</span>
+        </h1>
 
-          <p className="max-w-[38.5rem] text-xl max-md:text-base text-black/80 dark:text-white font-normal mx-auto leading-[30px] pt-6 pb-8">
-            Explore selected and chosen items that will improve your
-            productivity and help you grow as a developer and designer.
-          </p>
-        </div>
+        <p className="mx-auto max-w-[38.5rem] pt-5 text-lg font-normal leading-7 text-black/75 dark:text-zinc-300 md:text-xl md:leading-[30px]">
+          Explore selected and chosen items that will improve your productivity
+          and help you grow as a developer and designer.
+        </p>
 
-        {/* Left/Right Bubbles and Floating Cursors */}
-        <div className="z-0 w-full h-full max-w-screen-xl justify-center items-center hidden xl:flex absolute pb-8 max-md:pb-0">
-          {/* Left section */}
-          <div className="h-[50vh] min-h-[25rem] flex-col justify-between items-start flex absolute mr-auto left-0 max-mdd:flex-row max-md:justify-center max-md:items-end max-md:mr-48 max-sm:mr-24 max-md:pb-36">
-            <img
-              src="/left-1.png"
-              alt=""
-              className="w-auto h-28 ml-28 rounded-2xl lg:animate-[up-down_9s_ease-in-out_3s_infinite]"
-            />
-            <img
-              src="/left-2.png"
-              alt=""
-              className="w-auto h-28 rounded-2xl lg:animate-[up-down_9s_ease-in-out_0s_infinite]"
-            />
-            <img
-              src="/left-3.png"
-              alt=""
-              className="w-auto h-28 ml-32 rounded-2xl lg:animate-[up-down_9s_ease-in-out_6s_infinite] max-md:hidden"
-            />
+        <a
+          href="#resources"
+          className="mt-8 inline-flex items-center gap-2 rounded-lg bg-black px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-black/80 dark:bg-accent dark:text-black dark:hover:bg-accent/85"
+        >
+          Browse {totalCount} resources
+          <ArrowDownIcon className="h-4 w-4" />
+        </a>
+      </div>
+
+      {isDesktop ? (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-0 flex w-full items-center justify-center pb-8"
+        >
+          <div className="absolute left-0 mr-auto flex h-[50vh] min-h-[25rem] flex-col items-start justify-between">
+            {sideImages.left.map((name, index) => (
+              <DecorativeImage
+                key={name}
+                name={name}
+                className={[
+                  'h-28 w-auto rounded-2xl lg:animate-[up-down_9s_ease-in-out_infinite]',
+                  index === 0 ? 'ml-28 [animation-delay:3s]' : '',
+                  index === 2 ? 'ml-32 [animation-delay:6s]' : '',
+                ].join(' ')}
+              />
+            ))}
+
             <img
               src="/mel.svg"
-              alt="mel cursor"
-              className="absolute top-[30%] left-[50%] duration-[1.5s] ease-out h-9 max-md:hidden"
+              alt=""
+              width="36"
+              height="36"
+              className="absolute left-1/2 top-[30%] h-9 -translate-x-1/2 opacity-90 transition-transform duration-[1.5s] ease-out will-change-transform"
               style={{
-                transform: `translate3d(${x}rem, ${-y}rem, 0)`,
-                transformStyle: 'preserve-3d',
-                willChange: 'transform',
+                transform:
+                  'translate3d(var(--px, 0rem), calc(var(--py, 0rem) * -1), 0)',
               }}
             />
             <img
               src="/eric.svg"
-              alt="eric cursor"
-              className="absolute bottom-[30%] right-[-10%] duration-[1.5s] ease-out h-9 max-md:bottom-[15%] max-md:left-[20%] max-md:right-auto"
+              alt=""
+              width="36"
+              height="36"
+              className="absolute -right-[10%] bottom-[30%] h-9 opacity-90 transition-transform duration-[1.5s] ease-out will-change-transform"
               style={{
-                transform: `translate3d(${x}rem, ${y}rem, 0)`,
-                transformStyle: 'preserve-3d',
-                willChange: 'transform',
+                transform: 'translate3d(var(--px, 0rem), var(--py, 0rem), 0)',
               }}
             />
           </div>
 
-          {/* Right section */}
-          <div className="h-[50vh] min-h-[25rem] flex-col justify-between items-end flex absolute right-0 max-mdd:flex-row max-md:ml-48 max-sm:ml-24 max-md:pb-36">
-            <img
-              src="/right-1.png"
-              alt=""
-              className="w-auto h-28 mr-32 rounded-2xl lg:animate-[up-down_9s_ease-in-out_0s_infinite]"
-            />
-            <img
-              src="/right-2.png"
-              alt=""
-              className="w-auto h-28 rounded-2xl lg:animate-[up-down_9s_ease-in-out_5s_infinite]"
-            />
-            <img
-              src="/right-3.png"
-              alt=""
-              className="w-auto h-28 mr-32 rounded-2xl lg:animate-[up-down_9s_ease-in-out_3s_infinite] max-md:hidden"
-            />
+          <div className="absolute right-0 flex h-[50vh] min-h-[25rem] flex-col items-end justify-between">
+            {sideImages.right.map((name, index) => (
+              <DecorativeImage
+                key={name}
+                name={name}
+                className={[
+                  'h-28 w-auto rounded-2xl lg:animate-[up-down_9s_ease-in-out_infinite]',
+                  index === 0 ? 'mr-32' : '',
+                  index === 2 ? 'mr-32 [animation-delay:3s]' : '',
+                  index === 1 ? '[animation-delay:5s]' : '',
+                ].join(' ')}
+              />
+            ))}
+
             <img
               src="/kaleb.svg"
-              alt="kaleb cursor"
-              className="absolute top-[30%] right-[60%] duration-[1.5s] ease-out h-9 max-md:bottom-[15%] max-md:right-[15%]"
+              alt=""
+              width="36"
+              height="36"
+              className="absolute right-[60%] top-[30%] h-9 opacity-90 transition-transform duration-[1.5s] ease-out will-change-transform"
               style={{
-                transform: `translate3d(${x}rem, ${y}rem, 0)`,
-                transformStyle: 'preserve-3d',
-                willChange: 'transform',
+                transform: 'translate3d(var(--px, 0rem), var(--py, 0rem), 0)',
               }}
             />
             <img
               src="/josh.svg"
-              alt="josh cursor"
-              className="absolute bottom-[15%] right-[10%] duration-[1.5s] ease-out h-9 max-md:hidden"
+              alt=""
+              width="36"
+              height="36"
+              className="absolute bottom-[15%] right-[10%] h-9 opacity-90 transition-transform duration-[1.5s] ease-out will-change-transform"
               style={{
-                transform: `translate3d(${x}rem, ${-y}rem, 0)`,
-                transformStyle: 'preserve-3d',
-                willChange: 'transform',
+                transform:
+                  'translate3d(var(--px, 0rem), calc(var(--py, 0rem) * -1), 0)',
               }}
             />
           </div>
         </div>
-      </div>
-    </>
+      ) : null}
+    </section>
   );
 }
-
-export default Hero;

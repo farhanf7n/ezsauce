@@ -1,108 +1,78 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
+import { imageSrcSet } from '../data/resources';
+import { cn } from '../lib/cn';
 import Tag from './Tag';
+import { ArrowUpRightIcon } from './icons';
 
-export default function Card({ item }) {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [shouldLoad, setShouldLoad] = useState(false);
-  const cardRef = useRef(null);
-
-  const formattedUrl = item.link.replace(/^@?https?:\/\/(www\.)?/, '');
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setShouldLoad(true);
-          observer.disconnect();
-        }
-      },
-      {
-        rootMargin: '100px',
-      },
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  const handleCardClick = (link) => {
-    window.open(link, '_blank', 'noopener,noreferrer');
-  };
+export default function Card({ item, className }) {
+  const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const srcSet = imageSrcSet(item.img);
 
   return (
-    <div
-      ref={cardRef}
-      className="group relative bg-glass-cosmic-latte/90 dark:bg-[#1F1F1F] border border-1 border-medium-gray rounded-[8px] cursor-pointer hover:border-dashed dark:hover:border-[#FFC70F] duration-300 animate-card"
-      onClick={() => handleCardClick(item.link)}
-    >
-      <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
-        <div className="bg-black dark:bg-[#FFC70F] text-white dark:text-black px-4 py-2 rounded-md text-sm whitespace-nowrap">
-          {formattedUrl}
-          <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-black dark:bg-[#FFC70F] rotate-45"></div>
-        </div>
-      </div>
-      <div className="p-[24px]">
-        <div className="relative w-full h-[135px] bg-gray-100 dark:bg-gray-800 rounded-lg">
-          {item.newTag && (
-            <div className="absolute -top-[0.6125rem] left-0 -rotate-6 bg-slate-400 dark:bg-yellow-400 text-white dark:text-stone-950 rounded-full text-2xs font-bold uppercase tracking-wider px-2 py-0 z-10">
-              New
+    <article className={cn('h-full', className)}>
+      <a
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex h-full flex-col rounded-lg border border-line bg-surface/90 p-4 transition-[border-color,box-shadow] duration-300 hover:border-accent hover:border-dashed hover:shadow-drop focus-visible:border-accent dark:border-line-dark dark:bg-surface-dark dark:hover:border-accent"
+      >
+        <div className="relative h-[135px] w-full overflow-hidden rounded-lg bg-light-gray dark:bg-zinc-800">
+          {!loaded && !failed ? (
+            <div className="absolute inset-0 animate-pulse bg-medium-gray/25 dark:bg-zinc-700" />
+          ) : null}
+
+          {failed ? (
+            <div
+              aria-hidden="true"
+              className="flex h-full w-full items-center justify-center bg-gradient-to-br from-cosmic-latte to-light-gray text-2xl font-bold text-muted dark:from-zinc-800 dark:to-zinc-700 dark:text-muted-dark"
+            >
+              {item.name.slice(0, 1).toUpperCase()}
             </div>
-          )}
-          {(!imageLoaded || !shouldLoad) && (
-            <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded-lg animate-pulse" />
-          )}
-          {shouldLoad && (
+          ) : (
             <img
               src={item.img}
-              alt={item.name}
-              className={`object-cover w-full h-full transition-opacity duration-300 ${
-                imageLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
-              onLoad={() => setImageLoaded(true)}
+              srcSet={srcSet}
+              sizes="(min-width: 1280px) 288px, (min-width: 1024px) 30vw, (min-width: 480px) 45vw, 92vw"
+              alt=""
+              width="640"
+              height="360"
+              loading="lazy"
+              decoding="async"
+              onLoad={() => setLoaded(true)}
+              onError={() => setFailed(true)}
+              className={cn(
+                'h-full w-full object-cover transition-[opacity,transform] duration-500 group-hover:scale-[1.03]',
+                loaded ? 'opacity-100' : 'opacity-0',
+              )}
             />
           )}
 
-          <div className="flex gap-[8px] absolute bottom-[0.3875rem] left-[0.3875rem]">
-            {item.tags.map((tag, index) => (
-              <Tag className="line-clamp-1" key={index}>
-                {tag}
-              </Tag>
+          {item.newTag ? (
+            <span className="absolute -top-1 left-2 z-10 -rotate-6 rounded-full bg-slate-500 px-2 py-0.5 text-2xs font-bold uppercase tracking-wider text-white dark:bg-accent dark:text-black">
+              New
+            </span>
+          ) : null}
+
+          <div className="absolute inset-x-2 bottom-2 flex flex-wrap gap-1">
+            {item.tags.map((tag) => (
+              <Tag key={tag}>{tag}</Tag>
             ))}
           </div>
         </div>
 
-        <div className="pt-[8px] flex justify-between items-center">
-          <span className="text-[20px] font-semibold leading-[30px] dark:text-white">
-            {item.name}
-          </span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            className="text-black dark:text-white"
-            fill="none"
-          >
-            <path
-              d="M14.7731 9.22687L9 15M14.7731 9.22687C14.2678 8.72156 11.8846 9.21665 11.1649 9.22687M14.7731 9.22687C15.2784 9.73219 14.7834 12.1154 14.7731 12.8351"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            />
-          </svg>
+        <div className="flex flex-1 items-start justify-between gap-3 pt-3">
+          <div className="min-w-0">
+            <h3 className="truncate text-[17px] font-semibold leading-6 text-black dark:text-white">
+              {item.name}
+            </h3>
+            <p className="truncate text-xs text-muted dark:text-muted-dark">
+              {item.host}
+            </p>
+          </div>
+          <ArrowUpRightIcon className="mt-0.5 h-5 w-5 shrink-0 text-black transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 dark:text-white" />
         </div>
-      </div>
-    </div>
+      </a>
+    </article>
   );
 }

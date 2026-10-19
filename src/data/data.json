@@ -4,301 +4,294 @@
     "category": "Tuts",
     "tags": ["Beginner", "Traversy Media"],
     "link": "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-    "img": "/assets/traversy-media.jpg"
+    "img": "/assets/opt/traversy-media-640.webp"
   },
   {
     "name": "Roadmap",
     "category": "Tuts",
     "tags": ["Guides", "Roadmaps"],
     "link": "https://roadmap.sh",
-    "img": "/assets/roadmap.png"
+    "img": "/assets/opt/roadmap-640.webp"
   },
   {
     "name": "Pqoqubbw",
     "category": "Recommended",
     "tags": ["icons", "animated"],
     "link": "https://icons.pqoqubbw.dev/",
-    "img": "/assets/pqoqubbw.png"
+    "img": "/assets/opt/pqoqubbw-640.webp"
   },
   {
     "name": "21st.dev",
     "category": "Recommended",
     "tags": ["icons", "animated"],
     "link": "https://21st.dev/",
-    "img": "/assets/21stdev.png"
+    "img": "/assets/opt/21stdev-640.webp"
   },
   {
     "name": "React JS Playlist",
     "category": "Tuts",
     "tags": ["Intermediate"],
     "link": "https://youtu.be/XuFDcZABiDQ?si=5zU55QqFc-9QqfX1",
-    "img": "/assets/react-thumbnail.jpg"
-  },
-  {
-    "name": "Movie Streaming",
-    "category": "Templates",
-    "tags": ["Design", "Template"],
-    "link": "https://www.youtube.com/watch?v=w7ejDZ8SWv8",
-    "img": "/assets/digiflex-streaming2.png"
+    "img": "/assets/opt/react-thumbnail-640.webp"
   },
   {
     "name": "Integro",
     "category": "Templates",
     "tags": ["Design", "Template"],
     "link": "https://integro.ancorathemes.com/home-marketing-agency/",
-    "img": "/assets/integro.jpeg"
+    "img": "/assets/opt/integro-640.webp"
   },
   {
     "name": "Design Resources",
     "category": "Design Stuff",
     "tags": ["Resources"],
     "link": "https://github.com/bradtraversy/design-resources-for-developers",
-    "img": "/assets/designResources.png"
+    "img": "/assets/opt/designresources-640.webp"
   },
   {
     "name": "Color Hunt",
     "category": "Design Stuff",
     "tags": ["Color Palettes"],
     "link": "https://colorhunt.co/",
-    "img": "/assets/colorhunt.png"
+    "img": "/assets/opt/colorhunt-640.webp"
   },
   {
     "name": "RealTime Colors",
     "category": "Design Stuff",
     "tags": ["Testing Color Schemes"],
     "link": "https://www.realtimecolors.com/?colors=000000-ffffff-8fb3ff-ebf1ff-d41d6d&fonts=Poppins-Poppins",
-    "img": "/assets/realtimecolors.png"
+    "img": "/assets/opt/realtimecolors-640.webp"
   },
   {
     "name": "Minimal Gallery",
     "category": "Design Stuff",
     "tags": ["Resources", "Designs"],
     "link": "https://minimal.gallery/",
-    "img": "/assets/minimalGallery.png"
+    "img": "/assets/opt/minimalgallery-640.webp"
   },
   {
     "name": "Dark Mode Design",
     "category": "Design Stuff",
     "tags": ["Resources", "Designs"],
     "link": "https://www.darkmodedesign.com/",
-    "img": "/assets/darkmodedesign.png"
+    "img": "/assets/opt/darkmodedesign-640.webp"
   },
   {
     "name": "Awwwards",
     "category": "Design Stuff",
     "tags": ["SOTD", "Designs"],
     "link": "https://www.awwwards.com/",
-    "img": "/assets/awwwards.png"
+    "img": "/assets/opt/awwwards-640.webp"
   },
   {
     "name": "Refero Design",
     "category": "Design Stuff",
     "tags": ["Designs"],
     "link": "https://refero.design/",
-    "img": "/assets/referodesign.png"
+    "img": "/assets/opt/referodesign-640.webp"
   },
   {
     "name": "Stack Sorted",
     "category": "Design Stuff",
     "tags": ["Designs", "Conepts"],
     "link": "https://stacksorted.com/buttons",
-    "img": "/assets/stacksorted.png"
+    "img": "/assets/opt/stacksorted-640.webp"
   },
   {
     "name": "Tilebit",
     "category": "Design Stuff",
     "tags": ["Figma", "Ready", "Components"],
     "link": "https://www.tilebit.io/all-components",
-    "img": "/assets/tilebit.png"
+    "img": "/assets/opt/tilebit-640.webp"
   },
   {
     "name": "UIVerseIO",
     "category": "Design Stuff",
     "tags": ["Code", "Ready", "Components"],
     "link": "https://uiverse.io/",
-    "img": "/assets/uiverseio.png"
+    "img": "/assets/opt/uiverseio-640.webp"
   },
   {
     "name": "SyntaxUI",
     "category": "Design Stuff",
     "tags": ["Code Ready", "Components"],
     "link": "https://syntaxui.com/",
-    "img": "/assets/syntaxui.png"
+    "img": "/assets/opt/syntaxui-640.webp"
   },
   {
     "name": "Motion-Primitives",
     "category": "Design Stuff",
     "tags": ["Code Ready", "Components", "Animations"],
     "link": "https://motion-primitives.com/",
-    "img": "/assets/motionPrimitives.png"
+    "img": "/assets/opt/motionprimitives-640.webp"
   },
   {
     "name": "UIBall",
     "category": "Design Stuff",
     "tags": ["Code ready", "Loaders"],
     "link": "https://uiball.com/",
-    "img": "/assets/uiball.png"
+    "img": "/assets/opt/uiball-640.webp"
   },
   {
     "name": "Produce-UI",
     "category": "Design Stuff",
     "tags": ["Figma", "Ready", "Components"],
     "link": "https://produce-ui.com/components.html",
-    "img": "/assets/produce-ui.png"
+    "img": "/assets/opt/produce-ui-640.webp"
   },
   {
     "name": "UI Land",
     "category": "Design Stuff",
     "tags": ["Figma", "Ready", "Components"],
     "link": "https://figmaui4free.com/",
-    "img": "/assets/uiland.png"
+    "img": "/assets/opt/uiland-640.webp"
   },
   {
     "name": "Shots.so",
     "category": "Design Stuff",
     "tags": ["Mockups"],
     "link": "https://www.shots.so/",
-    "img": "/assets/shotsso.png"
+    "img": "/assets/opt/shotsso-640.webp"
   },
   {
     "name": "lucide",
     "category": "Design Stuff",
     "tags": ["Icons"],
     "link": "https://lucide.dev/",
-    "img": "/assets/lucidedev.png"
+    "img": "/assets/opt/lucidedev-640.webp"
   },
   {
     "name": "TechIcon",
     "category": "Design Stuff",
     "tags": ["Icons", "SVG"],
     "link": "https://techicons.dev/",
-    "img": "/assets/techIcons.png"
+    "img": "/assets/opt/techicons-640.webp"
   },
   {
     "name": "HugeIcons",
     "category": "Design Stuff",
     "tags": ["Icons"],
     "link": "https://hugeicons.com/",
-    "img": "/assets/hugeicons.png"
+    "img": "/assets/opt/hugeicons-640.webp"
   },
   {
     "name": "Curated Design",
     "category": "Design Stuff",
     "tags": ["Resources", "Designs"],
     "link": "https://www.curated.design/",
-    "img": "/assets/curatedDesign.png"
+    "img": "/assets/opt/curateddesign-640.webp"
   },
   {
     "name": "Monst Landing",
     "category": "Templates",
     "tags": ["Design", "Template"],
     "link": "https://monst-nextjs.vercel.app/index-2",
-    "img": "/assets/most-template.png"
+    "img": "/assets/opt/most-template-640.webp"
   },
   {
     "name": "LifeWire",
     "category": "Templates",
     "tags": ["Design", "Blog Type"],
     "link": "https://www.lifewire.com/",
-    "img": "/assets/lifewire.png"
+    "img": "/assets/opt/lifewire-640.webp"
   },
   {
     "name": "Trydo",
     "category": "Templates",
     "tags": ["Design", "Multiple Types"],
     "link": "https://trydo.rainbowit.net/#demo",
-    "img": "/assets/trydo.png"
+    "img": "/assets/opt/trydo-640.webp"
   },
   {
     "name": "Meme Soundboard",
     "category": "Good Stuff",
     "tags": ["Soundboards", "Multiple Types"],
     "link": "https://www.myinstants.com/en/index/sg/",
-    "img": "/assets/myinstants.png"
+    "img": "/assets/opt/myinstants-640.webp"
   },
   {
     "name": "VipRow",
     "category": "Good Stuff",
     "tags": ["TV Shows", "Movies", "Streams"],
     "link": "https://www.viprow.nu/",
-    "img": "/assets/viprow.png"
+    "img": "/assets/opt/viprow-640.webp"
   },
   {
     "name": "Freek",
     "category": "Good Stuff",
     "tags": ["TV Shows", "Movies", "Streams"],
     "link": "https://freek.to/",
-    "img": "/assets/freekto.jpeg"
+    "img": "/assets/opt/freekto-640.webp"
   },
   {
     "name": "FlixHQ",
     "category": "Good Stuff",
     "tags": ["TV Shows", "Movies", "Streams"],
     "link": "https://flixhq.to/",
-    "img": "/assets/flixhq.png"
+    "img": "/assets/opt/flixhq-640.webp"
   },
   {
     "name": "FreePik",
     "category": "Design Stuff",
     "tags": ["Headshots", "Free Pics"],
     "link": "https://www.freepik.com/search?ai=only&format=search&last_filter=query&last_value=headshots&query=headshots",
-    "img": "/assets/freepik.png"
+    "img": "/assets/opt/freepik-640.webp"
   },
   {
     "name": "SVGrepo",
     "category": "Design Stuff",
     "tags": ["Vector", "Free Pics"],
     "link": "https://www.svgrepo.com/",
-    "img": "/assets/svgrepo.png"
+    "img": "/assets/opt/svgrepo-640.webp"
   },
   {
     "name": "ShapesFramer",
     "category": "Design Stuff",
     "tags": ["Shapes", "SVG"],
     "link": "https://shapes.framer.website/",
-    "img": "/assets/shapesFramer.png"
+    "img": "/assets/opt/shapesframer-640.webp"
   },
   {
     "name": "Avatartion",
     "category": "Design Stuff",
     "tags": ["Face", "Vector"],
     "link": "https://www.avatartion.com/",
-    "img": "/assets/avatartion.png"
+    "img": "/assets/opt/avatartion-640.webp"
   },
   {
     "name": "DesignGradients",
     "category": "Design Stuff",
     "tags": ["Linear Gradients"],
     "link": "https://www.designgradients.com/",
-    "img": "/assets/designGradients.png"
+    "img": "/assets/opt/designgradients-640.webp"
   },
   {
     "name": "LottieFiles",
     "category": "Design Stuff",
     "tags": ["Gif", "MP4"],
     "link": "https://lottiefiles.com/",
-    "img": "/assets/lottiefiles.png"
+    "img": "/assets/opt/lottiefiles-640.webp"
   },
   {
     "name": "Icon Scout",
     "category": "Design Stuff",
     "tags": ["Vector", "Icons", "illustrations"],
     "link": "https://iconscout.com/",
-    "img": "/assets/iconscout.png"
+    "img": "/assets/opt/iconscout-640.webp"
   },
   {
     "name": "3dicons",
     "category": "Design Stuff",
     "tags": ["Icons", "3d"],
     "link": "https://3dicons.co/",
-    "img": "/assets/3dicons.png"
+    "img": "/assets/opt/3dicons-640.webp"
   },
   {
     "name": "Sketchfab",
     "category": "Design Stuff",
     "tags": ["Scenes", "Models", "3d"],
     "link": "https://sketchfab.com/",
-    "img": "/assets/sketchfab.jpeg",
+    "img": "/assets/opt/sketchfab-640.webp",
     "newTag": true
   },
   {
@@ -306,265 +299,265 @@
     "category": "Design Stuff",
     "tags": ["illustrations"],
     "link": "https://blush.design/",
-    "img": "/assets/blushdesign.png"
+    "img": "/assets/opt/blushdesign-640.webp"
   },
   {
     "name": "Inspo Vault",
     "category": "Design Stuff",
     "tags": ["Vector", "Icons", "illustrations"],
     "link": "https://www.inspovault.com/",
-    "img": "/assets/inspovault.png"
+    "img": "/assets/opt/inspovault-640.webp"
   },
   {
     "name": "Watermark Remover",
     "category": "Design Stuff",
     "tags": ["Watermark remover", "Alter images"],
     "link": "https://www.watermarkremover.io/upload",
-    "img": "/assets/watermarkremover.png"
+    "img": "/assets/opt/watermarkremover-640.webp"
   },
   {
     "name": "Free Faces",
     "category": "Design Stuff",
     "tags": ["Free Fonts"],
     "link": "https://www.freefaces.gallery/",
-    "img": "/assets/freefaces.png"
+    "img": "/assets/opt/freefaces-640.webp"
   },
   {
     "name": "Mobbin",
     "category": "Design Stuff",
     "tags": ["Designs", "Templates"],
     "link": "https://mobbin.com/",
-    "img": "/assets/mobbin.png"
+    "img": "/assets/opt/mobbin-640.webp"
   },
   {
     "name": "Landing Folio",
     "category": "Design Stuff",
     "tags": ["Figma", "Ready", "Components"],
     "link": "https://www.landingfolio.com/",
-    "img": "/assets/landingfolio.png"
+    "img": "/assets/opt/landingfolio-640.webp"
   },
   {
     "name": "Sprrrint",
     "category": "Design Stuff",
     "tags": ["Figma", "Ready", "Components"],
     "link": "https://www.sprrrint.com/",
-    "img": "/assets/sprrrint.png"
+    "img": "/assets/opt/sprrrint-640.webp"
   },
   {
     "name": "FigComponents",
     "category": "Design Stuff",
     "tags": ["Figma", "Ready", "Components"],
     "link": "https://www.figcomponents.com/",
-    "img": "/assets/figcomponents.png"
+    "img": "/assets/opt/figcomponents-640.webp"
   },
   {
     "name": "hemingwayapp",
     "category": "AI",
     "tags": ["Writing", "AI"],
     "link": "https://www.hemingwayapp.com/",
-    "img": "/assets/hemingwayapp.png"
+    "img": "/assets/opt/hemingwayapp-640.webp"
   },
   {
     "name": "Resumeup",
     "category": "AI",
     "tags": ["Resume Builder", "AI"],
     "link": "https://resumeup.ai/",
-    "img": "/assets/resumeup.png"
+    "img": "/assets/opt/resumeup-640.webp"
   },
   {
     "name": "Quillbot",
     "category": "AI",
     "tags": ["Writing", "AI"],
     "link": "https://quillbot.com/",
-    "img": "/assets/quillbot.png"
+    "img": "/assets/opt/quillbot-640.webp"
   },
   {
     "name": "Save Tube",
     "category": "Good Stuff",
     "tags": ["YT Downloader"],
     "link": "https://save.tube/en32/",
-    "img": "/assets/saveTube.png"
+    "img": "/assets/opt/savetube-640.webp"
   },
   {
     "name": "Halo UI/UX",
     "category": "Inspiration",
     "tags": ["Nice Designs"],
     "link": "https://dribbble.com/haloweb",
-    "img": "/assets/halolab.png"
+    "img": "/assets/opt/halolab-640.webp"
   },
   {
     "name": "Layer.to",
     "category": "Inspiration",
     "tags": ["Nice Designs"],
     "link": "https://layers.to/",
-    "img": "/assets/layersto.png"
+    "img": "/assets/opt/layersto-640.webp"
   },
   {
     "name": "CallToInspiration",
     "category": "Inspiration",
     "tags": ["Nice Designs"],
     "link": "https://calltoinspiration.com/",
-    "img": "/assets/calltoinspiration.png"
+    "img": "/assets/opt/calltoinspiration-640.webp"
   },
   {
     "name": "Jordan Hughes",
     "category": "Inspiration",
     "tags": ["UntitledUI"],
     "link": "https://dribbble.com/jordanhughes/shots",
-    "img": "/assets/untitledui.png"
+    "img": "/assets/opt/untitledui-640.webp"
   },
   {
     "name": "shadcn-form-build",
     "category": "Interesting",
     "tags": ["Form Builder", "Shadcn"],
     "link": "https://shadcn-form-build.vercel.app/playground",
-    "img": "/assets/shadcn-form.png"
+    "img": "/assets/opt/shadcn-form-640.webp"
   },
   {
     "name": "SecHex-Spoofy",
     "category": "Repo",
     "tags": ["Spoofer", "Windows"],
     "link": "https://github.com/SecHex/SecHex-Spoofy",
-    "img": "/assets/sechexspoofy.png"
+    "img": "/assets/opt/sechexspoofy-640.webp"
   },
   {
     "name": "SpotX-Bash",
     "category": "Repo",
     "tags": ["Spotify", "MAC OS"],
     "link": "https://github.com/SpotX-Official/SpotX-Bash/tree/main",
-    "img": "/assets/spotxbash.png"
+    "img": "/assets/opt/spotxbash-640.webp"
   },
   {
     "name": "Awesome ShadCN UI",
     "category": "Repo",
     "tags": ["ShadCN", "Components"],
     "link": "https://github.com/birobirobiro/awesome-shadcn-ui",
-    "img": "/assets/awesomeshadcn.png"
+    "img": "/assets/opt/awesomeshadcn-640.webp"
   },
   {
     "name": "AppDB",
     "category": "Mods & Cracks",
     "tags": ["IPAs", "IOS"],
     "link": "https://appdb.to/",
-    "img": "/assets/appdb.png"
+    "img": "/assets/opt/appdb-640.webp"
   },
   {
     "name": "Dodi-Repacks",
     "category": "Mods & Cracks",
     "tags": ["Games", "PC", "Cracks"],
     "link": "https://dodi-repacks.site/",
-    "img": "/assets/dodirepacks.png"
+    "img": "/assets/opt/dodirepacks-640.webp"
   },
   {
     "name": "FitGirl Repacks",
     "category": "Mods & Cracks",
     "tags": ["Games", "PC", "Cracks"],
     "link": "https://fitgirl-repacks.site/",
-    "img": "/assets/fitgirlrepack.png"
+    "img": "/assets/opt/fitgirlrepack-640.webp"
   },
   {
     "name": "GetInToPC",
     "category": "Mods & Cracks",
     "tags": ["Softwares", "PC", "Cracks"],
     "link": "https://getintopc.com/",
-    "img": "/assets/getintopc.png"
+    "img": "/assets/opt/getintopc-640.webp"
   },
   {
     "name": "Sordum",
     "category": "Mods & Cracks",
     "tags": ["Windows Optimization", "PC"],
     "link": "https://www.sordum.org/",
-    "img": "/assets/sordum.png"
+    "img": "/assets/opt/sordum-640.webp"
   },
   {
     "name": "DownloadlyIR",
     "category": "Tuts",
     "tags": ["Courses", "Crack"],
     "link": "https://downloadlynet.ir/",
-    "img": "/assets/downloadlyir.png"
+    "img": "/assets/opt/downloadlyir-640.webp"
   },
   {
     "name": "CourseFlix",
     "category": "Tuts",
     "tags": ["Courses", "Crack"],
     "link": "https://courseflix.net/",
-    "img": "/assets/courseflix.png"
+    "img": "/assets/opt/courseflix-640.webp"
   },
   {
     "name": "IPAomtk",
     "category": "Mods & Cracks",
     "tags": ["IPAs", "IOS"],
     "link": "https://ipaomtk.com/",
-    "img": "/assets/ipaomtk.jpeg"
+    "img": "/assets/opt/ipaomtk-640.webp"
   },
   {
     "name": "LiteApks",
     "category": "Mods & Cracks",
     "tags": ["APKs", "Android"],
     "link": "https://liteapks.com/",
-    "img": "/assets/liteapks.png"
+    "img": "/assets/opt/liteapks-640.webp"
   },
   {
     "name": "ModYolo",
     "category": "Mods & Cracks",
     "tags": ["APKs", "Android"],
     "link": "https://modyolo.com/",
-    "img": "/assets/modyolo.png"
+    "img": "/assets/opt/modyolo-640.webp"
   },
   {
     "name": "Typescale",
     "category": "Design Stuff",
     "tags": ["Font Testing"],
     "link": "https://typescale.com/",
-    "img": "/assets/typescale.png"
+    "img": "/assets/opt/typescale-640.webp"
   },
   {
     "name": "Simple Icons",
     "category": "Design Stuff",
     "tags": ["Icons", "SVGs"],
     "link": "https://simpleicons.org/",
-    "img": "/assets/simpleicons.png"
+    "img": "/assets/opt/simpleicons-640.webp"
   },
   {
     "name": "SVGL",
     "category": "Design Stuff",
     "tags": ["Icons", "SVGs"],
     "link": "https://svgl.app/",
-    "img": "/assets/scgl.png"
+    "img": "/assets/opt/scgl-640.webp"
   },
   {
     "name": "flectofy.flecto",
     "category": "Design Stuff",
     "tags": ["SVGs"],
     "link": "https://flectofy.flecto.io/",
-    "img": "/assets/flectofyflecto.png"
+    "img": "/assets/opt/flectofyflecto-640.webp"
   },
   {
     "name": "TheNounProject",
     "category": "Design Stuff",
     "tags": ["Icons", "SVGs"],
     "link": "https://thenounproject.com/",
-    "img": "/assets/thenounproject.png"
+    "img": "/assets/opt/thenounproject-640.webp"
   },
   {
     "name": "CSS Clip Path",
     "category": "Design Stuff",
     "tags": ["Clip Paths"],
     "link": "https://bennettfeely.com/clippy/",
-    "img": "/assets/clippathmaker.png"
+    "img": "/assets/opt/clippathmaker-640.webp"
   },
   {
     "name": "FontShare",
     "category": "Design Stuff",
     "tags": ["Fonts"],
     "link": "https://www.fontshare.com/",
-    "img": "/assets/fontshare.png"
+    "img": "/assets/opt/fontshare-640.webp"
   },
   {
     "name": "unDraw",
     "category": "Design Stuff",
     "tags": ["illustrations", "Handcrafts"],
     "link": "https://undraw.co/illustrations",
-    "img": "/assets/undraw.png"
+    "img": "/assets/opt/undraw-640.webp"
   }
 ]

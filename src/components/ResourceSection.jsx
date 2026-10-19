@@ -1,174 +1,191 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import TabLinks from './TabLinks';
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
+import { categories, resources, totalCount } from '../data/resources';
+import { cn } from '../lib/cn';
 import Card from './Card';
-import Skeleton from './Skeleton';
-import dataLinks from '../data/data.json';
+import FilterBar from './FilterBar';
+import { ArrowDownIcon } from './icons';
+
+const PAGE_SIZE = 8;
+
+function readParams() {
+  return new URLSearchParams(window.location.search);
+}
+
+function readCategory(params) {
+  const value = params.get('category');
+  return categories.some((category) => category.name === value) ? value : 'All';
+}
 
 export default function ResourceSection() {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [visibleItems, setVisibleItems] = useState(8); // Show 2 rows initially (4 items per row)
+  const [search, setSearch] = useState(() => readParams().get('q') ?? '');
+  const [selectedCategory, setSelectedCategory] = useState(() =>
+    readCategory(readParams()),
+  );
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const deferredSearch = useDeferredValue(search);
+  const sentinelRef = useRef(null);
 
-  const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
-    setSearchQuery('');
-    setVisibleItems(8); // Reset visible items when changing category
-  };
+  const filtered = useMemo(() => {
+    const terms = deferredSearch
+      .trim()
+      .toLowerCase()
+      .split(/\s+/)
+      .filter(Boolean);
 
-  const handleSearch = (query) => {
-    setSearchQuery(query);
-    setSelectedCategory('All');
-    setVisibleItems(8); // Reset visible items when searching
-  };
+    return resources.filter(
+      (item) =>
+        (selectedCategory === 'All' || item.category === selectedCategory) &&
+        terms.every((term) => item.search.includes(term)),
+    );
+  }, [deferredSearch, selectedCategory]);
 
-  const handleLoadMore = () => {
-    setVisibleItems((prev) => prev + 8); // Load 8 more items (2 more rows)
-  };
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [deferredSearch, selectedCategory]);
 
-  // Filter and sort data
-  const filteredData = dataLinks
-    .filter((item) => {
-      if (!searchQuery && selectedCategory === 'All') {
-        return true;
+  // Keep filters shareable and restore them on load.
+  useEffect(() => {
+    const params = new URLSearchParams();
+    const trimmed = search.trim();
+    if (trimmed) params.set('q', trimmed);
+    if (selectedCategory !== 'All') params.set('category', selectedCategory);
+
+    const query = params.toString();
+    window.history.replaceState(
+      null,
+      '',
+      `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`,
+    );
+  }, [search, selectedCategory]);
+
+  const hasMore = visibleCount < filtered.length;
+
+  // Load the next page automatically when the sentinel approaches the
+  // viewport, and keep filling while it remains in range.
+  useEffect(() => {
+    const node = sentinelRef.current;
+    if (!node || !hasMore) return undefined;
+
+    const frame = requestAnimationFrame(() => {
+      const { top } = node.getBoundingClientRect();
+      if (top > 0 && top <= window.innerHeight + 600) {
+        setVisibleCount((count) => count + PAGE_SIZE);
       }
-
-      const searchTerm = searchQuery.toLowerCase().trim();
-      const matchesCategory =
-        selectedCategory === 'All' || item.category === selectedCategory;
-      const matchesSearch = !searchTerm
-        ? true
-        : item.tags.some((tag) => tag.toLowerCase().includes(searchTerm)) ||
-          item.name.toLowerCase().includes(searchTerm) ||
-          item.category.toLowerCase().includes(searchTerm) ||
-          item.description?.toLowerCase().includes(searchTerm);
-
-      return matchesCategory && matchesSearch;
-    })
-    .sort((a, b) => {
-      if (a.newTag && !b.newTag) return -1;
-      if (!a.newTag && b.newTag) return 1;
-      return a.name.localeCompare(b.name);
     });
 
-  const visibleData = filteredData.slice(0, visibleItems);
-  const hasMore = filteredData.length > visibleData.length;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setVisibleCount((count) => count + PAGE_SIZE);
+        }
+      },
+      { rootMargin: '600px 0px' },
+    );
+
+    observer.observe(node);
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
+  }, [hasMore, visibleCount, filtered.length]);
+
+  const visibleItems = filtered.slice(0, visibleCount);
+  const isStale = search !== deferredSearch;
+
+  const clearFilters = () => {
+    setSearch('');
+    setSelectedCategory('All');
+  };
 
   return (
-    <div className="container relative xl:max-w-screen-xl mx-auto pt-4 px-4">
-      <TabLinks
-        onCategorySelect={handleCategorySelect}
-        selectedCategory={selectedCategory}
-        onSearch={handleSearch}
-      />
-      <motion.div
-        layout
-        className="flex flex-wrap gap-4 pt-20 -mt-16 overflow-hidden"
-      >
-        <AnimatePresence mode="popLayout">
-          {isLoading ? (
-            [...Array(8)].map((_, index) => (
-              <motion.div
-                key={`skeleton-${index}`}
-                layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="w-full xs:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] xl:w-[calc(25%-12px)] 2xl:w-[calc(20%-13px)]"
-              >
-                <Skeleton />
-              </motion.div>
-            ))
-          ) : visibleData.length > 0 ? (
-            visibleData.map((item, index) => (
-              <motion.div
-                key={`${item.category}-${item.name}-${index}`}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.2 }}
-                className="w-full xs:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] xl:w-[calc(25%-12px)] 2xl:w-[calc(25%-13px)]"
-              >
-                <Card item={item} />
-              </motion.div>
-            ))
-          ) : (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="w-full text-center py-8 text-gray-500"
-            >
-              No results found for "{searchQuery}"
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
+    <section
+      id="resources"
+      aria-labelledby="resources-title"
+      className="container relative mx-auto max-w-screen-xl scroll-mt-24 px-4 pt-10"
+    >
+      <h2 id="resources-title" className="sr-only">
+        Resource collection
+      </h2>
 
-      {hasMore && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="w-full flex justify-center mt-8 mb-12"
+      <FilterBar
+        selectedCategory={selectedCategory}
+        onCategorySelect={setSelectedCategory}
+        query={search}
+        onQueryChange={setSearch}
+        resultCount={filtered.length}
+        totalCount={totalCount}
+      />
+
+      <div
+        className={cn(
+          'mt-8 grid grid-cols-1 gap-4 transition-opacity duration-200 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
+          isStale && 'opacity-60',
+        )}
+        aria-busy={isStale}
+      >
+        {visibleItems.map((item) => (
+          <Card key={item.id} item={item} className="card-in" />
+        ))}
+
+        {filtered.length === 0 ? (
+          <div className="col-span-full flex flex-col items-center gap-3 py-16 text-center">
+            <p className="text-lg font-semibold text-ink dark:text-white">
+              No resources found
+            </p>
+            <p className="max-w-md text-sm text-muted dark:text-muted-dark">
+              {search.trim()
+                ? `Nothing matches “${search.trim()}”${
+                    selectedCategory !== 'All' ? ` in ${selectedCategory}` : ''
+                  }.`
+                : 'Nothing matches this category yet.'}{' '}
+              Try a different keyword or category.
+            </p>
+            <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
+              {selectedCategory !== 'All' && search.trim() ? (
+                <button
+                  type="button"
+                  onClick={() => setSelectedCategory('All')}
+                  className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-black/80 dark:bg-accent dark:text-black dark:hover:bg-accent/85"
+                >
+                  Search all categories
+                </button>
+              ) : null}
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="rounded-lg border border-line px-4 py-2 text-sm font-medium text-ink transition-colors hover:border-black/40 dark:border-line-dark dark:text-white dark:hover:border-white/40"
+              >
+                Clear filters
+              </button>
+            </div>
+          </div>
+        ) : null}
+      </div>
+
+      {hasMore ? (
+        <div
+          ref={sentinelRef}
+          className="mt-10 flex flex-col items-center gap-3 pb-4"
         >
           <button
-            onClick={handleLoadMore}
-            className="flex items-center gap-2 px-6 py-3  hover:bg-[#FFC70F] dark:bg-[#1F1F1F] text-black dark:text-white rounded-lg border font-medium border-medium-gray hover:border-dashed dark:hover:border-[#FFC70F] transition-all duration-300 cursor-pointer"
+            type="button"
+            onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
+            className="inline-flex items-center gap-2 rounded-lg border border-line bg-surface/70 px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-accent hover:bg-accent dark:border-line-dark dark:bg-surface-dark dark:text-white dark:hover:border-accent dark:hover:bg-accent dark:hover:text-black"
           >
-            Load More
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              className="text-black dark:text-white"
-              fill="none"
-            >
-              <path
-                d="M2 16C2 18.2109 2 19.3164 2.70187 20.0544C2.81413 20.1725 2.93785 20.2817 3.07164 20.3807C3.90809 21 5.16095 21 7.66667 21H8.33333C10.8391 21 12.0919 21 12.9284 20.3807C13.0621 20.2817 13.1859 20.1725 13.2981 20.0544C14 19.3164 14 18.2109 14 16C14 13.7891 14 12.6836 13.2981 11.9456C13.1859 11.8275 13.0621 11.7183 12.9284 11.6193C12.0919 11 10.8391 11 8.33333 11H7.66667C5.16095 11 3.90809 11 3.07164 11.6193C2.93785 11.7183 2.81413 11.8275 2.70187 11.9456C2 12.6836 2 13.7891 2 16Z"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M10 8.00001C10 5.78908 10 4.68362 10.7019 3.94557C10.8141 3.82753 10.9379 3.71835 11.0716 3.6193C11.9081 3.00001 13.1609 3.00001 15.6667 3.00001H16.3333C18.8391 3.00001 20.0919 3.00001 20.9284 3.6193C21.0621 3.71835 21.1859 3.82753 21.2981 3.94557C22 4.68362 22 5.78908 22 8.00001C22 10.2109 22 11.3164 21.2981 12.0544C21.1859 12.1725 21.0621 12.2817 20.9284 12.3807C20.1696 12.9425 19.0683 12.9947 17 12.9995"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M2 15L14 15"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
-              <path
-                d="M10 7L22 7"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
-              <path
-                d="M2 9C2 5.68286 4.68286 3 8 3L7.14286 4.71429"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M22 15C22 18.3171 19.3171 21 16 21L16.8571 19.2857"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            Load more
+            <ArrowDownIcon className="h-4 w-4" />
           </button>
-        </motion.div>
-      )}
-    </div>
+          <p className="text-xs text-muted dark:text-muted-dark">
+            Showing {visibleItems.length} of {filtered.length}
+          </p>
+        </div>
+      ) : null}
+
+      {!hasMore && filtered.length > 0 ? (
+        <p className="mt-10 pb-4 text-center text-xs text-muted dark:text-muted-dark">
+          You have reached the end · {filtered.length} resources
+        </p>
+      ) : null}
+    </section>
   );
 }

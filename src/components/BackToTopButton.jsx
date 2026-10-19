@@ -1,63 +1,87 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { cn } from '../lib/cn';
+import { ArrowUpIcon } from './icons';
 
-const BackToTopButton = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
+const RADIUS = 20;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+
+export default function BackToTopButton() {
+  const progressRef = useRef(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const totalHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (window.scrollY / totalHeight) * 100;
-      setScrollProgress(progress);
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+
+      if (progressRef.current) {
+        progressRef.current.style.strokeDasharray = `${progress * CIRCUMFERENCE} ${CIRCUMFERENCE}`;
+      }
+      setVisible(window.scrollY > 600);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
 
-  const handleBackToTop = (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+  const backToTop = () => {
+    const reduced = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches;
+    window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
   };
 
   return (
-    <a
-      href="#"
-      className="fixed right-[30px] bottom-[30px] w-[44px] h-[44px] bg-black rounded-full shadow-drop flex items-center justify-center"
-      onClick={handleBackToTop}
+    <button
+      type="button"
+      onClick={backToTop}
+      aria-label="Back to top"
+      className={cn(
+        'fixed bottom-6 right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-black text-white shadow-drop transition-opacity duration-300 dark:bg-accent dark:text-black',
+        visible ? 'opacity-100' : 'pointer-events-none opacity-0',
+      )}
     >
-      <svg width="44" height="44" viewBox="0 0 44 44" className="absolute">
+      <svg
+        viewBox="0 0 44 44"
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full -rotate-90"
+      >
         <circle
           cx="22"
           cy="22"
-          r="20"
+          r={RADIUS}
           fill="none"
-          stroke="rgb(255 199 15 / var(--tw-bg-opacity))"
+          stroke="currentColor"
+          strokeOpacity="0.25"
           strokeWidth="4"
-          strokeDasharray={`${scrollProgress * 1.256}, 126`}
-          transform="rotate(-90 22 22)"
+        />
+        <circle
+          ref={progressRef}
+          cx="22"
+          cy="22"
+          r={RADIUS}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeDasharray={`0 ${CIRCUMFERENCE}`}
+          className="text-accent dark:text-black"
         />
       </svg>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#FFF"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="lucide lucide-corner-right-up relative z-10"
-      >
-        <polyline points="10 9 15 4 20 9" />
-        <path d="M4 20h7a4 4 0 0 0 4-4V4" />
-      </svg>
-    </a>
+      <ArrowUpIcon className="relative h-5 w-5" />
+    </button>
   );
-};
-
-export default BackToTopButton;
+}

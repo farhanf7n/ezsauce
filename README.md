@@ -1,156 +1,136 @@
 <p align="center">
-  <img src="https://i.imgur.com/DXU7DlO.png" height="148">
-  <h2 align="center">EZSauce</h2>
-  <p align="center">A collection of resources to help you grow as a developer and designer<p>
-  <p align="center">
-    <a href="https://github.com/farhanf7n/ezsauce/blob/master/license">
-      <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
-    </a>
-    <a href="https://github.com/farhanf7n/ezsauce/stargazers">
-      <img src="https://img.shields.io/github/stars/farhanf7n/ezsauce.svg" />
-    </a>
-  </p>
+  <img src="https://i.imgur.com/DXU7DlO.png" height="120" alt="EZSauce logo" />
 </p>
-<p align="center">Explore selected and chosen items that will improve your productivity and help you grow as a developer and designer.</p>
 
-<div align="center">
-  <table>
-    <tr>
-      <td align="center" style="border: none;">
-        <h3>Light Mode</h3>
-        <img src="https://i.imgur.com/Z8teOpy.png" alt="Light Mode">
-      </td>
-      <td align="center" style="border: none;">
-        <h3>Dark Mode</h3>
-        <img src="https://i.imgur.com/SbQ9Kyw.png" alt="Dark Mode">
-      </td>
-    </tr>
-  </table>
-</div>
+<h1 align="center">EZSauce</h1>
 
+<p align="center">
+  A curated collection of resources to help you grow as a developer and designer.
+</p>
 
-<br>
+<p align="center">
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  <img alt="React" src="https://img.shields.io/badge/React-18-149ECA?logo=react&logoColor=white" />
+  <img alt="Vite" src="https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white" />
+  <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind-3-06B6D4?logo=tailwindcss&logoColor=white" />
+</p>
 
-## Current Features
+---
 
-- [x] 🎯 Curated Resources for Developers & Designers
-- [x] 🌓 Dark/Light Mode Support
-- [x] 🔍 Advanced Search Functionality
-- [x] 🏷️ Category-based Filtering
-- [x] 📱 Responsive Design
-- [x] ⚡ Fast Loading with Image Optimization
-- [x] 💨 Smooth Animations & Transitions
-      ![](./src/assets/Thumbnail.png)
+EZSauce is a fast, accessible directory of hand-picked tools, design assets,
+templates and learning material. Filter by category, search across every
+resource, and switch between light and dark themes. Filters are stored in the
+URL, so any view can be shared.
 
-## 🚀 Getting Started
+## Features
 
-### Prerequisites
+- 🔍 Instant multi-word search across names, tags, categories and domains
+- 🏷️ Category filters with live counts
+- 🌓 Light / dark theme that follows your OS until you choose manually
+- 🔗 Shareable filter URLs (`?q=icons&category=Design%20Stuff`)
+- 📱 Responsive grid with infinite scroll and a keyboard-friendly "Load more"
+- ⚡ Optimised WebP thumbnails with responsive `srcset` and native lazy loading
+- ♿ Semantic landmarks, keyboard-visible focus states and reduced-motion support
 
-Before you begin, ensure you have the following installed:
+## Tech stack
 
-- [Node.js](https://nodejs.org/) (v16.0.0 or higher)
-- [npm](https://www.npmjs.com/) (v7.0.0 or higher)
+| Layer      | Choice                                        |
+| ---------- | --------------------------------------------- |
+| UI         | React 18 (function components, hooks)         |
+| Build      | Vite 5                                        |
+| Styling    | Tailwind CSS 3 + `clsx` / `tailwind-merge`    |
+| Data       | A single JSON file validated at build time    |
+| Assets     | Local WebP derivatives generated with `sharp` |
+| Animations | CSS keyframes (no animation runtime)          |
 
-### Installation
+The whole app ships as **~200 kB of JS (64 kB gzip)** with no animation or
+component-library runtime.
 
-1. Clone the repository
+## Getting started
+
+Requires Node.js 18.17+ and npm 9+.
 
 ```bash
 git clone https://github.com/farhanf7n/ezsauce.git
-```
-
-2. Navigate to the project directory
-
-```bash
 cd ezsauce
-```
-
-3. Install dependencies
-
-```bash
 npm install
-```
-
-4. Start the development server
-
-```bash
 npm run dev
 ```
 
-5. Build for production
+Open http://localhost:5173.
 
-```bash
-npm run build
+## Scripts
+
+| Command            | What it does                                        |
+| ------------------ | --------------------------------------------------- |
+| `npm run dev`      | Start the Vite dev server                           |
+| `npm run build`    | Validate the data, then build for production        |
+| `npm run preview`  | Preview the production build                        |
+| `npm run lint`     | Run ESLint (zero warnings allowed)                  |
+| `npm run format`   | Format the codebase with Prettier                   |
+| `npm run validate` | Check `data.json` fields, links and image files     |
+| `npm run images`   | Regenerate optimised WebP images from `assets-src/` |
+| `npm run og`       | Regenerate the Open Graph image (`public/og.jpg`)   |
+
+## Project structure
+
+```
+assets-src/              Original full-resolution image sources (not deployed)
+public/
+  assets/opt/            Generated WebP thumbnails (320w / 640w) and hero art
+  fonts/                 Self-hosted Montserrat + Onest (woff2, latin subset)
+  og.jpg                 Generated social preview image
+scripts/                 Image pipeline, data validation, OG generation
+src/
+  components/            UI components
+  data/data.json         The resource collection
+  data/resources.js      Normalised resources, categories, search index
+  lib/                   Theme store, scroll hooks, class-name helper
+  index.css              Tailwind layers, fonts, animations
 ```
 
-### 🔧 Available Scripts
+## Adding a resource
 
-| Command           | Description                   |
-| ----------------- | ----------------------------- |
-| `npm run dev`     | Starts the development server |
-| `npm run build`   | Builds the app for production |
-| `npm run preview` | Preview production build      |
-| `npm run lint`    | Runs ESLint                   |
+1. Drop the source screenshot into `assets-src/` (PNG or JPEG).
+2. Add an entry to `src/data/data.json`:
 
-## Use Cases
-
-> Here is the list of common use cases for EZSauce
-
-- 🔍 Looking for development tools? Browse our curated collection without endless Google searches
-- 🎨 Need design inspiration? Access carefully selected UI/UX resources in one place
-- 📚 Learning new technology? Find comprehensive learning materials and documentation
-- 💻 Building a project? Quickly find the right tools and resources to accelerate development
-- ⚡ Want to stay productive? Access all essential dev/design resources from a single dashboard
-
-## Who is it for?
-
-> EZSauce is perfect for:
-
-- 👨‍💻 Developers looking for trusted tools and resources
-- 🎨 Designers seeking inspiration and design assets
-- 🎓 Students learning web development or design
-- 👥 Teams searching for project resources
-- 🚀 Anyone wanting to boost their development workflow
-
-<!-- CONTRIBUTING -->
-
-## 🤝 Contributing
-
-We love your input! We want to make contributing to EZSauce as easy and transparent as possible, whether it's:
-
-- 🐛 Reporting a bug
-- 💡 Submitting a feature request
-- 📝 Improving documentation
-- 💻 Submitting a fix
-- 🌟 Proposing new features
-- 💬 Discussing the current state of code
-
-### Steps to Contribute
-
-1. Fork the Project
-2. Clone your fork
-   ```bash
-   git clone https://github.com/your-username/ezsauce.git
+   ```json
+   {
+     "name": "Example",
+     "category": "Design Stuff",
+     "tags": ["Inspiration"],
+     "link": "https://example.com",
+     "img": "/assets/example.png"
+   }
    ```
-3. Create your Feature Branch
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
-4. Make your changes
-   ```bash
-   git add .
-   git commit -m 'Add some AmazingFeature'
-   ```
-5. Push to the Branch
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
-6. Open a Pull Request
 
-### Development Process
+   The `img` path only needs to point at the source file name.
 
-1. Create an [Issue](https://github.com/farhanf7n/ezsauce/issues/new) for the change you want to make
-2. Wait for issue to be approved/discussed
-3. Fork the project and create a branch
-4. Make your changes
-5. Submit a Pull Request
+3. Run `npm run images` — this writes the 320w/640w WebP derivatives and
+   rewrites `img` in `data.json` to the generated files.
+4. Run `npm run validate` (or just `npm run build`) to catch typos, duplicate
+   links and missing images.
+
+An optional `description` field is supported and included in search. Entries
+with `"newTag": true` are pinned to the top of the list.
+
+## Deployment
+
+`npm run build` produces a fully static site in `dist/`. Deploy it to any static
+host (Netlify, Vercel, Cloudflare Pages, GitHub Pages). Long-term caching works
+out of the box for hashed JS/CSS; the files under `public/` keep stable names on
+purpose so social previews and the image pipeline stay simple.
+
+## Contributing
+
+Contributions are welcome — bug reports, resource suggestions, accessibility
+fixes and UI improvements alike.
+
+1. Open an [issue](https://github.com/farhanf7n/ezsauce/issues/new) describing the change.
+2. Fork the repo and create a branch.
+3. Make your changes, run `npm run lint && npm run build`.
+4. Open a pull request.
+
+## License
+
+[MIT](./LICENSE) © Farhan Ahmed

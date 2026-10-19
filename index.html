@@ -1,45 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/assets/Logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="/assets/Logo.svg" type="image/svg+xml" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/onest-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/montserrat-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
-    <title>EZ - Sauce</title>
+
+    <title>EZSauce — Curated resources for developers & designers</title>
+    <meta
+      name="description"
+      content="EZSauce is a curated collection of tools, design resources, templates, and learning material to help you grow as a developer and designer."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="theme-color"
+      content="#F1F0EE"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#18181B"
+      media="(prefers-color-scheme: dark)"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="EZSauce" />
+    <meta
+      property="og:description"
+      content="A curated collection of resources to help you grow as a developer and designer."
+    />
+    <meta property="og:image" content="/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="EZSauce" />
+    <meta
+      name="twitter:description"
+      content="A curated collection of resources to help you grow as a developer and designer."
+    />
+    <meta name="twitter:image" content="/og.jpg" />
 
     <script>
       (function () {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-          document.documentElement.classList.toggle(
-            'dark',
-            savedTheme === 'dark',
-          );
-        } else {
-          const systemDarkMode = window.matchMedia(
-            '(prefers-color-scheme: dark)',
-          ).matches;
-          document.documentElement.classList.toggle('dark', systemDarkMode);
+        try {
+          var stored = localStorage.getItem('theme');
+          var dark =
+            stored === 'dark' ||
+            (stored !== 'light' &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.classList.toggle('dark', dark);
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+        } catch (error) {
+          /* localStorage can throw in private mode — fall back to light. */
         }
       })();
     </script>
   </head>
 
-  <body class="relative bg-[#F1F0EE] dark:bg-zinc-900 dark:text-zinc-400">
-    <div class="fixed inset-0 -z-10">
-      <div id="dot-pattern"></div>
-    </div>
+  <body>
     <div id="root"></div>
+    <noscript>
+      <p style="padding: 24px; font-family: sans-serif">
+        EZSauce needs JavaScript to filter and display the resource collection.
+      </p>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

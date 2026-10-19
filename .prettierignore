@@ -1,0 +1,7 @@
+node_modules
+dist
+dist-ssr
+assets-src
+package-lock.json
+public/assets/opt
+public/og.jpg

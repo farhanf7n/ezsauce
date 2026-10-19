@@ -1,10 +1,10 @@
-import { twMerge } from 'tailwind-merge';
+import { cn } from '../lib/cn';
 
 export default function Tag({ children, className }) {
   return (
     <span
-      className={twMerge(
-        'bg-[#FFC70F] text-[12px] font-medium leading-[20px] rounded-[4px] px-[6px] dark:text-black',
+      className={cn(
+        'block max-w-[11rem] truncate rounded bg-accent px-1.5 py-0.5 text-[11px] font-medium leading-4 text-black',
         className,
       )}
     >
